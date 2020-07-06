@@ -45,7 +45,6 @@ export class ContactsComponent {
 	}
 
 	public static isUserNameIncludeNumbers(userName: string): boolean {
-		console.log('heh');
 		return (Boolean(userName.search(/\d/) >= 0))
 			? true
 			: false;
