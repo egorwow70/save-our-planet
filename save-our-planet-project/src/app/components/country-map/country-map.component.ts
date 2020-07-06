@@ -3,7 +3,7 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, delay } from 'rxjs/operators';
 import { Capital } from 'src/app/models/country-list/capital';
 import {
 	selectCountriesForestAreaData,
@@ -190,13 +190,24 @@ export class CountryMapComponent implements OnInit, AfterViewInit, OnDestroy {
 			chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color('#ffffff');
 			chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = chartWaterOpacity;
 
+			const countrySubscription: Subject<string> = new Subject();
+			const searchCountryDelay: number = 1000;
+			countrySubscription
+				.pipe(
+					delay(searchCountryDelay),
+					takeUntil(this._destroySubject$)
+				).subscribe((countryName: string) => {
+					this._facadeCountryListService.searchCountry(countryName);
+				});
+
 			this.clickCountryEvent = country.events.on('hit', (event: {
 				type: 'hit';
 				target: am4maps.MapPolygon;
 			} & SpritePointerTypeEvent & am4core.SpritePointEvent & am4core.SpriteMouseTouchEvent) => {
 				event.target.series.chart.zoomToMapObject(event.target);
 				const currentCountry: any = event.target.dataItem.dataContext.valueOf();
-				CountryMapComponent.currentClickCountryName = currentCountry.name;
+				countrySubscription.next(currentCountry.name);
+				// CountryMapComponent.currentClickCountryName = currentCountry.name;
 			});
 
 			chart.seriesContainer.events.disableType('doublehit');
