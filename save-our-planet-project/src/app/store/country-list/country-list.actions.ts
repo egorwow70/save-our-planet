@@ -18,7 +18,9 @@ export enum countryListActionsType {
 	searchPreviousCountry = '[COUNTRY-LIST/API] Search-Previous-Country Country-List',
 	searchNextCountry = '[COUNTRY-LIST/API] Search-Next-Country Country-List',
 	toggleMapMode = '[COUNTRY-LIST/API] Toggle-Map-Mode Country-List',
-	toggleShowCapitalsMode = '[COUNTRY-LIST/API] Toggle-Is-Show-Capitals-Mode Country-List'
+	toggleShowCapitalsMode = '[COUNTRY-LIST/API] Toggle-Is-Show-Capitals-Mode Country-List',
+	searchMapCountry = '[COUNTRY-LIST/API] Search-Map-Country Country-List',
+	dontSearchMapCountry = '[COUNTRY-LIST/API] Dont-Search-Map-Country Country-List',
 }
 
 export class InitCountryListAction implements Action {
@@ -173,6 +175,24 @@ export class ToggleShowCapitalsModeCountryListAction implements Action {
 	public readonly type: string = countryListActionsType.toggleShowCapitalsMode;
 }
 
+// tslint:disable-next-line: max-classes-per-file
+export class SearchMapCountryAction implements Action {
+	public readonly type: string = countryListActionsType.searchMapCountry;
+
+	constructor(private _payload: {
+		name: string
+	}) { }
+
+	public get name(): string {
+		return this._payload.name;
+	}
+}
+
+// tslint:disable-next-line: max-classes-per-file
+export class DontSearchMapCountryAction implements Action {
+	public readonly type: string = countryListActionsType.dontSearchMapCountry;
+}
+
 export type CountryListActions =
 	InitCountryListAction
 	| InitCountryListSuccessAction
@@ -187,4 +207,6 @@ export type CountryListActions =
 	| SearchCountryAction
 	| SearchCountrySuccessAction
 	| ToggleMapModeCountryListAction
-	| ToggleShowCapitalsModeCountryListAction;
+	| ToggleShowCapitalsModeCountryListAction
+	| SearchMapCountryAction
+	| DontSearchMapCountryAction;

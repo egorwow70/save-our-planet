@@ -3,14 +3,16 @@ import * as am4core from '@amcharts/amcharts4/core';
 import * as am4maps from '@amcharts/amcharts4/maps';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import am4geodata_worldLow from '@amcharts/amcharts4-geodata/worldLow';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, delay } from 'rxjs/operators';
 import { Capital } from 'src/app/models/country-list/capital';
 import {
 	selectCountriesForestAreaData,
 	selectCapitalsCoordinatesData,
 	selectIsMapMode,
 	selectIsGlobeMode,
-	selectIsShowCapitalsMode
+	selectIsShowCapitalsMode,
+	selectSearchCountry,
+	selectSearchMapCountry
 } from 'src/app/store/country-list/country-list.selectors';
 import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
@@ -18,6 +20,8 @@ import { FacadeServiceCountryList } from 'src/app/store/country-list/country-lis
 import { IDisposer } from '@amcharts/amcharts4/core';
 import { CountryCapitalInterface } from 'src/app/models/country-list/country-capital-interface';
 import { SpritePointerTypeEvent } from '@amcharts/amcharts4/.internal/core/SpriteEvents';
+import { Country } from 'src/app/models/country-list/country';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-country-map',
@@ -46,8 +50,44 @@ export class CountryMapComponent implements OnInit, AfterViewInit, OnDestroy {
 		private _zone: NgZone,
 		private _store$: Store,
 		private _facadeCountryListService: FacadeServiceCountryList,
+		private _router: Router
 	) {
 
+	}
+
+	private takeSearchMapCountryRouteName(countryName: string): string {
+		return countryName.replace(/\./g, '')
+			.replace(/\(|\)/g, '')
+			.toLowerCase()
+			.split(' ')
+			.join('-');
+	}
+
+	private takeSearchMapCountryRegionRouteName(countryRegionName: string): string {
+		return this.takeNameOfContent(countryRegionName);
+	}
+
+	private takeSearchMapCountrySubRegionRouteName(countrySubregionName: string): string {
+		return this.takeNameOfContent(countrySubregionName);
+	}
+
+	private takeNameOfContent(contentName: string): string {
+		return contentName.split(' ')[0].toLowerCase();
+	}
+
+	private navigateToSearchMapCountry(country: Country): void {
+		const currentCountryRouteName: string = this.takeSearchMapCountryRouteName(country.name);
+		const currentCountryRegionRouteName: string = this.takeSearchMapCountryRegionRouteName(country.region);
+		const currentCountrySubRegionRouteName: string = this.takeSearchMapCountrySubRegionRouteName(country.subRegion);
+		this._router.navigate([
+			'/countries',
+			'region',
+			currentCountryRegionRouteName,
+			currentCountrySubRegionRouteName,
+			'country',
+			currentCountryRouteName
+		]);
+		this._facadeCountryListService.dontSearchMapCountry();
 	}
 
 	public ngOnInit(): void {
@@ -190,14 +230,33 @@ export class CountryMapComponent implements OnInit, AfterViewInit, OnDestroy {
 			chart.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color('#ffffff');
 			chart.backgroundSeries.mapPolygons.template.polygon.fillOpacity = chartWaterOpacity;
 
+			const countrySubscription: Subject<string> = new Subject();
+			const searchCountryDelay: number = 1500;
+			countrySubscription
+				.pipe(
+					delay(searchCountryDelay),
+					takeUntil(this._destroySubject$)
+				).subscribe((countryName: string) => {
+					this._facadeCountryListService.searchMapCountry(countryName);
+				});
+
 			this.clickCountryEvent = country.events.on('hit', (event: {
 				type: 'hit';
 				target: am4maps.MapPolygon;
 			} & SpritePointerTypeEvent & am4core.SpritePointEvent & am4core.SpriteMouseTouchEvent) => {
 				event.target.series.chart.zoomToMapObject(event.target);
 				const currentCountry: any = event.target.dataItem.dataContext.valueOf();
-				CountryMapComponent.currentClickCountryName = currentCountry.name;
+				countrySubscription.next(currentCountry.name);
 			});
+
+			this._store$.select(selectSearchMapCountry)
+				.pipe(
+					takeUntil(this._destroySubject$)
+				).subscribe((searchMapCountry: Country) => {
+					if (Boolean(searchMapCountry)) {
+						this.navigateToSearchMapCountry(searchMapCountry);
+					}
+				});
 
 			chart.seriesContainer.events.disableType('doublehit');
 			chart.chartContainer.background.events.disableType('doublehit');
@@ -235,6 +294,7 @@ export class CountryMapComponent implements OnInit, AfterViewInit, OnDestroy {
 						graticuleSeries.mapLines.template.line.strokeOpacity = 0;
 					}
 				});
+
 			this._chart = chart;
 		});
 	}

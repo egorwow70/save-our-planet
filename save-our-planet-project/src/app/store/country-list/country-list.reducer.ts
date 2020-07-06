@@ -20,6 +20,7 @@ export interface ICountryListState {
 	searchPreviousCountry: Country;
 	searchCountry: Country;
 	searchNextCountry: Country;
+	searchMapCountry: Country;
 }
 
 export const countryListFeatureKey: 'COUNTRY-LIST' = 'COUNTRY-LIST';
@@ -39,7 +40,8 @@ const initialState: ICountryListState = {
 	subRegionsCountries: null,
 	searchPreviousCountry: null,
 	searchCountry: null,
-	searchNextCountry: null
+	searchNextCountry: null,
+	searchMapCountry: null
 };
 
 export function countryListReducer(
@@ -166,6 +168,28 @@ export function countryListReducer(
 						}
 					}
 				})
+			};
+		}
+		case countryListActionsType.searchMapCountry: {
+			return {
+				...state,
+				searchMapCountry: [...state.countryList].find((country: Country) => {
+					if (Boolean(country)) {
+						const currentCountryName: string = country.name.toLowerCase().split(' ').join('');
+						const currentSearchMapCountryName: string = action.name.toLowerCase().split(' ').join('');
+						if (currentCountryName.includes(currentSearchMapCountryName)) {
+							return country;
+						} else {
+							return null;
+						}
+					}
+				})
+			};
+		}
+		case countryListActionsType.dontSearchMapCountry: {
+			return {
+				...state,
+				searchMapCountry: null
 			};
 		}
 		case countryListActionsType.searchCountrySuccess: {

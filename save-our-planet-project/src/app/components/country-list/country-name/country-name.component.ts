@@ -45,7 +45,14 @@ export class CountryNameComponent implements OnInit, OnDestroy {
 			.toLowerCase()
 			.split(' ')
 			.join('-');
-		this._router.navigate(['/countries', 'region', this._regionName, this._subRegionName, 'country', countryName]);
+		this._router.navigate([
+			'/countries',
+			'region',
+			this._regionName,
+			this._subRegionName,
+			'country',
+			countryName
+		]);
 	}
 
 }

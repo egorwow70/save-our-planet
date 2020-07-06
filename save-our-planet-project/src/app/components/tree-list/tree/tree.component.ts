@@ -56,8 +56,19 @@ export class TreeComponent implements OnInit, OnDestroy {
 				this._appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
 
 				this.treeBuyNumber = 1;
-				this._facadeTreeListService.searchTree(params.treeName);
-				this._facadeTreeListService.goToTreeRouterMode();
+				if (Boolean(this.tree)) {
+					const currentTreeRouteName: string = this.tree.name.replace(/\(|\)/g, '')
+						.toLowerCase()
+						.split(' ')
+						.join('-');
+					if (currentTreeRouteName !== params.countryName) {
+						this._facadeTreeListService.searchTree(params.treeName);
+						this._facadeTreeListService.goToTreeRouterMode();
+					}
+				} else {
+					this._facadeTreeListService.searchTree(params.treeName);
+					this._facadeTreeListService.goToTreeRouterMode();
+				}
 			});
 
 		const searTreeDelay: number = 3000;
