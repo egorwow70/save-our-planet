@@ -1,1 +1,245 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("assets/fonts/fontawesome/all/all.min.css") all;
+
+@font-face {
+    font-family: "NotoSans";
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    src: url("src/assets/fonts/notosans/NotoSansHK-Black.otf");
+    src: url("src/assets/fonts/notosans/NotoSansHK-Bold.otf") format("openTrueType"),
+        url("src/assets/fonts/notosans/NotoSansHK-Light.otf") format("openTrueType"),
+        url("src/assets/fonts/notosans/NotoSansHK-Medium.otf") format("openTrueType"),
+        url("src/assets/fonts/notosans/NotoSansHK-Regular.otf") format("openTrueType"),
+        url("src/assets/fonts/notosans/NotoSansHK-Thin.otf") format("openTrueType");
+}
+body {
+    margin: 0px;
+    padding: 0px;
+
+    scroll-behavior: smooth;
+
+    font-family: "NotoSans", sans-serif;
+}
+
+@keyframes centerBall {
+    0% {
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    25% {
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+}
+
+@keyframes moveBall {
+    0% {
+        left: -10%;
+        opacity: 0;
+        -webkit-animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+    10% {
+        opacity: 0;
+    }
+    29% {
+        transform: rotate(-180deg);
+        left: 50%;
+        opacity: 1;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+    }
+    71% {
+        transform: rotate(180deg);
+        left: 50%;
+        opacity: 1;
+        -webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    90% {
+        opacity: 0;
+    }
+    100% {
+        left: 110%;
+        transform: rotate(deg);
+        opacity: 0;
+    }
+}
+
+@keyframes radialPulseButton {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 0 0 40px rgba(0, 0, 0, 0);
+    }
+}
+
+.-app-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 300px;
+    height: 100px;
+
+    border-radius: 20px;
+    &__ball {
+        position: absolute;
+        left: -15px;
+        bottom: 0;
+
+        width: 0;
+        height: 100%;
+
+        -webkit-animation: moveBall 2.8s infinite linear;
+        animation: moveBall 2.8s infinite linear;
+        opacity: 0;
+
+        background: #4a9;
+        &_first {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+        &_second {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+        &_third {
+            -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s;
+        }
+        &_fourth {
+            -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+        }
+        &_fifth {
+            -webkit-animation-delay: 0.8s;
+            animation-delay: 0.8s;
+        }
+        &_center {
+            left: 50%;
+            top: 50%;
+
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+
+            background: none;
+
+            -webkit-animation: centerBall 2.8s infinite cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            animation: centerBall 2.8s infinite cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            & .-app-loader__inner {
+                top: -15px;
+            }
+        }
+    }
+    &__inner {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        height: 30px;
+        width: 30px;
+
+        margin-left: -15px;
+
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+        border-radius: 50%;
+
+        background: white;
+    }
+}
+
+.-app-scroll-up-button {
+    position: fixed;
+    z-index: 9998;
+    bottom: 15%;
+    transform: translate(0%, 0%);
+
+    width: 60px;
+    height: 60px;
+
+    transition: 0.3s;
+    cursor: pointer;
+    opacity: 0;
+
+    animation: radialPulseButton 1s infinite;
+
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+    border: 1px solid white;
+
+    &.-app-scroll-up-button_sub-region-category {
+        left: 10%;
+        transform: translate(0%, 100%);
+
+        background-color: rgba(0, 0, 0, 0.9);
+        &:active {
+            transform: translate(0%, 102%);
+
+            width: 65px;
+            height: 65px;
+        }
+        &-visible {
+            opacity: 1;
+        }
+    }
+    &.-app-scroll-up-button_tree-category {
+        right: 5%;
+        transform: translate(75%, 100%);
+
+        background-color: rgba(8, 37, 8, 1);
+        &:active {
+            transform: translate(75%, 102%);
+
+            width: 65px;
+            height: 65px;
+        }
+        &-visible {
+            opacity: 1;
+        }
+    }
+    &:hover {
+        &::before {
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+        }
+    }
+    &::before {
+        content: "\f053";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+
+        transition: 0.3s;
+
+        color: white;
+        text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+        font-size: 23px;
+        font-weight: 900;
+        font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+    }
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #d1d1d1;
+}

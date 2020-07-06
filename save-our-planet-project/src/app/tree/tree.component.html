@@ -1,0 +1,129 @@
+<div 
+    *ngIf="!isSearchLoading"
+    class="-app-current-tree">
+    <div class="-app-current-tree-wrapper">
+        <div class="-app-current-tree__title-ribbon">
+            <div class="-app-current-tree__title-ribbon_left"></div>
+            <h2 class="-app-current-tree__title">
+                {{ tree.name }}
+            </h2>
+            <div class="-app-current-tree__title-ribbon_right"></div>
+        </div>
+        <div class="-app-current-tree__menu">
+            <a 
+                class="-app-current-tree__description-button"
+                [class.-app-current-tree__description-button_description-mode]="descriptionMode"
+                (click)="toggleMenuMode()">
+                description
+            </a>
+            <a 
+                class="-app-current-tree__details-button"
+                [class.-app-current-tree__details-button_not-description-mode]="!descriptionMode"
+                (click)="toggleMenuMode()">
+                details
+            </a>
+        </div>
+        <div class="-app-current-tree__content-wrapper">
+            <p 
+                class="-app-current-tree__description"
+                [class.-app-current-tree__description_not-description-mode]="!descriptionMode">
+            {{ tree.description }}
+            </p>
+            <div 
+                class="-app-current-tree__details"
+                [class.-app-current-tree__details_description-mode]="descriptionMode">
+                <img 
+                    class="-app-current-tree__image"
+                    src="{{ tree.picture }}">
+                <div class="-app-current-tree__feature-list">
+                    <div class="-app-current-tree__feature">
+                        <div class="-app-current-tree__feature-title">
+                            Size:
+                        </div>
+                        <div class="-app-current-tree__feature-sub-title">
+                            {{ tree.size }}
+                        </div>
+                    </div>
+                    <div class="-app-current-tree__feature">
+                        <div class="-app-current-tree__feature-title">
+                            Environment:
+                        </div>
+                        <div class="-app-current-tree__feature-sub-title">
+                            {{ tree.environment }}
+                        </div>
+                    </div>
+                    <div class="-app-current-tree__feature">
+                        <div class="-app-current-tree__feature-title">
+                         Key Feature:
+                        </div>
+                        <div class="-app-current-tree_feature-sub-title">
+                            {{ tree.keyFeature }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="-app-current-tree__cost-ribbon">
+            <span class="-app-current-tree__cost">
+                {{ totalCost | currency }}
+            </span>
+        </div>
+        <div class="-app-current-tree__donate">
+            <button 
+                class="-app-current-tree__button -app-current-tree__button_remove"
+                (click)="removeTreeBuyNumber()"
+                [disabled]="!canMinusTreeNumber">
+            </button>
+            <button 
+                class="-app-current-tree__button -app-current-tree__button_minus"
+                (click)="minusTreeBuyNumber()"
+                [disabled]="!canMinusTreeNumber">
+            </button>
+            <div class="-app-current-tree__tree-number">
+                {{ treeBuyNumber }}
+            </div>
+            <button 
+                class="-app-current-tree__button -app-current-tree__button_plus"
+                (click)="plusTreeBuyNumber()">
+            </button>
+            <button  class="-app-current-tree__donate-button -app-current-tree__donate-button_donate"
+                (click)="choose()">
+                Choose
+            </button>
+        </div>
+    </div>
+</div>
+
+<div 
+    *ngIf="isSearchLoading"
+    class="-app-loader">
+    <div class="-app-loader__ball -app-loader__ball_first">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_second">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_third">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_fourth">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_fifth">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_sixth">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_center">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+</div>
+

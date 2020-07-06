@@ -1,0 +1,139 @@
+<div 
+    *ngIf="!isSearchLoading"
+    class="-app-country">
+    <div class="-app-country-wrapper">
+        <div 
+            class="-app-country__current-country">
+            <div class="-app-country__header">
+                <div class="-app-country__header-info">
+                    <h2 class="-app-country__header-info-title">
+                        {{ country.name }}
+                    </h2>
+                    <img 
+                        class="-app-country__header-info-image" 
+                        src="{{country.flag}}">
+                </div>
+                <div class="-app-country__header-info">
+                    <h3 class="-app-country__header-info-capital-title">
+                        Capital
+                    </h3>
+                    <h3 class="-app-country__header-info-capital-name">
+                        Name: {{ country.capital.name }}
+                    </h3>
+                    <h3 class="-app-country__header-info-capital-latitude">
+                        Latitude: {{ country.capital.latitude }}
+                    </h3>
+                    <h3 class="-app-country__header-info-capital-longitude">
+                        Longitude: {{ country.capital.longitude }}
+                    </h3>
+                </div>
+            </div>
+            <div class="-app-country__item">
+                <div class="-app-country__item-title">
+                    Region:
+                </div>
+                <div class="-app-country__item-info">
+                    {{ country.region }}
+                </div>
+            </div>
+            <div class="-app-country__item">
+                <div class="-app-country__item-title">
+                    Sub Region:
+                </div>
+                <div class="-app-country__item-info">
+                    {{ country.subRegion }}
+                </div>
+            </div>
+            <div class="-app-country__item">
+                <div class="-app-country__item-title">
+                    Area:
+                </div>
+                <div class="-app-country__item-info">
+                    {{ country.area | formatArea }}
+                </div>
+            </div>
+            <div class="-app-country__item">
+                <div class="-app-country__item-title">
+                    Forest Area:
+                </div>
+                <div class="-app-country__item-info">
+                    {{ country.forestArea | formatForestArea }}
+                </div>
+            </div>
+            <div class="-app-country__item">
+                <div class="-app-country__item-title">
+                    Native Name:
+                </div>
+                <div class="-app-country__item-info">
+                    {{ country.nativeName }}
+                </div>
+            </div>
+            <div class="-app-country__item">
+                <div class="-app-country__item-title">
+                    Time Zone:
+                </div>
+                <div class="-app-country__item-info">
+                    {{ country.timeZone }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="-app-country__button-container">
+        <button 
+            class="-app-country__button-slide -app-country__button-slide_left"
+            [disabled]="!isPreviousCountry"
+            (click)="switchToPreviousCountry()">
+        </button>
+        <button 
+            class="-app-country__button -app-country__button_choose"
+            [class.-app-country__button_choose-invisible]="!isCanChosenCountry"
+            (click)="choose()">
+            choose
+        </button>
+        <button 
+            class="-app-country__button -app-country__button_unchoose"
+            [class.-app-country__button_unchoose-visible]="!isCanChosenCountry"
+            (click)="unchoose()">
+            unchoose
+        </button>
+        <button 
+            class="-app-country__button-slide -app-country__button-slide_right"
+            [disabled]="!isNextCountry"
+            (click)="switchToNextCountry()">
+        </button>
+    </div>
+</div>
+
+<div 
+    *ngIf="isSearchLoading"
+    class="-app-loader">
+    <div class="-app-loader__ball -app-loader__ball_first">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_second">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_third">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_fourth">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_fifth">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_sixth">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+    <div class="-app-loader__ball -app-loader__ball_center">
+        <div class="-app-loader__inner">
+        </div>
+    </div>
+</div>
+

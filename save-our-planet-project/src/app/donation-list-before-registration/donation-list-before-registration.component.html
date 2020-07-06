@@ -1,0 +1,73 @@
+<div class="-app-donation-list">
+    <ng-container *ngIf="isInitedDonationListBeforeRegistration && isInitedCountriesForDonation">
+        <app-donation-before-registration 
+            class="-app-donation-list__donation"
+            
+            *ngFor="let donation of donationListBeforeRegistration" 
+            [donation]="donation">
+        </app-donation-before-registration>
+    </ng-container>
+    <ng-container *ngIf="!isInitedDonationListBeforeRegistration || !isInitedCountriesForDonation">
+        <div *ngTemplateOutlet="!(isInitedDonationListBeforeRegistration || isInitedCountriesForDonation) 
+            ? notInitedAllSettings 
+            : notInitedOneSetting">
+        </div>
+    </ng-container>
+    
+    <ng-template #notInitedAllSettings>
+        <div 
+            class="-app-donation-list__start" 
+            *ngIf="!isInitedDonationListBeforeRegistration">
+            <h2 class="-app-donation-list__start-title">
+                Before donation you need to choose any tree and country for donation
+            </h2>
+            <h3 class="-app-donation-list__start-sub-title">
+                Click on the button below to choose it!
+            </h3>
+            <div class="-app-donation-list__button-list">
+                <button 
+                    class="-app-donation-list__start-button" 
+                    (click)="switchRouterToCountryList()">
+                    choose countries
+                </button>
+                <button 
+                    class="-app-donation-list__start-button" 
+                    (click)="switchRouterToTreeList()">
+                    choose trees
+                </button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #notInitedOneSetting>
+        <div 
+            class="-app-donation-list__start" 
+            *ngIf="!isInitedDonationListBeforeRegistration">
+            <h2 class="-app-donation-list__start-title">
+                Before donation you need to choose any tree for donation
+            </h2>
+            <h3 class="-app-donation-list__start-sub-title">
+                Click on the button below to choose it!
+            </h3>
+            <button 
+                class="-app-donation-list__start-button" 
+                (click)="switchRouterToTreeList()">
+                choose
+            </button>
+        </div>
+        <div 
+            class="-app-donation-list__start" 
+            *ngIf="!isInitedCountriesForDonation">
+            <h2 class="-app-donation-list__start-title">
+                Before donation you need to choose any country for donation
+            </h2>
+            <h3 class="-app-donation-list__start-sub-title">
+                Click on the button below to choose it!
+            </h3>
+            <button 
+                class="-app-donation-list__start-button" 
+                (click)="switchRouterToCountryList()">
+                choose
+            </button>
+        </div>
+    </ng-template>
+</div>

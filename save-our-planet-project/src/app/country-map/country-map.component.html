@@ -1,0 +1,49 @@
+<div 
+    class="-app-country-map">
+    <div class="-app-country-map__chart">
+    </div>
+    <div class="-app-country-map__show-capitals">
+        <button 
+            class="-app-country-map__show-capitals-button"
+            [class.-app-country-map__show-capitals-button_capitals-mode]="isShowCapitalsMode"
+            (click)="toggleCapitalsMode()">
+        </button>
+        <div 
+            class="-app-country-map__show-capitals-title"
+            [class.-app-country-map__show-capitals-title_capitals-mode]="isShowCapitalsMode">
+            capitals
+        </div>
+    </div>
+    <div class="-app-country-map__toggle">
+        <div 
+            class="-app-country-map__toggle-title -app-country-map__toggle-title_left"
+            [class.-app-country-map__toggle-title_globe-mode]="isGlobeMode">
+            map
+        </div>
+        <button 
+            class="-app-country-map__toggle-button"
+            [class.-app-country-map__toggle-button_globe-mode]="isGlobeMode"
+            (click)="toggleMapMode()">
+        </button>
+        <div 
+            class="-app-country-map__toggle-title -app-country-map__toggle-title_right"
+            [class.-app-country-map__toggle-title_map-mode]="isMapMode">
+            globe
+        </div>
+    </div>
+    <div 
+        class="-app-country-map__info"
+        [class.-app-country-map__info_info-mode]="infoMode">
+        <div  
+            class="-app-country-map__info-title"
+            [class.-app-country-map__info-title_info-mode]="infoMode">
+            Hello, It's Save our planet project!!! Change the environmental situation in the world!
+            You can donate any tree to a country and improve its ecology and then you will get honey insurance in return!
+        </div>
+        <button 
+            class="-app-country-map__info-button"
+            [class.-app-country-map__info-button_info-mode]="infoMode"
+            (click)="toggleInfoMode()">
+        </button>
+    </div>
+</div>

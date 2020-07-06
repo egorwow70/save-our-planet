@@ -1,0 +1,183 @@
+<div 
+    *ngIf="!user"
+    class="-app-user-profile">
+</div>
+<div  *ngIf="user"
+    class="-app-user-profile">
+    <div 
+        class="-app-user-profile__image-container"
+        (click)="toggleImageMode()">
+        <div *ngTemplateOutlet="user.profileImage ? profileImage : defaultProfileImage"></div>
+        <ng-template #profileImage>
+            <img class="-app-user-profile__image" src="{{ user.profileImage }}">
+        </ng-template>
+        <ng-template #defaultProfileImage>
+            <div class="-app-user-profile__image -app-user-profile__image_default">
+                no image
+            </div>
+        </ng-template>
+    </div>
+    <div 
+        class="-app-user-profile__donation-list"
+        [class.-app-user-profile__donation-list_image-mode]="imageMode">
+        <h2 class="-app-user-profile__donation-list-title">
+            donations
+        </h2>
+        <div
+            class="-app-user-profile__donation-list-wrapper"
+            *ngIf="isInitedUserDonationList">
+            <app-user-profile-donation
+            class="-app-user-profile__current-donation"
+            *ngFor="let donation of userDonationList"
+            [donation]="donation">
+            </app-user-profile-donation>
+        </div>
+        <div 
+            class="-app-user-profile__start-donation"
+            *ngIf="!isInitedUserDonationList"
+            [class.-app-user-profile__start-donation_image-mode]="imageMode">
+            <h3 class="-app-user-profile__start-donation-title">           
+                you have not donated ever
+            </h3>
+            <h3 class="-app-user-profile__start-donation-sub-title">
+                start your donation history by clicking on the button below
+            </h3>
+            <button 
+                class="-app-user-profile__start-donation-button"
+                (click)="startDonation()">
+                start
+            </button>
+        </div>
+    </div>
+    <div class="-app-user-profile__info-list-wrapper">
+        <div 
+            class="-app-user-profile__info-list"
+            [class.-app-user-profile__info-list_medical-mode]="medicalFormMode">
+            <div class="-app-user-profile__info-item">
+                {{ user.name }}
+            </div>
+            <div class="-app-user-profile__info-item">
+                {{ user.surName }}
+            </div>
+            <div class="-app-user-profile__info-item">
+                {{ user.email }}
+            </div>
+            <div class="-app-user-profile__info-item">
+                Age: {{ user.age }}
+            </div>
+            <div class="-app-user-profile__info-item">
+                Join our project: {{ user.date | date }}
+            </div>
+            <div 
+                class="-app-user-profile__info-item"
+                *ngIf="user.country">
+                Country: {{ user.country.name }}
+            </div>
+            <div 
+                class="-app-user-profile__info-item"
+                title="1 medical point = 1 donation $">
+                Medical Points: {{ user.medicalPoints }}
+            </div>
+            <button
+                class="-app-user-profile__info-list-button"
+                title="get medical insurance"
+                [disabled]="!user.medicalPoints"
+                (click)="toggleFillMedicalForm()">
+            </button>
+        </div>
+        <form 
+            class="-app-user-profile__info-list-form -app-user-profile__info-list-form_medical"
+            [class.-app-user-profile__info-list-form_medical-mode]="medicalFormMode"
+            [formGroup]="myFormApplyInsurance"
+            (ngSubmit)="applyInsurance()">
+            <button 
+                class="-app-user-profile__info-list-form-back"
+                (click)="toggleFillMedicalForm()">
+            </button>
+            <h2 class="-app-user-profile__info-list-form-title">medical insurance</h2>
+            <div class="-app-user-profile__info-list-form-item">
+                <input 
+                    class="-app-user-profile__info-list-form-item-input -app-user-profile__info-list-form-item-input_name"
+                    name="medicalPoints"
+                    type="text"
+                    formControlName="userMedicalPoints"
+                    autocomplete="off">
+                <span class="-app-user-profile__info-list-form-item-line"></span>
+                <label 
+                    class="-app-user-profile__info-list-form-item-label"
+                    [class.-app-user-profile__info-list-form-item-label_invisible]="myFormApplyInsurance.controls['userMedicalPoints'].dirty">
+                    points number
+                </label>
+                <span 
+                    class="-app-user-profile__info-list-form-warning -app-user-profile__info-list-form-warning_item" 
+                    [class.-app-user-profile__info-list-form-warning_item-invalid]="myFormApplyInsurance.controls['userMedicalPoints'].touched
+                        && myFormApplyInsurance.controls['userMedicalPoints'].invalid"
+                    title="Enter only values ​​within your medical points">
+                </span>
+            </div>
+            <div class="-app-user-profile__info-list-form-message">
+                <textarea class="-app-user-profile__info-list-form-message-textarea"
+                    placeholder="Write your message"
+                    formControlName="userMessage"
+                    title="Enter only values ​​within your medical points"></textarea>
+                    <span 
+                    class="-app-user-profile__info-list-form-warning -app-user-profile__info-list-form-warning_message"
+                    [class.-app-user-profile__info-list-form-warning_message-invalid]="myFormApplyInsurance.controls['userMessage'].touched
+                        && myFormApplyInsurance.controls['userMessage'].invalid"
+                    title="Enter some message to us">
+                    </span>
+            </div>
+            <button 
+                class="-app-user-profile__info-list-form-button"
+                type="submit"
+                [disabled]="myFormApplyInsurance.controls['userMedicalPoints'].invalid 
+                    || myFormApplyInsurance.controls['userMessage'].invalid">get</button>
+        </form>
+    </div>
+    <div 
+        class="-app-user-profile__change"
+        [class.-app-user-profile__change_image-mode]="imageMode">
+        <div 
+            class="-app-user-profile__change-title"
+            [class.-app-user-profile__change-title_image-mode]="imageMode">
+            Enter the url of any picture, which you want to see in your profile
+        </div>
+        <img 
+            class="-app-user-profile__change-image"
+            [class.-app-user-profile__change-image_image-mode]="imageMode"
+            src="{{myFormNewImage.controls['userNewImage'].value}}">
+        <form 
+            class="-app-user-profile__change-form"
+            [class.-app-user-profile__change-form_image-mode]="imageMode"
+            [formGroup]="myFormNewImage"
+            (ngSubmit)="changeImage()">
+            <input 
+                class="-app-user-profile__change-input" 
+                [class.-app-user-profile__change-input_image-mode]="imageMode"
+                type="text"
+                name="imageUrl"
+                placeholder="Enter url of the picture"
+                formControlName="userNewImage"
+                autocomplete="off">
+            <span 
+                class="-app-user-profile__change-input-line" 
+                [class.-app-user-profile__change-input-line_image-mode]="imageMode">
+            </span>
+            <button
+                class="-app-user-profile__change-switch-button" 
+                [class.-app-user-profile__change-switch-button_image-mode]="imageMode"
+                type="submit">
+                Change
+            </button>
+        </form>
+        <button 
+            class="-app-user-profile__change-return-button"
+            [class.-app-user-profile__change-return-button_image-mode]="imageMode"
+            (click)="toggleImageMode()">
+        </button>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,92 @@
+<div class="-app-donation">
+    <button 
+        class="-app-donation__donation-button -app-donation__donation-button_delete"
+        (click)="deleteDonation()"></button>
+    <img 
+        class="-app-donation__tree-image"
+        src="{{ donation.treeDonation.tree.picture }}">   
+    <div 
+        class="-app-donation__country"
+        [class.-app-donation__country_select-country-mode]="selectCountryMode">
+        <div 
+            class="-app-donation__country-title"
+            [class.-app-donation__country-title_select-country-mode]="selectCountryMode"
+            (click)="toggleSelectCountryMode()">
+            <ng-container *ngIf="donation.country">
+                {{ donation.country.name }}
+            </ng-container>
+            <ng-container *ngIf="!donation.country">
+                select country
+            </ng-container>
+        </div>
+        <div 
+            class="-app-donation__country-list"
+            [class.-app-donation__country-list_select-country-mode]="selectCountryMode"
+            *ngIf="countriesForDonation">
+            <div 
+                class="-app-donation__country-list-item"
+                *ngFor="let country of countriesForDonation"
+                (click)="selectCountry(countryNameTitle)"
+                #countryNameTitle>
+                    {{ country.name }}
+            </div>
+            <button 
+                class="-app-donation__country-list-button"
+                (click)="toggleSelectCountryMode()">
+            </button>
+        </div>
+    </div>
+    <div 
+        class="-app-donation__details"
+        [class.-app-donation__details_donation-details-mode]="donationDetailsMode"
+        (click)="toggleDonationDetailsMode()">
+        <div 
+            [class.-app-donation__details-title_invisible]="donationDetailsMode"
+            class="-app-donation__details-title">
+            details
+        </div>
+        <div 
+            class="-app-donation__details-info"
+            [class.-app-donation__details-info_visible]="donationDetailsMode">
+            <div class="-app-donation__details-item  -app-donation__details-item _tree-name">
+                Name: {{ donation.treeDonation.tree.name }}
+            </div>
+            <div class="-app-donation__details-item  -app-donation__details-item _tree-size">
+                Size: {{ donation.treeDonation.tree.size }}
+            </div>
+            <div class="-app-donation__details-item  -app-donation__details-item _tree-environment">
+                Environment: {{ donation.treeDonation.tree.environment }}
+            </div>
+            <div class="-app-donation__details-item  -app-donation__details-item _tree-type">
+                Type: {{ donation.treeDonation.tree.type }}
+            </div>
+            <div class="-app-donation__details-item  -app-donation__details-item _tree-key-feature">
+                Key Feature: {{ donation.treeDonation.tree.keyFeature }}
+            </div>
+            <div class="-app-donation__details-item  -app-donation__details-item _tree-number">
+                Amount: {{ donation.treeDonation.amount}}
+            </div>
+            <div class="-app-donation__details-item  -app-donation__details-item _tree-cost">
+                Cost: {{ donation.treeDonation.tree.cost }}
+            </div>
+            <div class="-app-donation__details-item  -app-donation__details-item _total-cost">
+                Total Cost: {{ donation.treeDonation.cost}}
+            </div>
+            <div 
+                class="-app-donation__details-item  -app-donation__details-item _country"
+                *ngIf="donation.country">
+                Country: {{ donation.country.name }}
+            </div> 
+            <div 
+                class="-app-donation__details-item  -app-donation__details-item _country"
+                *ngIf="!donation.country">
+                Country: not selected!
+            </div>
+        </div>
+    </div>
+    <button 
+        class="-app-donation__donation-button -app-donation__donation-button_make"
+        (click)="makeDonation()">
+        make donation
+    </button>
+</div>

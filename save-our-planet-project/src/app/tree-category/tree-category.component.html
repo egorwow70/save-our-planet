@@ -1,0 +1,24 @@
+<div 
+    class="-app-tree-category"
+    [class.-app-tree-category_tree-mode]="treeMode">
+    <h2 class="-app-tree-category__title">
+        {{ treeCategory | formatTreeCategoryTitle }}
+    </h2>
+    <ng-container>
+        <app-tree-product
+            class="-app-tree-category__product"
+            *ngFor="let tree of treeCategoryTrees"
+            [tree]="tree">
+        </app-tree-product>
+    </ng-container>
+</div>
+<div
+    class="-app-tree-category__back-button"
+    [class.-app-tree-category__back-button_tree-mode]="treeMode"
+    (click)="goToTreeCategoryRouter()">
+</div>
+<a 
+    class="-app-scroll-up-button -app-scroll-up-button_tree-category"
+    (click)="scrollTop()">
+</a>
+<router-outlet></router-outlet>

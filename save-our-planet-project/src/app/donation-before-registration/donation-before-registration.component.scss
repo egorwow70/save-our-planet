@@ -1,0 +1,275 @@
+:host {
+    width: 100%;
+    height: 200px;
+
+    padding: 100px 0px;
+}
+
+.-app-donation {
+    position: relative;
+
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    border: 2px solid white;
+    border-radius: 20px;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    &__tree-image {
+        position: absolute;
+        z-index: 9000;
+        top: 0%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+
+        width: 250px;
+        height: 250px;
+
+        border: 2px solid white;
+        border-radius: 50%;
+    }
+    &__donation-button {
+        position: relative;
+
+        width: 15%;
+        height: 100%;
+
+        cursor: pointer;
+
+        outline: none;
+        border: none;
+        background: transparent;
+
+        color: white;
+        &_delete {
+            &::before {
+                content: "\f00d";
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+                font-size: 30px;
+                font-weight: 900;
+            }
+        }
+        &_make {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__details {
+        position: relative;
+
+        width: 35%;
+
+        transition: 0.3s;
+        cursor: pointer;
+
+        border-right: 2px solid white;
+        &_donation-details-mode {
+            overflow: auto;
+
+            border-left: 2px solid white;
+        }
+        &-title {
+            position: absolute;
+            z-index: 5;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 100%;
+
+            opacity: 1;
+
+            transition: 0.3s;
+            &_invisible {
+                z-index: -1;
+
+                opacity: 0;
+            }
+        }
+        &-info {
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            justify-content: flex-start;
+            flex-flow: wrap;
+
+            width: 100%;
+            height: 100%;
+
+            transition: 0.3s;
+            opacity: 0;
+
+            color: white;
+            &_visible {
+                z-index: 5;
+
+                padding: 0px 100px;
+
+                overflow: scroll;
+
+                opacity: 1;
+
+                box-sizing: border-box;
+            }
+        }
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+            height: 200px;
+
+            padding: 0px 20px;
+
+            box-sizing: border-box;
+
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+    }
+    &__donation-button {
+        &[disabled] {
+            opacity: 0.6;
+        }
+    }
+    &__country,
+    &__details-title,
+    &__donation-button_make {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0px 30px;
+
+        box-sizing: border-box;
+
+        color: white;
+        text-align: center;
+        letter-spacing: 4px;
+        font-size: 30px;
+        font-weight: 500;
+    }
+    &__country {
+        position: relative;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        width: 35%;
+
+        overflow: hidden;
+
+        transition: 0.3s;
+        cursor: pointer;
+
+        border: 2px solid white;
+        border-top: none;
+        border-bottom: none;
+        &_select-country-mode {
+            padding: 0px;
+        }
+        &-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+            height: 100%;
+
+            transition: 0.3s;
+            &_select-country-mode {
+                z-index: -1;
+                left: 0%;
+                transform: translate(-100%, -50%);
+            }
+        }
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+
+            width: 0%;
+            height: 200px;
+
+            overflow: auto;
+
+            transition: 0.3s;
+            opacity: 0;
+
+            background-color: transparent;
+
+            color: white;
+            &_select-country-mode {
+                width: 100%;
+
+                opacity: 1;
+            }
+            &-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                width: 100%;
+                height: 100px;
+
+                cursor: pointer;
+
+                transition: 0.2s;
+                &:hover {
+                    background-color: rgba(189, 255, 67, 0.4);
+                }
+            }
+            &-button {
+                position: absolute;
+                z-index: 9000;
+                top: 50%;
+                left: 85%;
+                transform: translate(-50%, -50%);
+
+                width: 60px;
+                height: 60px;
+
+                cursor: pointer;
+
+                outline: none;
+                border: none;
+                background: none;
+                &::before {
+                    content: "\f2ea";
+
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    color: rgba(255, 255, 255, 1);
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+                    font-size: 28px;
+                    font-weight: 900;
+                }
+            }
+        }
+    }
+}

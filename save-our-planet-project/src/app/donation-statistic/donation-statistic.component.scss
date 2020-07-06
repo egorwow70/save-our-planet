@@ -1,0 +1,80 @@
+:host {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("src/assets/images/donation-statistic-list/donation-statistic-bg.jpg");
+    background-size: cover;
+}
+
+.-app-donation-statistic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    user-select: none;
+
+    color: white;
+    &__title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+
+        margin: 0px;
+        padding: 0px 20px;
+
+        box-sizing: border-box;
+
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        font-size: 46px;
+        letter-spacing: 5px;
+        font-weight: 900;
+    }
+    &__menu {
+        position: relative;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        width: 100%;
+        height: 20%;
+        &-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 20%;
+
+            padding: 20px 20px;
+
+            box-sizing: border-box;
+
+            transition: 0.3s;
+            cursor: pointer;
+
+            outline: none;
+            border: 2px solid white;
+            border-radius: 25px;
+
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            letter-spacing: 3px;
+            font-size: 28px;
+            font-weight: 600;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.85);
+            }
+            &:active {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+}
