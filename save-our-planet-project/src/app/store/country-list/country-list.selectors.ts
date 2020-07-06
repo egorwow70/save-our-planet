@@ -148,3 +148,12 @@ export const selectIsShowCapitalsMode: MemoizedSelector<
 	selectStateCountryList,
 	(state: ICountryListState): boolean => state.isShowCapitalsMode
 );
+
+export const selectSearchMapCountry: MemoizedSelector<
+	object,
+	Country,
+	DefaultProjectorFn<Country>
+> = createSelector(
+	selectStateCountryList,
+	(state: ICountryListState): Country => state.searchMapCountry
+);

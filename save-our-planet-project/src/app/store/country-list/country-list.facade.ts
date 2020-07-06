@@ -16,7 +16,9 @@ import {
 	InitCountriesForestAreaDataAction,
 	InitCountriesForestAreaAction,
 	InitCapitalsCoordinatesAction,
-	IsCountriesLoadingSuccessAction
+	IsCountriesLoadingSuccessAction,
+	SearchMapCountryAction,
+	DontSearchMapCountryAction
 } from './country-list.actions';
 import { Country } from 'src/app/models/country-list/country';
 
@@ -62,6 +64,10 @@ export class FacadeServiceCountryList {
 		this.searchNextCountry(countryName);
 	}
 
+	public searchMapCountry(countryName: string): void {
+		this._store$.dispatch(new SearchMapCountryAction({ name: countryName }));
+	}
+
 	public searchCountrySuccess(): void {
 		this._store$.dispatch(new SearchCountrySuccessAction());
 	}
@@ -92,6 +98,10 @@ export class FacadeServiceCountryList {
 
 	public countriesLoadingSuccess(): void {
 		this._store$.dispatch(new IsCountriesLoadingSuccessAction());
+	}
+
+	public dontSearchMapCountry(): void {
+		this._store$.dispatch(new DontSearchMapCountryAction());
 	}
 
 }
