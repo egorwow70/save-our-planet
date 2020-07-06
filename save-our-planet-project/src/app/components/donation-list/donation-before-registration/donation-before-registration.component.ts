@@ -64,7 +64,11 @@ export class DonationBeforeRegistrationComponent implements OnInit {
 			this._facadeDonationListService.makeDonation(this.donation, this._currentDonationUser.id);
 			this._facadeUserListService.addMedicalPointsForCurrentUser(this.donation.treeDonation.cost);
 		} else {
-			this._router.navigate(['user', 'registration']);
+			this._router.navigate([
+				'/registration',
+				'mode',
+				'login-mode'
+			]);
 		}
 	}
 
