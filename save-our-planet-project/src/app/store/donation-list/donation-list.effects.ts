@@ -3,7 +3,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { InitDonationListSuccessAction, donationListActionsType } from './donation-list.actions';
 import { switchMap, map } from 'rxjs/operators';
 import { Donation } from 'src/app/models/donation-list/donation';
-import { DonationListDataService } from 'src/app/services/donation-list-data.service';
+import { DonationListDataService } from 'src/app/services/donation-list/donation-list-data.service';
 import { Observable } from 'rxjs';
 
 @Injectable()

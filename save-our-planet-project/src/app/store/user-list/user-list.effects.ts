@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserListDataService } from 'src/app/services/user-data.service';
+import { UserListDataService } from 'src/app/services/user-list/user-data.service';
 import { Effect, ofType, Actions } from '@ngrx/effects';
 import { userListActionsType, InitUserListSuccessAction } from './user-list.actions';
 import { switchMap, map } from 'rxjs/operators';
