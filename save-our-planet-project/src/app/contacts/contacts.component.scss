@@ -1,0 +1,433 @@
+:host {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("src/assets/images/contacts/contacts-mountains-bg.jpg");
+    background-size: cover;
+}
+
+.-app-contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    &__header-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        width: 100%;
+        height: 80%;
+    }
+    &__header {
+        display: flex;
+
+        width: 1000px;
+        height: 700px;
+
+        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
+        border: 2px solid white;
+        border-radius: 10px;
+
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    &__link-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 20%;
+
+        padding: 0px 50px;
+
+        box-sizing: border-box;
+    }
+    &__bar-link {
+        position: relative;
+
+        width: 70px;
+        height: 70px;
+
+        margin: 0px 30px;
+
+        transition: 0.3s;
+        cursor: pointer;
+
+        box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(0, 0, 0, 1);
+        border-radius: 50%;
+
+        background-color: rgba(0, 0, 0, 0.6);
+
+        &:hover {
+            transition: 0.3s;
+
+            box-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+            &::before {
+                font-size: 26px;
+            }
+        }
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            color: white;
+            text-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
+            font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+            font-size: 24px;
+            font-weight: 900;
+        }
+        &_vk {
+            &::before {
+                content: "\f189";
+            }
+        }
+        &_telegram {
+            &::before {
+                content: "\f3fe";
+            }
+        }
+        &_instagram {
+            &::before {
+                content: "\f16d";
+            }
+        }
+        &_linkedin {
+            &::before {
+                content: "\f0e1";
+            }
+        }
+        &_twitter {
+            &::before {
+                content: "\f099";
+            }
+        }
+        &_facebook {
+            &::before {
+                content: "\f39e";
+            }
+        }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        width: 50%;
+        height: 100%;
+
+        padding: 30px;
+
+        transition: 0.2s;
+
+        box-sizing: border-box;
+
+        color: white;
+        &-title {
+            width: 100%;
+
+            margin: 0px;
+
+            padding: 20px;
+
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 30px;
+        }
+        &-item {
+            position: relative;
+
+            width: 100%;
+            height: 90px;
+            &-input {
+                position: absolute;
+                z-index: 5;
+                top: 50%;
+                left: 0%;
+                transform: translate(0%, -50%);
+
+                width: 100%;
+                height: 40px;
+
+                transition: 0.3s;
+                cursor: pointer;
+
+                outline: none;
+                border: none;
+
+                background: transparent;
+
+                color: white;
+                letter-spacing: 1.5px;
+                font-weight: 600;
+                font-size: 18px;
+                &:focus {
+                    & + .-app-contacts__form-item-line {
+                        width: 100%;
+                    }
+                    & ~ .-app-contacts__form-item-label {
+                        top: 0%;
+                        left: 0%;
+                        transform: translate(0%, -50%);
+
+                        opacity: 1;
+                    }
+                }
+            }
+            &_textarea {
+                height: 200px;
+
+                margin-top: 25px;
+                margin-bottom: 40px;
+            }
+            &-textarea {
+                width: 100%;
+                min-height: 150px;
+                max-height: 200px;
+
+                resize: vertical;
+
+                outline: none;
+                border: none;
+                border-bottom: 2px solid white;
+
+                background-color: transparent;
+
+                color: white;
+                text-align: left;
+                letter-spacing: 1px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+            }
+            &-line {
+                position: absolute;
+                bottom: 15%;
+                left: 0%;
+
+                width: 0%;
+                height: 2px;
+
+                transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+                background-color: white;
+                &_valid {
+                    width: 100%;
+                }
+            }
+            &-label {
+                position: absolute;
+                z-index: 4;
+                top: 50%;
+                left: 0%;
+                transform: translate(0%, -50%);
+
+                transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 1;
+
+                color: white;
+                font-weight: 600;
+                letter-spacing: 1.5px;
+                &_textarea {
+                    top: 2.5%;
+                    transform: translate(0%, 0%);
+                }
+                &_invisible {
+                    opacity: 0;
+                }
+            }
+            &-warning {
+                position: absolute;
+                z-index: 1;
+                top: 45%;
+                right: 0%;
+                transform: translate(0%, -50%);
+
+                width: 50px;
+                height: 50px;
+
+                transition: 0.3s;
+                opacity: 0;
+                cursor: pointer;
+
+                outline: none;
+                border: none;
+
+                background: none;
+
+                &_textarea {
+                    top: 0%;
+                    transform: translate(0%, -25%);
+                }
+                &_invalid {
+                    opacity: 1;
+
+                    z-index: 9000;
+                    &.-app-contacts__form-item-warning::before {
+                        z-index: 9001;
+                    }
+                }
+                &:hover {
+                    filter: brightness(1.2);
+                }
+                &::before {
+                    content: "\f12a";
+
+                    position: absolute;
+                    z-index: 2;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    color: #ffa899;
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+            }
+            &-check {
+                position: absolute;
+                z-index: 1;
+                top: 45%;
+                right: 0%;
+                transform: translate(0%, -50%);
+
+                width: 50px;
+                height: 50px;
+
+                transition: 0.3s;
+                opacity: 0;
+                cursor: pointer;
+
+                outline: none;
+                border: none;
+
+                background: none;
+
+                &_textarea {
+                    top: 0%;
+                    transform: translate(0%, -25%);
+                }
+                &_valid {
+                    opacity: 1;
+
+                    z-index: 9000;
+                    &.-app-contacts__form-item-check::before {
+                        z-index: 9001;
+                    }
+                }
+                &:hover {
+                    filter: brightness(1.2);
+                }
+                &::before {
+                    content: "\f00c";
+
+                    position: absolute;
+                    z-index: 2;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    color: white;
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+            }
+        }
+        &-button {
+            width: 60%;
+            height: 80px;
+
+            margin: 25px 0px;
+
+            transition: 0.3s;
+            opacity: 1;
+            cursor: pointer;
+
+            outline: none;
+            box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+            border: 2px solid white;
+
+            background: transparent;
+
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            &[disabled] {
+                cursor: default;
+                opacity: 0.6;
+
+                box-shadow: none;
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+            &:hover {
+                box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
+            }
+        }
+    }
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 50%;
+        height: 100%;
+
+        border-left: 2px solid white;
+        &-link {
+            position: relative;
+
+            padding: 40px 20px;
+
+            transition: 0.3s;
+            cursor: pointer;
+            user-select: none;
+
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+            text-decoration: none;
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            &:hover {
+                letter-spacing: 3px;
+                &::before {
+                    width: 100%;
+                }
+            }
+            &::before {
+                content: "";
+
+                position: absolute;
+                bottom: 25%;
+                left: 50%;
+                transform: translate(-50%, 0%);
+
+                transition: 0.3s;
+
+                width: 00%;
+                height: 2px;
+
+                background-color: white;
+            }
+        }
+    }
+}

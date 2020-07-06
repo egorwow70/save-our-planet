@@ -1,0 +1,135 @@
+<div class="-app-contacts">
+    <div class="-app-contacts__header-wrapper">
+        <div class="-app-contacts__header">
+            <form 
+                class="-app-contacts__form"
+                [formGroup]="myFormContact"
+                (ngSubmit)="contact()">
+                <h2 class="-app-contacts__form-title">
+                    Contact us
+                </h2>
+                <div class="-app-contacts__form-item">
+                    <input 
+                        class="-app-contacts__form-item-input"
+                        name="name"
+                        type="text"
+                        formControlName="userName"
+                        autocomplete="off">
+                    <span 
+                        class="-app-contacts__form-item-line"
+                        [class.-app-contacts__form-item-line_valid]="myFormContact.controls['userName'].touched
+                            && myFormContact.controls['userName'].valid">
+                    </span>
+                    <label 
+                        class="-app-contacts__form-item-label"
+                        [class.-app-contacts__form-item-label_invisible]="myFormContact.controls['userName'].dirty">
+                        Name
+                    </label>
+                    <span 
+                        class="-app-contacts__form-item-warning"
+                        [class.-app-contacts__form-item-warning_invalid]="myFormContact.controls['userName'].touched
+                            && myFormContact.controls['userName'].invalid"
+                        title="Invalid value. Maximum number of characters from 3 to 12
+                        and without any characters and numbers">
+                    </span>
+                    <span 
+                        class="-app-contacts__form-item-check"
+                        [class.-app-contacts__form-item-check_valid]="myFormContact.controls['userName'].touched
+                            && myFormContact.controls['userName'].valid">
+                    </span>
+                </div>
+                <div class="-app-contacts__form-item">
+                    <input 
+                        class="-app-contacts__form-item-input"
+                        name="email"
+                        type="email"
+                        formControlName="userEmail">
+                    <span 
+                        class="-app-contacts__form-item-line"
+                        [class.-app-contacts__form-item-line_valid]="myFormContact.controls['userEmail'].touched
+                            && myFormContact.controls['userEmail'].valid">
+                    </span>
+                    <label 
+                        class="-app-contacts__form-item-label"
+                        [class.-app-contacts__form-item-label_invisible]="myFormContact.controls['userEmail'].dirty">
+                        Email
+                    </label>
+                    <span 
+                        class="-app-contacts__form-item-warning"
+                        [class.-app-contacts__form-item-warning_invalid]="myFormContact.controls['userEmail'].touched
+                            && myFormContact.controls['userEmail'].invalid"
+                        title="Invalid value. Example: egor@g.c">
+                    </span>
+                    <span 
+                        class="-app-contacts__form-item-check"
+                        [class.-app-contacts__form-item-check_valid]="myFormContact.controls['userEmail'].touched
+                            && myFormContact.controls['userEmail'].valid">
+                    </span>
+                </div>
+                <div class="-app-contacts__form-item -app-contacts__form-item_textarea">
+                    <textarea 
+                        class="-app-contacts__form-item-textarea"
+                        name="message"
+                        formControlName="userMessage"
+                        autocomplete="off">
+                    </textarea>
+                    <label 
+                        class="-app-contacts__form-item-label -app-contacts__form-item-label_textarea"
+                        [class.-app-contacts__form-item-label_invisible]="myFormContact.controls['userMessage'].dirty">
+                        Message
+                    </label>
+                    <span 
+                        class="-app-contacts__form-item-warning -app-contacts__form-item-warning_textarea"
+                        [class.-app-contacts__form-item-warning_invalid]="myFormContact.controls['userMessage'].touched
+                            && myFormContact.controls['userMessage'].invalid"
+                        title="Enter any message">
+                    </span>
+                    <span 
+                        class="-app-contacts__form-item-check -app-contacts__form-item-check_textarea"
+                        [class.-app-contacts__form-item-check_valid]="myFormContact.controls['userMessage'].touched
+                            && myFormContact.controls['userMessage'].valid">
+                    </span>
+                </div>
+                <button 
+                    class="-app-contacts__form-button"
+                    type="submit"
+                    [disabled]="myFormContact.controls['userName'].invalid 
+                        || myFormContact.controls['userEmail'].invalid
+                        || myFormContact.controls['userMessage'].invalid">
+                    Contact
+                </button>
+            </form>
+            <div class="-app-contacts__menu">
+                <a 
+                    class="-app-contacts__menu-link"
+                    routerLink="/home">
+                    Project: save our planet project
+                </a>
+                <a 
+                    class="-app-contacts__menu-link"
+                    href="mailto:egor.samuilenok@gmail.com">
+                    Email: egor@samuilenok.com
+                </a>
+                <a 
+                    class="-app-contacts__menu-link"
+                    hres="tel:+375447860634">
+                    Tel: +375-44-786-06-34
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="-app-contacts__link-bar">
+        <div class="-app-contacts__bar-link -app-contacts__bar-link_vk">
+        </div>
+        <div class="-app-contacts__bar-link -app-contacts__bar-link_telegram">
+        </div>
+        <div class="-app-contacts__bar-link -app-contacts__bar-link_instagram">
+        </div>
+        <div class="-app-contacts__bar-link -app-contacts__bar-link_linkedin">
+        </div>
+        <div class="-app-contacts__bar-link -app-contacts__bar-link_twitter">
+        </div>
+        <div class="-app-contacts__bar-link -app-contacts__bar-link_facebook">
+        </div>
+    </div>
+</div>

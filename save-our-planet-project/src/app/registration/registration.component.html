@@ -1,0 +1,339 @@
+<div class="-app-registration">
+    <div 
+        class="-app-registration-form__top-decoration"
+        [class.-app-registration-form__top-decoration_registration-mode]="registrationMode">
+    </div>
+    <form
+        class="-app-registration-form"
+        [class.-app-registration-form_not-login-mode]="registrationMode"
+        [formGroup]="myFormLogin"
+        (ngSubmit)="login()">  
+    <h2 class="-app-registration-form__title">
+        Login
+    </h2>
+    <div class="-app-registration-form__item">
+        <input 
+            class="-app-registration-form__item-input"
+            name="name"
+            type="text"
+            formControlName="userName"
+            autocomplete="off">
+        <span 
+            class="-app-registration-form__item-line"
+            [class.-app-registration-form__item-line_valid]="myFormLogin.controls['userName'].touched
+                && myFormLogin.controls['userName'].valid">
+        </span>
+        <label 
+            class="-app-registration-form__item-label"
+            [class.-app-registration-form__item-label_invisible]="myFormLogin.controls['userName'].dirty">
+            Name
+        </label>
+        <span 
+            class="-app-registration-form__item-warning"
+            [class.-app-registration-form__item-warning_login]="!registrationMode"
+            [class.-app-registration-form__item-warning_invalid]="myFormLogin.controls['userName'].touched
+                && myFormLogin.controls['userName'].invalid"
+            title="Invalid value. Maximum number of characters from 3 to 12
+            and without any characters and numbers">
+        </span>
+        <span 
+            class="-app-registration-form__item-check"
+            [class.-app-registration-form__item-check_login]="!registrationMode"
+            [class.-app-registration-form__item-check_valid]="myFormLogin.controls['userName'].touched
+                && myFormLogin.controls['userName'].valid">
+        </span>
+    </div>
+    <div class="-app-registration-form__item">
+        <input 
+            class="-app-registration-form__item-input"
+            name="surname"
+            type="text"
+            formControlName="userSurname"
+            autocomplete="off">
+        <span 
+            class="-app-registration-form__item-line"
+            [class.-app-registration-form__item-line_valid]="myFormLogin.controls['userSurname'].touched
+                && myFormLogin.controls['userName'].valid">
+        </span>
+        <label 
+            class="-app-registration-form__item-label"
+            [class.-app-registration-form__item-label_invisible]="myFormLogin.controls['userSurname'].dirty">
+            Surname
+        </label>
+        <span 
+            class="-app-registration-form__item-warning"
+            [class.-app-registration-form__item-warning_login]="!registrationMode"
+            [class.-app-registration-form__item-warning_invalid]="myFormLogin.controls['userSurname'].touched
+                && myFormLogin.controls['userSurname'].invalid"
+            title="Invalid value. Maximum number of characters from 3 to 20
+                and without any characters and numbers">
+        </span>
+        <span 
+            class="-app-registration-form__item-check"
+            [class.-app-registration-form__item-check_login]="!registrationMode"
+            [class.-app-registration-form__item-check_valid]="myFormLogin.controls['userSurname'].touched
+                && myFormLogin.controls['userSurname'].valid">
+        </span>
+    </div>
+    <div class="-app-registration-form__item">
+        <input 
+            class="-app-registration-form__item-input"
+            name="password"
+            type="password"
+            formControlName="userPassword"
+            autocomplete="off">
+        <span 
+            class="-app-registration-form__item-line"
+            [class.-app-registration-form__item-line_valid]="myFormLogin.controls['userPassword'].touched
+                && myFormLogin.controls['userPassword'].valid">
+        </span>
+        <label 
+            class="-app-registration-form__item-label"
+            [class.-app-registration-form__item-label_invisible]="myFormLogin.controls['userPassword'].dirty">
+            Password
+        </label>
+        <span 
+            class="-app-registration-form__item-warning"
+            [class.-app-registration-form__item-warning_login]="!registrationMode"
+            [class.-app-registration-form__item-warning_invalid]="myFormLogin.controls['userPassword'].touched
+                && myFormLogin.controls['userPassword'].invalid"
+            title="Invalid value. User password must contain only numbers, characters and underscore
+                and password length must be in diapazon from 6 to 15 symbols">
+        </span>
+        <span 
+            class="-app-registration-form__item-check"
+            [class.-app-registration-form__item-check_login]="!registrationMode"
+            [class.-app-registration-form__item-check_valid]="myFormLogin.controls['userPassword'].touched
+                && myFormLogin.controls['userPassword'].valid">
+        </span>
+    </div>  
+    <button 
+        class="-app-registration-form__button -app-registration-form__button_login"
+        type="submit"
+        [disabled]="myFormLogin.controls['userName'].invalid 
+            || myFormLogin.controls['userSurname'].invalid
+            || myFormLogin.controls['userPassword'].invalid">
+        Go
+    </button>
+    <h4     
+        class="-app-registration-form__sub-title"
+        (click)="switchRegistrationMode()">
+        Are you not registrated?
+    </h4>
+    </form>
+    <div
+        class="-app-registration-form__shape-button"
+        [class.-app-registration-form__shape-button_registration-mode]="registrationMode">
+        <button
+            class="-app-registration-form__plus"
+            [class.-app-registration-form__plus_registration-mode]="registrationMode"
+            (click)="switchRegistrationMode()">
+        </button>
+        <form 
+            class="-app-registration-form"
+            [class.-app-registration-form_registrate]="!registrationMode"
+            [class.-app-registration-form_registration-mode]="registrationMode"
+            [formGroup]="myFormRegistrate"
+            (ngSubmit)="registrate()">
+            <h2 class="-app-registration-form__title">
+                Registrate
+            </h2>
+            <div class="-app-registration-form__item">
+                <input 
+                    class="-app-registration-form__item-input"
+                    name="name"
+                    type="text"
+                    formControlName="userName"
+                    autocomplete="off">
+                <span 
+                    class="-app-registration-form__item-line"
+                    [class.-app-registration-form__item-line_valid]="myFormRegistrate.controls['userName'].touched
+                        && myFormRegistrate.controls['userName'].valid">
+                </span>
+                <label 
+                    class="-app-registration-form__item-label"
+                    [class.-app-registration-form__item-label_registration-mode]="registrationMode"
+                    [class.-app-registration-form__item-label_invisible]="myFormRegistrate.controls['userName'].dirty">
+                    Name
+                </label>
+                <span 
+                    class="-app-registration-form__item-warning" 
+                    [class.-app-registration-form__item-warning_invalid]="myFormRegistrate.controls['userName'].touched
+                        && myFormRegistrate.controls['userName'].invalid"
+                    title="Invalid value. Maximum number of characters from 3 to 12
+                        and without any characters and numbers">
+                </span>
+                <span 
+                    class="-app-registration-form__item-check" 
+                    [class.-app-registration-form__item-check_valid]="myFormRegistrate.controls['userName'].touched
+                        && myFormRegistrate.controls['userName'].valid">
+                </span>
+            </div>
+            <div class="-app-registration-form__item">
+                <input 
+                    class="-app-registration-form__item-input"
+                    name="surname"
+                    type="text"
+                    formControlName="userSurname"
+                    autocomplete="off">
+                <span 
+                    class="-app-registration-form__item-line"
+                    [class.-app-registration-form__item-line_valid]="myFormRegistrate.controls['userSurname'].touched
+                        && myFormRegistrate.controls['userSurname'].valid">
+                </span>
+                <label 
+                    class="-app-registration-form__item-label"
+                    [class.-app-registration-form__item-label_registration-mode]="registrationMode"
+                    [class.-app-registration-form__item-label_invisible]="myFormRegistrate.controls['userSurname'].dirty">
+                    Surname
+                </label>
+                <span 
+                    class="-app-registration-form__item-warning" 
+                    [class.-app-registration-form__item-warning_invalid]="myFormRegistrate.controls['userSurname'].touched
+                        && myFormRegistrate.controls['userSurname'].invalid"
+                    title="Invalid value. Maximum number of characters from 3 to 20
+                        and without any characters and numbers">
+                </span>
+                <span 
+                    class="-app-registration-form__item-check" 
+                    [class.-app-registration-form__item-check_valid]="myFormRegistrate.controls['userSurname'].touched
+                        && myFormRegistrate.controls['userSurname'].valid">
+                </span>
+            </div>
+            <div class="-app-registration-form__item">
+                <input 
+                    class="-app-registration-form__item-input"
+                    name="email"
+                    type="email"
+                    formControlName="userEmail">
+                <span 
+                    class="-app-registration-form__item-line"
+                    [class.-app-registration-form__item-line_valid]="myFormRegistrate.controls['userEmail'].touched
+                        && myFormRegistrate.controls['userEmail'].valid">
+                </span>
+                <label 
+                    class="-app-registration-form__item-label"
+                    [class.-app-registration-form__item-label_registration-mode]="registrationMode"
+                    [class.-app-registration-form__item-label_invisible]="myFormRegistrate.controls['userEmail'].dirty">
+                    Email
+                </label>
+                <span 
+                    class="-app-registration-form__item-warning" 
+                    [class.-app-registration-form__item-warning_invalid]="myFormRegistrate.controls['userEmail'].touched
+                        && myFormRegistrate.controls['userEmail'].invalid"
+                    title="Invalid value. Example: egor@g.c">
+                </span>
+                <span 
+                    class="-app-registration-form__item-check" 
+                    [class.-app-registration-form__item-check_valid]="myFormRegistrate.controls['userEmail'].touched
+                        && myFormRegistrate.controls['userEmail'].valid">
+                </span>
+            </div>
+            <div class="-app-registration-form__item">
+                <input 
+                    class="-app-registration-form__item-input"
+                    name="age"
+                    type="text"
+                    formControlName="userAge"
+                    autocomplete="off">
+                <span 
+                    class="-app-registration-form__item-line"
+                    [class.-app-registration-form__item-line_valid]="myFormRegistrate.controls['userAge'].touched
+                        && myFormRegistrate.controls['userAge'].valid">
+                </span>
+                <label 
+                    class="-app-registration-form__item-label"
+                    [class.-app-registration-form__item-label_registration-mode]="registrationMode"
+                    [class.-app-registration-form__item-label_invisible]="myFormRegistrate.controls['userAge'].dirty">
+                    Age
+                </label>
+                <span 
+                    class="-app-registration-form__item-warning" 
+                    [class.-app-registration-form__item-warning_invalid]="myFormRegistrate.controls['userAge'].touched
+                        && myFormRegistrate.controls['userAge'].invalid"
+                    title="Invalid value. User age must not be more than 150 and less than 12 years old">
+                </span>
+                <span 
+                    class="-app-registration-form__item-check" 
+                    [class.-app-registration-form__item-check_valid]="myFormRegistrate.controls['userAge'].touched
+                        && myFormRegistrate.controls['userAge'].valid">
+                </span>
+            </div>
+            <div class="-app-registration-form__item">
+                <input 
+                    class="-app-registration-form__item-input"
+                    name="password"
+                    type="password"
+                    formControlName="userPassword"
+                    autocomplete="off">
+                <span 
+                    class="-app-registration-form__item-line"
+                    [class.-app-registration-form__item-line_valid]="myFormRegistrate.controls['userPassword'].touched
+                        && myFormRegistrate.controls['userPassword'].valid">
+                </span>
+                <label 
+                    class="-app-registration-form__item-label"
+                    [class.-app-registration-form__item-label_registration-mode]="registrationMode"
+                    [class.-app-registration-form__item-label_invisible]="myFormRegistrate.controls['userPassword'].dirty">
+                    Password
+                </label>
+                <span 
+                    class="-app-registration-form__item-warning" 
+                    [class.-app-registration-form__item-warning_invalid]="myFormRegistrate.controls['userPassword'].touched
+                        && myFormRegistrate.controls['userPassword'].invalid"
+                    title="Invalid value. User password must contain only numbers, characters and underscore
+                        and password length must be in diapazon from 6 to 15 symbols">
+                </span>
+                <span 
+                    class="-app-registration-form__item-check" 
+                    [class.-app-registration-form__item-check_valid]="myFormRegistrate.controls['userPassword'].touched
+                        && myFormRegistrate.controls['userPassword'].valid">
+                </span>
+            </div> 
+            <div class="-app-registration-form__item">
+                <input 
+                    class="-app-registration-form__item-input"
+                    name="repeatPassword"
+                    type="password"
+                    formControlName="userRepeatPassword"
+                    autocomplete="off">
+                <span 
+                    class="-app-registration-form__item-line"
+                    [class.-app-registration-form__item-line_valid]="myFormRegistrate.controls['userRepeatPassword'].touched
+                        && myFormRegistrate.controls['userRepeatPassword'].valid">
+                </span>
+                <label
+                    class="-app-registration-form__item-label"
+                    [class.-app-registration-form__item-label_registration-mode]="registrationMode"
+                    [class.-app-registration-form__item-label_invisible]="myFormRegistrate.controls['userRepeatPassword'].dirty">
+                    Repeat Password
+                </label>
+                <span 
+                    class="-app-registration-form__item-warning" 
+                    [class.-app-registration-form__item-warning_invalid]="myFormRegistrate.controls['userRepeatPassword'].touched
+                        && myFormRegistrate.controls['userRepeatPassword'].invalid"
+                    title="Invalid value. you should enter the same password">
+                </span>
+                <span 
+                    class="-app-registration-form__item-check" 
+                    [class.-app-registration-form__item-check_valid]="myFormRegistrate.controls['userRepeatPassword'].touched
+                        && myFormRegistrate.controls['userRepeatPassword'].valid">
+                </span>
+            </div> 
+            <button 
+                class="-app-registration-form__button -app-registration-form__button_registrate"
+                type="submit"
+                (click)="switchRegistrationMode()"
+                [disabled]="myFormRegistrate.controls['userName'].invalid 
+                    || myFormRegistrate.controls['userSurname'].invalid
+                    || myFormRegistrate.controls['userEmail'].invalid
+                    || myFormRegistrate.controls['userAge'].invalid
+                    || myFormRegistrate.controls['userPassword'].invalid
+                    || myFormRegistrate.controls['userRepeatPassword'].invalid">
+                Next
+            </button>
+        </form>
+    </div>
+</div>
+
+

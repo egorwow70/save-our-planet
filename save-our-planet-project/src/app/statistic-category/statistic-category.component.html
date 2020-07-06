@@ -1,0 +1,55 @@
+<div class="-app-all-donators">
+    <div class="-app-all-donators__header">
+        <div class="-app-all-donators__header-menu">
+            <div class="-app-all-donators__sort">
+                <button 
+                    class="-app-all-donators__sort-button -app-all-donators__sort-button_top"
+                    (click)="sortTop()"
+                    title="by increase"
+                    [disabled]="statisticDataIsSortedByIncrease">
+                </button>
+                <button 
+                    class="-app-all-donators__sort-button -app-all-donators__sort-button_bottom"
+                    (click)="sortBottom()"
+                    title="by decrease"
+                    [disabled]="statisticDataIsSortedByDecrease">
+                </button>
+            </div>
+            <button
+                class="-app-all-donators__header-button -app-all-donators__header-button_by-tree" 
+                (click)="switchStatisticRouter(byTreeLink)"
+                title="by tree"
+                [disabled]="isInitedStatisticDataByTree"
+                #byTreeLink>
+            </button>
+            <div class="-app-all-donators__header-title">
+                {{ statisticSubCategory }}
+            </div>
+            <button 
+                class="-app-all-donators__header-button -app-all-donators__header-button_by-cost" 
+                (click)="switchStatisticRouter(byCostLink)"
+                title="by cost"
+                [disabled]="isInitedStatisticDataByCost"
+                #byCostLink>
+            </button>
+        </div>
+        <div class="-app-all-donators__header-menu">
+            <button 
+                class="-app-all-donators__header-menu-button"
+                (click)="switchStatisticRouter(byCostLink, all)"
+                [disabled]="isInitedAllDataStatistic"
+                #all>
+                all
+            </button>
+            <button 
+                class="-app-all-donators__header-menu-button"
+                (click)="switchStatisticRouter(byCostLink, topTen)"
+                [disabled]="isInitedTopTenDataStatistic"
+                #topTen>
+                top-10
+            </button>
+        </div>
+    </div>
+    <div class="-app-all-donators__chart">
+    </div>
+</div>

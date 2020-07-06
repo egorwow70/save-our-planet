@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100px;
+}
+
+.-app-country {
+    width: 100%;
+    height: 100%;
+    &__name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 10px 20px;
+
+        box-sizing: border-box;
+
+        transition: 0.2s;
+        cursor: pointer;
+        user-select: none;
+
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        text-align: center;
+        letter-spacing: 1.5px;
+        font-size: 22px;
+        font-weight: 600;
+        &:hover {
+            letter-spacing: 3.5px;
+        }
+    }
+}

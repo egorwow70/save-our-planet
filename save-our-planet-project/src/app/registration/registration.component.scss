@@ -1,0 +1,523 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("src/assets/images/user-list/user-registration-bg.jpg");
+    background-size: cover;
+}
+
+@keyframes shapeButtonToRegistrationMode {
+    0% {
+        width: 120px;
+        height: 120px;
+
+        border-radius: 50%;
+    }
+    100% {
+        width: 100%;
+        height: 95%;
+
+        border-radius: 10px;
+    }
+}
+
+@keyframes blinkRegistration {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        display: block;
+    }
+}
+
+.-app-registration {
+    position: relative;
+
+    width: 500px;
+    height: 650px;
+    &-form {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 60px 50px 40px 50px;
+
+        transform: translate(0%, 0%) scale(1);
+        -webkit-transform: translate(0%, 0%) scale(1);
+        -ms-transform: translate(0%, 0%) scale(1);
+        opacity: 1;
+        transition: 0.2s;
+
+        box-sizing: border-box;
+
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+
+        background: rgba(0, 0, 0, 0.8);
+
+        color: white;
+        &_registrate {
+            display: none;
+        }
+        &_registration-mode {
+            color: black;
+
+            background-color: #ffd4ad;
+
+            & .-app-registration-form {
+                &__title {
+                    &::before {
+                        left: -49px;
+
+                        background-color: black;
+                    }
+                }
+                &__title,
+                &__sub-title {
+                    color: black;
+                }
+            }
+            & .-app-registration-form__item {
+                &-input {
+                    color: black;
+                }
+                &-line {
+                    background-color: black;
+                }
+            }
+            & .-app-registration-form__button {
+                border: 2px solid black;
+
+                color: black;
+            }
+
+            opacity: 0;
+            animation: 0.4s blinkRegistration forwards 1s;
+        }
+        &_not-login-mode {
+            transform: translate(0%, -2.5%) scale(0.95);
+            -webkit-transform: translate(0%, -2.5%) scale(0.95);
+            -ms-transform: translate(0%, -2.5%) scale(0.95);
+            opacity: 0.9;
+        }
+        &__top-decoration {
+            position: absolute;
+            z-index: 0;
+            top: -15px;
+            left: 50%;
+
+            transform: translate(-50%, 0%) scale(1);
+            -webkit-transform: translate(-50%, 0%) scale(1);
+            -ms-transform: translate(-50%, 0%) scale(1);
+            opacity: 1;
+            transition: 0.2s;
+
+            width: 95%;
+            height: 20px;
+
+            border-radius: 20px 20px 0px 0px;
+
+            background: rgba(255, 255, 255, 0.6);
+            &_registration-mode {
+                transform: translate(-50%, -2%) scale(0.95);
+                -webkit-transform: translate(-50%, -2%) scale(0.95);
+                -ms-transform: translate(-50%, -2%) scale(0.95);
+                opacity: 0.9;
+            }
+        }
+        &__title {
+            position: relative;
+
+            width: 100%;
+
+            color: #ffd4ad;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 30px;
+            &::before {
+                content: "";
+
+                position: absolute;
+                top: 50%;
+                left: -50px;
+                transform: translate(-50%, -50%);
+
+                width: 4px;
+                height: 120%;
+
+                background-color: #ffd4ad;
+            }
+        }
+        &__item {
+            position: relative;
+
+            width: 100%;
+            height: 90px;
+            &-check {
+                position: absolute;
+                z-index: 1;
+                top: 45%;
+                right: 0%;
+                transform: translate(0%, -50%);
+
+                width: 50px;
+                height: 50px;
+
+                transition: 0.3s;
+                opacity: 0;
+                cursor: pointer;
+
+                outline: none;
+                border: none;
+
+                background: none;
+
+                &_valid {
+                    opacity: 1;
+
+                    z-index: 9000;
+                    &.-app-registration-form__item-check::before {
+                        z-index: 9001;
+                    }
+                }
+                &:hover {
+                    filter: brightness(1.2);
+                }
+                &.-app-registration-form__item-check_login {
+                    &::before {
+                        color: #f4a669;
+                    }
+                }
+                &::before {
+                    content: "\f00c";
+
+                    position: absolute;
+                    z-index: 2;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    color: #e2965d;
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+            }
+            &-warning {
+                position: absolute;
+                z-index: 1;
+                top: 45%;
+                right: 0%;
+                transform: translate(0%, -50%);
+
+                width: 50px;
+                height: 50px;
+
+                transition: 0.3s;
+                opacity: 0;
+                cursor: pointer;
+
+                outline: none;
+                border: none;
+
+                background: none;
+
+                &_invalid {
+                    opacity: 1;
+
+                    z-index: 9000;
+                    &.-app-registration-form__item-warning::before {
+                        z-index: 9001;
+                    }
+                }
+                &:hover {
+                    filter: brightness(1.2);
+                }
+                &.-app-registration-form__item-warning_login {
+                    &::before {
+                        color: #f4a669;
+                    }
+                }
+                &::before {
+                    content: "\f12a";
+
+                    position: absolute;
+                    z-index: 2;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    color: #e2965d;
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+            }
+            &-label {
+                position: absolute;
+                z-index: 4;
+                top: 50%;
+                left: 0%;
+                transform: translate(0%, -50%);
+
+                transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 1;
+
+                font-weight: 600;
+                letter-spacing: 1.5px;
+                &_registration-mode {
+                    color: black;
+                }
+                &_invisible {
+                    opacity: 0;
+                }
+            }
+            &-line {
+                position: absolute;
+                bottom: 15%;
+                left: 0%;
+
+                width: 0%;
+                height: 2px;
+
+                transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+                background-color: #ffd4ad;
+                &_valid {
+                    width: 100%;
+                }
+            }
+            &-input {
+                position: absolute;
+                z-index: 5;
+                top: 50%;
+                left: 0%;
+                transform: translate(0%, -50%);
+
+                width: 100%;
+                height: 40px;
+
+                transition: 0.3s;
+                cursor: pointer;
+
+                outline: none;
+                border: none;
+
+                background: transparent;
+
+                color: white;
+                letter-spacing: 1.5px;
+                font-weight: 600;
+                font-size: 18px;
+                &:focus {
+                    & + .-app-registration-form__item-line {
+                        width: 100%;
+                    }
+                    & ~ .-app-registration-form__item-label {
+                        top: 0%;
+                        left: 0%;
+                        transform: translate(0%, -50%);
+
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        &__button {
+            width: 60%;
+            height: 80px;
+
+            margin: 25px 0px;
+
+            transition: 0.3s;
+            opacity: 1;
+            cursor: pointer;
+
+            outline: none;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            border: 2px solid white;
+
+            background: transparent;
+
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            &:hover {
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+            }
+            &_registrate {
+                &:hover {
+                    &.-app-registration-form__button {
+                        border: 2px solid #e2965d;
+
+                        background-color: #e2965d;
+                    }
+                }
+                &[disabled] {
+                    &:hover {
+                        border: 2px solid black;
+
+                        background-color: transparent;
+
+                        color: black;
+                    }
+                }
+            }
+            &_login {
+                &:hover {
+                    &.-app-registration-form__button {
+                        border: 2px solid #e2965d;
+
+                        background-color: rgba(0, 0, 0, 0.2);
+
+                        color: #e2965d;
+                    }
+                }
+                &[disabled] {
+                    &:hover {
+                        border: 2px solid white;
+
+                        background-color: transparent;
+
+                        color: white;
+                    }
+                }
+            }
+            &:active {
+                filter: brightness(1.5);
+                font-size: 22px;
+            }
+            &[disabled] {
+                opacity: 0.7;
+                cursor: default;
+
+                box-shadow: none;
+            }
+        }
+        &__sub-title {
+            position: relative;
+
+            cursor: pointer;
+
+            color: #ffd4ad;
+            letter-spacing: 2px;
+            &::before {
+                content: "";
+
+                position: absolute;
+                bottom: -40%;
+                left: 50%;
+                transform: translate(-50%, 0%);
+
+                width: 110%;
+                height: 2px;
+
+                background-color: #ffd4ad;
+            }
+        }
+        &__shape-button {
+            position: absolute;
+            z-index: 6;
+            top: 7%;
+            right: 0%;
+            transform: translate(50%, 10px);
+
+            width: 130px;
+            height: 130px;
+
+            transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+            border-radius: 50%;
+
+            background-color: #ffd4ad;
+            &_registration-mode {
+                top: 50%;
+                right: 50%;
+                transform: translate(50%, -50%);
+
+                animation: 0.3s shapeButtonToRegistrationMode forwards 0.3s;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+            }
+        }
+        &__plus {
+            position: absolute;
+            z-index: 7;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+
+            width: 65px;
+            height: 65px;
+
+            cursor: pointer;
+
+            outline: none;
+            border: none;
+            background: transparent;
+
+            transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            &:hover {
+                &::before {
+                    font-size: 34px;
+                }
+            }
+            &::before {
+                content: "\f067";
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                color: white;
+                font-size: 30px;
+                font-weight: 900;
+                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+            }
+            &_registration-mode {
+                transition-delay: 0.8s;
+
+                top: 10%;
+                left: 90%;
+                transform: translate(-50%, -50%) rotate(45deg);
+                &::before {
+                    transition-delay: 0.8s;
+                    color: black;
+                }
+            }
+            &_from-registration-mode {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(0deg);
+                &::before {
+                    transition-delay: 0.8s;
+                    color: white;
+                }
+            }
+        }
+    }
+}

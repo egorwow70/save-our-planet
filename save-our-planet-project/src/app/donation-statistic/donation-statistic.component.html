@@ -1,0 +1,19 @@
+<div class="-app-donation-statistic">
+    <h1 class="-app-donation-statistic__title">
+        Donation Statistic
+    </h1>
+    <div class="-app-donation-statistic__menu">
+        <div 
+            class="-app-donation-statistic__menu-button"
+            (click)="switchStatisticRouter(countries)"
+            #countries>
+            countries
+        </div>
+        <button   
+            class="-app-donation-statistic__menu-button"
+            (click)="switchStatisticRouter(donators)"
+            #donators>
+            donators
+        </button>
+    </div>
+</div>

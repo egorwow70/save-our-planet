@@ -1,0 +1,184 @@
+:host {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: white;
+}
+
+.-app-all-donators {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 15%;
+
+        padding: 0px 20px;
+
+        box-sizing: border-box;
+        &-menu {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            width: 50%;
+            height: 100%;
+            &-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 200px;
+
+                padding: 20px 40px;
+
+                transition: 0.3s;
+                cursor: pointer;
+
+                box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+                outline: none;
+                border: 2px solid black;
+                border-radius: 20px;
+
+                background-color: rgba(0, 0, 0, 0.75);
+                color: white;
+                text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.6);
+                letter-spacing: 2px;
+                font-weight: 600;
+                font-size: 26px;
+                &[disabled] {
+                    cursor: default;
+                    opacity: 0.4;
+                }
+            }
+        }
+        &-title {
+            padding: 0px 20px;
+
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            text-transform: capitalize;
+            text-align: center;
+            letter-spacing: 5px;
+            font-size: 34px;
+            font-weight: 900;
+        }
+        &-button {
+            position: relative;
+
+            width: 50px;
+            height: 50px;
+
+            transition: 0.2s;
+
+            outline: none;
+            border: none;
+            background: none;
+            &[disabled] {
+                cursor: default;
+                opacity: 0.4;
+            }
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                transition: 0.3s;
+                cursor: pointer;
+
+                color: rgba(0, 0, 0, 0.9);
+                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+                font-weight: 900;
+                font-size: 40px;
+            }
+            &:hover {
+                &::before {
+                    filter: brightness(1.5);
+                }
+            }
+            &_by-cost {
+                &::before {
+                    content: "\f155";
+                }
+            }
+            &_by-tree {
+                &::before {
+                    content: "\f1bb";
+                }
+            }
+        }
+    }
+    &__sort {
+        position: relative;
+
+        width: 30px;
+        height: 120px;
+        &-button {
+            position: absolute;
+
+            width: 30px;
+            height: 30px;
+
+            padding: 0px;
+
+            transition: 0.2s;
+
+            outline: none;
+            border: none;
+            background: none;
+            &[disabled] {
+                cursor: default;
+                opacity: 0.4;
+            }
+            &:hover {
+                &::before {
+                    filter: brightness(1.5);
+                }
+            }
+            &::before {
+                content: "";
+
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                transition: 0.3s;
+                cursor: pointer;
+
+                border-radius: 7px;
+            }
+            &_top {
+                top: 20%;
+                &::before {
+                    border: 13px solid transparent;
+                    border-bottom: 13px solid rgba(0, 0, 0, 0.9);
+                }
+            }
+            &_bottom {
+                bottom: 20%;
+                &::before {
+                    border: 13px solid transparent;
+                    border-top: 13px solid rgba(0, 0, 0, 0.9);
+                }
+            }
+        }
+    }
+    &__chart {
+        width: 100%;
+        height: 85%;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="-app-region">
+    <h2 class="-app-region__title">
+        {{ regionName | formatRegionTitle }} Region
+    </h2>
+    <h3  class="-app-region__sub-title">
+        {{ subRegionName | formatRegionTitle }} Subregion
+    </h3>
+    <div class="-app-region__country-list">
+        <app-country-name 
+            *ngFor="let country of subRegionsCountries" 
+            [country]="country">
+        </app-country-name>
+    </div>
+    <a 
+        class="-app-scroll-up-button -app-scroll-up-button_sub-region-category"
+        (click)="scrollTop()">
+    </a>
+</div>
+<div class="-app-region__current-country">
+    <router-outlet></router-outlet>
+</div>

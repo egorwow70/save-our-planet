@@ -1,0 +1,242 @@
+<div class="-app-countries">
+    <div 
+        class="-app-countries__start-menu"
+        [class.-app-countries__start-menu_menu-mode]="menuMode">
+        <div
+            class="-app-countries__start-menu-title"
+            (click)="toggleMenuMode()">
+            Menu
+        </div>
+        <span 
+            class="-app-countries__start-menu-search">
+        </span>  
+    </div>
+    <div class="-app-countries__menu -app-countries__menu_bg"
+        [class.-app-countries__menu_bg-menu-mode]="menuMode">
+        <span 
+            class="-app-countries__menu-return"
+            [class.-app-countries__menu-return_visible]="menuMode"
+            (click)="returnMenuMode()"></span> 
+        <div 
+            class="-app-countries__menu-list"
+            [class.-app-countries__menu-list_invisible]="oceaniaMenuMode || europeMenuMode || americaMenuMode || africaMenuMode"
+            [class.-app-countries__menu-list_asia]="menuMode"
+            [class.-app-countries__menu-list_asia-menu-mode]="asiaMenuMode"
+            (click)="toggleAsiaMenuMode()"
+            #asia>
+            Asia
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="asiaMenuMode"
+                [class.-app-countries__menu-item_visible-southern-asia]="asiaMenuMode"
+                (click)="switchRouter(asia, southernAsia)"
+                #southernAsia>
+                Southern Asia
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="asiaMenuMode"
+                [class.-app-countries__menu-item_visible-western-asia]="asiaMenuMode"
+                (click)="switchRouter(asia, westernAsia)"
+                #westernAsia>
+                Western Asia
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="asiaMenuMode"
+                [class.-app-countries__menu-item_visible-central-asia]="asiaMenuMode"
+                (click)="switchRouter(asia, centralAsia)"
+                #centralAsia>
+                Central Asia
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="asiaMenuMode"
+                [class.-app-countries__menu-item_visible-eastern-asia]="asiaMenuMode"
+                (click)="switchRouter(asia, easternAsia)"
+                #easternAsia>
+                Eastern Asia
+            </div>
+            <div 
+                class="-app-countries__menu-item -app-countries__menu-item_south-eastern-asia"
+                [class.-app-countries__menu-item_visible]="asiaMenuMode"
+                [class.-app-countries__menu-item_visible-south-eastern-asia]="asiaMenuMode"
+                (click)="switchRouter(asia, southEasternAsia)"
+                #southEasternAsia>
+                South-Eastern Asia
+            </div>
+        </div>
+        <div 
+            class="-app-countries__menu-list"
+            [class.-app-countries__menu-list_invisible]="oceaniaMenuMode || americaMenuMode || asiaMenuMode || africaMenuMode"
+            [class.-app-countries__menu-list_europe]="menuMode"
+            [class.-app-countries__menu-list_europe-menu-mode]="europeMenuMode"
+            (click)="toggleEuropeMenuMode()"
+            #europe>
+            Europe
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="europeMenuMode"
+                [class.-app-countries__menu-item_visible-northern-europe]="europeMenuMode"
+                (click)="switchRouter(europe, northernEurope)"
+                #northernEurope>
+                Northern Europe
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="europeMenuMode"
+                [class.-app-countries__menu-item_visible-southern-europe]="europeMenuMode"
+                (click)="switchRouter(europe, southernEurope)"
+                #southernEurope>
+                Southern Europe
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="europeMenuMode"
+                [class.-app-countries__menu-item_visible-western-europe]="europeMenuMode"
+                (click)="switchRouter(europe, westernEurope)"
+                #westernEurope>
+                Western Europe
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="europeMenuMode"
+                [class.-app-countries__menu-item_visible-eastern-europe]="europeMenuMode"
+                (click)="switchRouter(europe, easternEurope)"
+                #easternEurope>
+                Eastern Europe
+            </div>
+        </div>
+        <div 
+            class="-app-countries__menu-list"
+            [class.-app-countries__menu-list_invisible]="oceaniaMenuMode || europeMenuMode || asiaMenuMode || americaMenuMode"
+            [class.-app-countries__menu-list_africa]="menuMode"
+            [class.-app-countries__menu-list_africa-menu-mode]="africaMenuMode"
+            (click)="toggleAfricaMenuMode()"
+            #africa>
+            Africa
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="africaMenuMode"
+                [class.-app-countries__menu-item_visible-northern-africa]="africaMenuMode"
+                (click)="switchRouter(africa, northernAfrica)"
+                #northernAfrica>
+                Northern Africa
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="africaMenuMode"
+                [class.-app-countries__menu-item_visible-middle-africa]="africaMenuMode"
+                (click)="switchRouter(africa, middleAfrica)"
+                #middleAfrica>
+                Middle Africa
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="africaMenuMode"
+                [class.-app-countries__menu-item_visible-southern-africa]="africaMenuMode"
+                (click)="switchRouter(africa, southernAfrica)"
+                #southernAfrica>
+                Southern Africa
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="africaMenuMode"
+                [class.-app-countries__menu-item_visible-eastern-africa]="africaMenuMode"
+                (click)="switchRouter(africa, easternAfrica)"
+                #easternAfrica>
+                Eastern Africa
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="africaMenuMode"
+                [class.-app-countries__menu-item_visible-western-africa]="africaMenuMode"
+                (click)="switchRouter(africa, westernAfrica)"
+                #westernAfrica>
+                Western Africa
+            </div>
+        </div>
+        <div 
+            class="-app-countries__menu-list"
+            [class.-app-countries__menu-list_invisible]="americaMenuMode || europeMenuMode || asiaMenuMode || africaMenuMode"
+            [class.-app-countries__menu-list_oceania]="menuMode"
+            [class.-app-countries__menu-list_oceania-menu-mode]="oceaniaMenuMode"
+            (click)="toggleOceaniaMenuMode()"
+            #oceania>
+            Oceania
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="oceaniaMenuMode"
+                [class.-app-countries__menu-item_visible-polynesia-oceania]="oceaniaMenuMode"
+                (click)="switchRouter(oceania, polynesia)"
+                #polynesia>
+                Polynesia
+            </div>
+            <div 
+                class="-app-countries__menu-item -app-countries__menu-item_australia-oceania"
+                [class.-app-countries__menu-item_visible]="oceaniaMenuMode"
+                [class.-app-countries__menu-item_visible-australia-oceania]="oceaniaMenuMode"
+                (click)="switchRouter(oceania, australia)"
+                #australia>
+                Australia And New Zealand
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="oceaniaMenuMode"
+                [class.-app-countries__menu-item_visible-melanesia-oceania]="oceaniaMenuMode"
+                (click)="switchRouter(oceania, melanesia)"
+                #melanesia>
+                Melanesia
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="oceaniaMenuMode"
+                [class.-app-countries__menu-item_visible-micronesia-oceania]="oceaniaMenuMode"
+                (click)="switchRouter(oceania, micronesia)"
+                #micronesia>
+                Micronesia
+            </div>
+        </div>
+        <div 
+            class="-app-countries__menu-list"
+            [class.-app-countries__menu-list_invisible]="oceaniaMenuMode || europeMenuMode || asiaMenuMode || africaMenuMode"
+            [class.-app-countries__menu-list_america]="menuMode"
+            [class.-app-countries__menu-list_america-menu-mode]="americaMenuMode"
+            (click)="toggleAmericaMenuMode()"
+            #america>
+            Americas
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="americaMenuMode"
+                [class.-app-countries__menu-item_visible-central-america]="americaMenuMode"
+                (click)="switchRouter(america, centralAmerica)"
+                #centralAmerica>
+                Central America
+            </div>
+            <div 
+                class="-app-countries__menu-item -app-countries__menu-item_australia-oceania"
+                [class.-app-countries__menu-item_visible]="americaMenuMode"
+                [class.-app-countries__menu-item_visible-northern-america]="americaMenuMode"
+                (click)="switchRouter(america, northernAmerica)"
+                #northernAmerica>
+                Northern America
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="americaMenuMode"
+                [class.-app-countries__menu-item_visible-south-america]="americaMenuMode"
+                (click)="switchRouter(america, southAmerica)"
+                #southAmerica>
+                South America
+            </div>
+            <div 
+                class="-app-countries__menu-item"
+                [class.-app-countries__menu-item_visible]="americaMenuMode"
+                [class.-app-countries__menu-item_visible-caribbean-america]="americaMenuMode"
+                (click)="switchRouter(america, caribbean)"
+                #caribbean>
+                Caribbean
+            </div>
+        </div>
+    </div>
+</div>
