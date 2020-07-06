@@ -9,40 +9,41 @@ const routes: Routes = [
 	},
 	{
 		path: 'home',
-		loadChildren: () => import('./country-map/country-map.module').then((m: any) => m.CountryMapModule),
+		loadChildren: () => import('./components/country-map/country-map.module').then((m: any) => m.CountryMapModule),
 	},
 	{
 		path: 'countries',
-		loadChildren: () => import('./country-list/country-list.module').then((m: any) => m.CountryListModule),
+		loadChildren: () => import('./components/country-list/country-list/country-list.module').then((m: any) => m.CountryListModule),
 	},
 	{
 		path: 'trees',
-		loadChildren: () => import('./tree-list/tree-list.module').then((m: any) => m.TreeListModule)
+		loadChildren: () => import('./components/tree-list//tree-list/tree-list.module').then((m: any) => m.TreeListModule)
 	},
 	{
 		path: 'donation-statistic',
-		loadChildren: () => import('./donation-statistic/donation-statistic.module').then((m: any) => m.DonationStatisticModule)
+		loadChildren: () => import('./components/donation-statistic-list/donation-statistic/donation-statistic.module')
+			.then((m: any) => m.DonationStatisticModule)
 	},
 	{
 		path: 'user-profile',
-		loadChildren: () => import('./user-profile/user-profile.module').then((m: any) => m.UserProfileModule)
+		loadChildren: () => import('./components/user-list/user-profile/user-profile.module').then((m: any) => m.UserProfileModule)
 	},
 	{
 		path: 'registration',
-		loadChildren: () => import('./registration/registration.module').then((m: any) => m.RegistrationModule)
+		loadChildren: () => import('./components/user-list/registration/registration.module').then((m: any) => m.RegistrationModule)
 	},
 	{
 		path: 'donation',
-		loadChildren: () => import('./donation-list-before-registration/donation-list-before-registration.module')
+		loadChildren: () => import('./components/donation-list/donation-list-before-registration/donation-list-before-registration.module')
 			.then((m: any) => m.DonationListBeforeRegistrationModule)
 	},
 	{
 		path: 'about',
-		loadChildren: () => import('./about/about.module').then((m: any) => m.AboutModule)
+		loadChildren: () => import('./components/about/about.module').then((m: any) => m.AboutModule)
 	},
 	{
 		path: 'contacts',
-		loadChildren: () => import('./contacts/contacts.module').then((m: any) => m.ContactsModule)
+		loadChildren: () => import('./components/contacts/contacts.module').then((m: any) => m.ContactsModule)
 	},
 	{
 		path: '**',

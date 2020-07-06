@@ -14,7 +14,7 @@ import { CountryListEffects } from './store/country-list/country-list.effects';
 import { TreeListEffects } from './store/tree-list/tree-list.effects';
 import { UserListEffects } from './store/user-list/user-list.effects';
 import { DonationListEffects } from './store/donation-list/donation-list.effects';
-import { NotFoundModule } from './not-found/not-found.module';
+import { NotFoundModule } from './components/not-found/not-found.module';
 import { TreeListDataService } from './services/tree-data.service';
 import { UserListDataService } from './services/user-data.service';
 import { DonationListDataService } from './services/donation-list-data.service';
