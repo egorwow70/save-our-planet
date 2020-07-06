@@ -50,7 +50,7 @@
 
     overflow: hidden;
 
-    background-image: url('../../../assets/images/tree-list/tree-list-menu-bg.jpg');
+    background-image: url('../../../../assets/images/tree-list/tree-list-menu-bg.jpg');
     background-size: cover;
     &__bird-container {
         position: absolute;
@@ -266,22 +266,22 @@
 
             background-size: cover;
             &_native {
-                background-image: url('../../../assets/images/tree-list/tree-list-native-trees-bg.jpg');
+                background-image: url('../../../../assets/images/tree-list/tree-list-native-trees-bg.jpg');
             }
             &_arboretum {
-                background-image: url('../../../assets/images/tree-list/tree-list-arboretum-species-bg.jpg');
+                background-image: url('../../../../assets/images/tree-list/tree-list-arboretum-species-bg.jpg');
             }
             &_patio {
-                background-image: url('../../../assets/images/tree-list/tree-list-patio-fruit-trees-bg.jpg');
+                background-image: url('../../../../assets/images/tree-list/tree-list-patio-fruit-trees-bg.jpg');
             }
             &_evergreen {
-                background-image: url('../../../assets/images/tree-list/tree-list-evergreen-bg.jpg');
+                background-image: url('../../../../assets/images/tree-list/tree-list-evergreen-bg.jpg');
             }
             &_potgrown {
-                background-image: url('../../../assets/images/tree-list/tree-list-pot-grown-trees-bg.jpg');
+                background-image: url('../../../../assets/images/tree-list/tree-list-pot-grown-trees-bg.jpg');
             }
             &_shrubs {
-                background-image: url('../../../assets/images/tree-list/tree-list-shrubs-bg.jpg');
+                background-image: url('../../../../assets/images/tree-list/tree-list-shrubs-bg.jpg');
             }
         }
     }

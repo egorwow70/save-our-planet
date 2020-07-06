@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, forkJoin } from 'rxjs';
-import { Country } from '../models/country-list/country';
+import { Country } from '../../models/country-list/country';
 import { map, delay } from 'rxjs/operators';
-import { Capital } from '../models/country-list/capital';
-import { CapitalListSnapshot } from '../models/country-list/capital-list-snapshot';
+import { Capital } from '../../models/country-list/capital';
+import { CapitalListSnapshot } from '../../models/country-list/capital-list-snapshot';
 
 @Injectable()
 export class CountryListDataService {

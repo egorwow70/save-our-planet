@@ -1,6 +1,6 @@
 import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
-import { CountryListDataService } from 'src/app/services/country-data.service';
+import { CountryListDataService } from 'src/app/services/country-list/country-data.service';
 import { Capital } from 'src/app/models/country-list/capital';
 import { CapitalListSnapshot } from 'src/app/models/country-list/capital-list-snapshot';
 import {

@@ -1,6 +1,6 @@
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { TreeListDataService } from 'src/app/services/tree-data.service';
+import { TreeListDataService } from 'src/app/services/tree-list/tree-data.service';
 import { treeListActionsType, InitTreeListSuccessAction } from './tree-list.actions';
 import { switchMap, map } from 'rxjs/operators';
 import { Tree } from 'src/app/models/tree-list/tree';

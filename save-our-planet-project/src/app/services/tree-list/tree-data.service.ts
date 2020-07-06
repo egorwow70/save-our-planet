@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tree } from '../models/tree-list/tree';
+import { Tree } from '../../models/tree-list/tree';
 import { map, first } from 'rxjs/operators';
 
 @Injectable()
