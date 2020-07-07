@@ -22,8 +22,6 @@ export class TreeComponent implements OnInit, OnDestroy {
 
 	private _appNavigationDonationButton: HTMLElement;
 
-	private _isChosenAtLeastOneTree: boolean;
-
 	private _donationListBeforeRegistration: Donation[] = null;
 
 	public tree: Tree;
@@ -137,7 +135,6 @@ export class TreeComponent implements OnInit, OnDestroy {
 	public choose(): void {
 		this._appNavigationDonationButton.classList.add('-app-navigation__donation-button_blinking');
 
-		this._isChosenAtLeastOneTree = true;
 		const donation: Donation = new Donation(
 			'D',
 			null,
@@ -156,12 +153,4 @@ export class TreeComponent implements OnInit, OnDestroy {
 	public applyDonation(): void {
 		this._router.navigate(['/donation']);
 	}
-
-	public canDeactivate(): boolean {
-		const deactivateQuestion: string = 'You haven’t chosen any tree. Are you sure that you want to go from this page? For donation you need at least one tree';
-		return (!this._isChosenAtLeastOneTree)
-			? confirm(deactivateQuestion)
-			: true;
-	}
-
 }

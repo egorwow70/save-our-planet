@@ -10,7 +10,7 @@ import { CanProceedToCountryGuard } from 'src/app/guards/country-list/can-procee
 import { FormatForestAreaPipe } from 'src/app/pipes/country-list/format-forest-area.pipe';
 import { FormatAreaPipe } from 'src/app/pipes/country-list/format-area.pipe';
 import { FormatRegionTitlePipe } from 'src/app/pipes/country-list/format-region-title.pipe';
-import { CanLeaveRegionGuard } from 'src/app/guards/country-list/can-leave-country.guard';
+import { CanLeaveRegionGuard } from 'src/app/guards/country-list/can-leave-region.guard';
 
 @NgModule({
 	declarations: [

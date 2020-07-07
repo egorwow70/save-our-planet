@@ -5,7 +5,7 @@ import { TreeCategoryComponent } from '../tree-category/tree-category.component'
 import { TreeComponent } from '../tree/tree.component';
 import { CanProceedToTreeCategoryGuard } from 'src/app/guards/tree-list/can-proceed-to-tree-category.guard';
 import { CanProceedToTreeGuard } from 'src/app/guards/tree-list/can-proceed-to-tree.guard';
-import { CanLeaveTreeGuard } from 'src/app/guards/tree-list/can-leave-tree.guard';
+import { CanLeaveTreeCategoryGuard } from 'src/app/guards/tree-list/can-leave-tree-category.guard';
 
 const routes: Routes = [
 	{
@@ -16,11 +16,11 @@ const routes: Routes = [
 		path: 'tree-category/:categoryName',
 		component: TreeCategoryComponent,
 		canActivate: [CanProceedToTreeCategoryGuard],
+		canDeactivate: [CanLeaveTreeCategoryGuard],
 		children: [{
 			path: 'tree/:treeName',
 			component: TreeComponent,
-			canActivate: [CanProceedToTreeGuard],
-			canDeactivate: [CanLeaveTreeGuard]
+			canActivate: [CanProceedToTreeGuard]
 		}]
 	},
 	{
