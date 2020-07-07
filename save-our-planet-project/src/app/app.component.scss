@@ -20,6 +20,14 @@
     filter: alpha(opacity=$opacity-ie);
 }
 
+@mixin transform-origin($args...) {
+    -webkit-transform-origin: $args;
+    -moz-transform-origin: $args;
+    -ms-transform-origin: $args;
+    -o-transform-origin: $args;
+    transform-origin: $args;
+}
+
 :host {
     display: block;
 
@@ -132,9 +140,7 @@
                 }
                 &-line {
                     &_top {
-                        -webkit-transform-origin: left top;
-                        -ms-transform-origin: left top;
-                        transform-origin: left top;
+                        @include transform-origin(left top);
                         @include transform(translate(11px, -4px) rotate(45deg));
 
                         background-color: rgba(0, 0, 0, 0.9);
