@@ -119,6 +119,7 @@ export class ContactsComponent {
 
 	public contact(): void {
 		this._userMessage = this.myFormContact.controls.userMessage.value;
+		this.initContactForm();
 	}
 
 }

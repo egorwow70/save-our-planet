@@ -4,7 +4,7 @@
             tree name:            
         </div>
         <div class="-app-user-profile-donation__item-info">
-            {{donation.treeDonation.tree.name}}
+            {{ donation.treeDonation.tree.name }}
         </div>
     </div>
     <div class="-app-user-profile-donation__item">
@@ -12,7 +12,7 @@
             tree type:            
         </div>
         <div class="-app-user-profile-donation__item-info">
-            {{donation.treeDonation.tree.type}}
+            {{ donation.treeDonation.tree.type }}
         </div>
     </div>
     <div class="-app-user-profile-donation__item">
@@ -20,7 +20,7 @@
             tree number:            
         </div>
         <div class="-app-user-profile-donation__item-info">
-            {{donation.treeDonation.amount}}
+            {{ (donation.treeDonation.amount) | formatUserProfileTreeAmount }}
         </div>
     </div>
     <div class="-app-user-profile-donation__item">
@@ -28,7 +28,15 @@
             cost:            
         </div>
         <div class="-app-user-profile-donation__item-info">
-            {{donation.treeDonation.amount}}
+            {{ (donation.treeDonation.cost) | currency }}
+        </div>
+    </div>
+    <div class="-app-user-profile-donation__item">
+        <div class="-app-user-profile-donation__item-title">
+            country:            
+        </div>
+        <div class="-app-user-profile-donation__item-info">
+            {{ donation.country.name }}
         </div>
     </div>
     <div class="-app-user-profile-donation__item">
@@ -36,7 +44,7 @@
             date:            
         </div>
         <div class="-app-user-profile-donation__item-info">
-            {{donation.date | date}}
+            {{ donation.date | date }}
         </div>
     </div>
 </div>

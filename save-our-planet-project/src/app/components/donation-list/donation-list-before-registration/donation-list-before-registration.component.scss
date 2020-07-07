@@ -1,7 +1,15 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
 :host {
     width: 100%;
     min-height: 100vh;
 }
+
 .-app-donation-list {
     position: relative;
 
@@ -13,9 +21,7 @@
     width: 100%;
     height: 100vh;
     min-height: 100vh;
-
     padding: 100px;
-
     box-sizing: border-box;
     &::after {
         content: "";
@@ -61,7 +67,6 @@
             margin: 20px;
 
             user-select: none;
-
             text-align: center;
         }
         &-button {

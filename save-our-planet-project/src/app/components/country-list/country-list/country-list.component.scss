@@ -1,16 +1,23 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
+:host {
+    width: 100%;
+    height: 100vh;
+}
+
 @keyframes menuLine {
     0% {
         left: 0%;
     }
     100% {
         left: 100%;
-        transform: translate(-100%, 0%);
+        @include transform(translate(-100%, 0%));
     }
-}
-
-:host {
-    width: 100%;
-    height: 100vh;
 }
 
 .-app-countries {
@@ -24,14 +31,14 @@
     width: 100%;
     height: 100%;
 
-    background-image: url('../../../../assets/images/country-list/country-list-menu-bg.jpg');
+    background-image: url("../../../../assets/images/country-list/country-list-menu-bg.jpg");
     background-size: cover;
     &__start-menu {
         position: absolute;
         z-index: 3;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        @include transform(translate(-50%, -50%));
 
         display: flex;
         justify-content: flex-start;
@@ -39,10 +46,11 @@
 
         width: 200px;
         height: 100px;
-
         &_menu-mode {
             transition: 0.4s;
+
             z-index: -1;
+
             opacity: 0;
         }
         &::before {
@@ -65,9 +73,9 @@
 
             transition: 0.2s;
             cursor: pointer;
-            user-select: none;
 
             color: rgba(255, 255, 255, 1);
+            user-select: none;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
             text-align: center;
             letter-spacing: 2px;
@@ -89,33 +97,31 @@
             height: 100%;
 
             cursor: pointer;
-
             &::before {
                 content: "\f002";
 
                 position: absolute;
                 top: 52%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                @include transform(translate(-50%, -50%));
 
                 color: rgba(255, 255, 255, 1);
                 text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 font-size: 26px;
                 font-weight: 900;
+                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
             }
         }
     }
     &__menu {
         width: 100%;
         height: 100%;
-
         &_bg {
             position: absolute;
             z-index: 1;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             width: 10px;
             height: 10px;
@@ -140,10 +146,10 @@
             z-index: 2;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
-            opacity: 0;
             transition: 1s;
+            opacity: 0;
 
             width: 50px;
             height: 50px;
@@ -151,6 +157,7 @@
             cursor: pointer;
             &_visible {
                 left: 25%;
+
                 opacity: 1;
             }
             &::before {
@@ -159,12 +166,12 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                @include transform(translate(-50%, -50%));
 
                 color: rgba(255, 255, 255, 1);
-                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 font-size: 20px;
                 font-weight: 900;
+                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
             }
         }
         &-item {
@@ -172,12 +179,12 @@
             z-index: -1;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             transition: 0.5s;
             opacity: 0;
-            text-shadow: none;
 
+            text-shadow: none;
             text-align: center;
             &_south-eastern-asia {
                 width: 200px;
@@ -187,50 +194,49 @@
             }
             &_visible {
                 opacity: 1;
-
                 &-southern-asia,
                 &-southern-africa,
                 &-south-america {
-                    transform: translate(-120%, 100%);
+                    @include transform(translate(-120%, -100%));
                 }
                 &-western-asia,
                 &-western-europe,
                 &-western-africa {
-                    transform: translate(-175%, -50%);
+                    @include transform(translate(-175%, -50%));
                 }
                 &-central-asia,
                 &-northern-europe,
                 &-northern-africa,
                 &-northern-america {
-                    transform: translate(-50%, -200%);
+                    @include transform(translate(-50%, -200%));
                 }
                 &-eastern-asia,
                 &-eastern-europe,
                 &-eastern-africa,
                 &-caribbean-america {
-                    transform: translate(100%, -50%);
+                    @include transform(translate(100%, -50%));
                 }
                 &-southern-europe {
-                    transform: translate(-50%, 100%);
+                    @include transform(translate(-50%, 100%));
                 }
                 &-micronesia-oceania {
-                    transform: translate(75%, -400%);
+                    @include transform(translate(75%, -400%));
                 }
                 &-melanesia-oceania {
-                    transform: translate(50%, -200%);
+                    @include transform(translate(50%, -200%));
                 }
                 &-polynesia-oceania {
-                    transform: translate(110%, 0%);
+                    @include transform(translate(110%, 0%));
                 }
                 &-australia-oceania {
-                    transform: translate(-150%, 0%);
+                    @include transform(translate(-150%, 0%));
                 }
                 &-middle-africa,
                 &-central-america {
-                    transform: translate(40%, 100%);
+                    @include transform(translate(40%, 100%));
                 }
                 &-south-eastern-asia {
-                    transform: translate(5%, 100%);
+                    @include transform(translate(5%, 100%));
                 }
             }
         }
@@ -239,14 +245,14 @@
             z-index: 2;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             transition: 1s;
-            opacity: 0;
             cursor: pointer;
-            user-select: none;
+            opacity: 0;
 
             color: rgba(255, 255, 255, 1);
+            user-select: none;
             letter-spacing: 2px;
             font-size: 30px;
             &_invisible {
@@ -261,6 +267,7 @@
             &_asia {
                 top: 20%;
                 left: 80%;
+
                 opacity: 1;
                 &-menu-mode {
                     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
@@ -275,6 +282,7 @@
             &_africa {
                 top: 80%;
                 left: 20%;
+
                 opacity: 1;
                 &-menu-mode {
                     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
@@ -283,6 +291,7 @@
             &_oceania {
                 top: 80%;
                 left: 80%;
+
                 opacity: 1;
                 &-menu-mode {
                     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
@@ -291,6 +300,7 @@
             &_america {
                 top: 20%;
                 left: 20%;
+
                 opacity: 1;
                 &-menu-mode {
                     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);

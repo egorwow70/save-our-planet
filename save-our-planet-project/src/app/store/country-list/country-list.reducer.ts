@@ -261,6 +261,55 @@ export function countryListReducer(
 				isShowCapitalsMode: !state.isShowCapitalsMode,
 			};
 		}
+		case countryListActionsType.countCountryForestArea: {
+			const currentCountry: Country = [...state.countryList].filter((country: Country) => Boolean(country))
+				.find((country: Country) => {
+					if (country.id === action.donation.country.id) {
+						return country.clone();
+					}
+				});
+			if (Boolean(currentCountry)) {
+				const currentCountryId: string = currentCountry.id;
+				const currentCountryArea: number = currentCountry.area;
+				const currentCountryForestAreaInProcents: number = currentCountry.forestArea;
+
+				const oneHundredProcents: number = 100;
+				const currentCountryForestAreaInSqKm: number = currentCountryArea * currentCountryForestAreaInProcents / oneHundredProcents;
+				const donationTreeNumber: number = action.donation.treeDonation.amount;
+				const newCountryForestAreaInSqKm: number = currentCountryForestAreaInSqKm + donationTreeNumber;
+				const newCountryForestAreaInProcents: number = newCountryForestAreaInSqKm * oneHundredProcents / currentCountryArea;
+
+				return {
+					...state,
+					countryList: [...state.countryList].filter((country: Country) => Boolean(country))
+						.map((country: Country) => {
+							if (country.id === currentCountryId) {
+								const newCountry: Country = currentCountry.clone();
+								newCountry.forestArea = newCountryForestAreaInProcents;
+								return newCountry.clone();
+							} else {
+								return country.clone();
+							}
+						}),
+					countriesForestAreaData: [...state.countriesForestAreaData].map((forestAreaObject: CountryForestAreaInterface) => {
+						if (forestAreaObject.id === currentCountryId) {
+							return {
+								id: currentCountryId,
+								value: String(newCountryForestAreaInProcents)
+							};
+						} else {
+							return {
+								...forestAreaObject
+							};
+						}
+					})
+				};
+			} else {
+				return {
+					...state
+				};
+			}
+		}
 		default: {
 			return {
 				...state

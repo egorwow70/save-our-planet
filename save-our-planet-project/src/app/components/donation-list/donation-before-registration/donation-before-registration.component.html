@@ -64,13 +64,13 @@
                 Key Feature: {{ donation.treeDonation.tree.keyFeature }}
             </div>
             <div class="-app-donation__details-item  -app-donation__details-item _tree-number">
-                Amount: {{ donation.treeDonation.amount}}
+                Amount: {{ (donation.treeDonation.amount) | formatDonationBeforeRegistrationTreeAmount }}
             </div>
             <div class="-app-donation__details-item  -app-donation__details-item _tree-cost">
-                Cost: {{ donation.treeDonation.tree.cost }}
+                Cost: {{ (donation.treeDonation.tree.cost) | currency }}
             </div>
             <div class="-app-donation__details-item  -app-donation__details-item _total-cost">
-                Total Cost: {{ donation.treeDonation.cost}}
+                Total Cost: {{ (donation.treeDonation.cost) | currency }}
             </div>
             <div 
                 class="-app-donation__details-item  -app-donation__details-item _country"
@@ -86,6 +86,8 @@
     </div>
     <button 
         class="-app-donation__donation-button -app-donation__donation-button_make"
+        [disabled]="!isChoosenCountry"
+        title="{{ !isChoosenCountry ? 'select country before donation' : 'donate' }}"
         (click)="makeDonation()">
         make donation
     </button>

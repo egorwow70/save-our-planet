@@ -1,3 +1,10 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
 :host {
     width: 100%;
     height: 100vh;
@@ -28,9 +35,9 @@
         width: 1000px;
         height: 700px;
 
-        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
         border: 2px solid white;
         border-radius: 10px;
+        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
 
         background-color: rgba(0, 0, 0, 0.6);
     }
@@ -41,9 +48,7 @@
 
         width: 100%;
         height: 20%;
-
         padding: 0px 50px;
-
         box-sizing: border-box;
     }
     &__bar-link {
@@ -51,18 +56,16 @@
 
         width: 70px;
         height: 70px;
-
         margin: 0px 30px;
 
         transition: 0.3s;
         cursor: pointer;
 
-        box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.3);
         border: 2px solid rgba(0, 0, 0, 1);
         border-radius: 50%;
+        box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.3);
 
         background-color: rgba(0, 0, 0, 0.6);
-
         &:hover {
             transition: 0.3s;
 
@@ -75,13 +78,13 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             color: white;
             text-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
-            font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
             font-size: 24px;
             font-weight: 900;
+            font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
         }
         &_vk {
             &::before {
@@ -122,19 +125,15 @@
 
         width: 50%;
         height: 100%;
-
         padding: 30px;
+        box-sizing: border-box;
 
         transition: 0.2s;
-
-        box-sizing: border-box;
 
         color: white;
         &-title {
             width: 100%;
-
             margin: 0px;
-
             padding: 20px;
 
             text-transform: uppercase;
@@ -151,7 +150,7 @@
                 z-index: 5;
                 top: 50%;
                 left: 0%;
-                transform: translate(0%, -50%);
+                @include transform(translate(0%, -50%));
 
                 width: 100%;
                 height: 40px;
@@ -175,7 +174,7 @@
                     & ~ .-app-contacts__form-item-label {
                         top: 0%;
                         left: 0%;
-                        transform: translate(0%, -50%);
+                        @include transform(translate(0%, -50%));
 
                         opacity: 1;
                     }
@@ -191,7 +190,6 @@
                 width: 100%;
                 min-height: 150px;
                 max-height: 200px;
-
                 resize: vertical;
 
                 outline: none;
@@ -203,9 +201,9 @@
                 color: white;
                 text-align: left;
                 letter-spacing: 1px;
-                font-family: Arial, Helvetica, sans-serif;
                 font-size: 18px;
-                font-weight: 500;
+                font-weight: 600;
+                font-family: 'NotoSans', sans-serif;
             }
             &-line {
                 position: absolute;
@@ -229,7 +227,7 @@
                 z-index: 4;
                 top: 50%;
                 left: 0%;
-                transform: translate(0%, -50%);
+                @include transform(translate(0%, -50%));
 
                 transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
                 -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -241,7 +239,7 @@
                 letter-spacing: 1.5px;
                 &_textarea {
                     top: 2.5%;
-                    transform: translate(0%, 0%);
+                    @include transform(translate(0%, 0%));
                 }
                 &_invisible {
                     opacity: 0;
@@ -252,23 +250,22 @@
                 z-index: 1;
                 top: 45%;
                 right: 0%;
-                transform: translate(0%, -50%);
+                @include transform(translate(0%, -50%));
 
                 width: 50px;
                 height: 50px;
 
                 transition: 0.3s;
-                opacity: 0;
                 cursor: pointer;
+                opacity: 0;
 
                 outline: none;
                 border: none;
 
                 background: none;
-
                 &_textarea {
                     top: 0%;
-                    transform: translate(0%, -25%);
+                    @include transform(translate(0%, 25%));
                 }
                 &_invalid {
                     opacity: 1;
@@ -288,12 +285,12 @@
                     z-index: 2;
                     top: 50%;
                     left: 50%;
-                    transform: translate(-50%, -50%);
+                    @include transform(translate(-50%, -50%));
 
                     color: #ffa899;
-                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                     font-size: 24px;
                     font-weight: 600;
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 }
             }
             &-check {
@@ -301,23 +298,22 @@
                 z-index: 1;
                 top: 45%;
                 right: 0%;
-                transform: translate(0%, -50%);
+                @include transform(translate(0%, -50%));
 
                 width: 50px;
                 height: 50px;
 
                 transition: 0.3s;
-                opacity: 0;
                 cursor: pointer;
+                opacity: 0;
 
                 outline: none;
                 border: none;
 
                 background: none;
-
                 &_textarea {
                     top: 0%;
-                    transform: translate(0%, -25%);
+                    @include transform(translate(0%, -25%));
                 }
                 &_valid {
                     opacity: 1;
@@ -337,37 +333,35 @@
                     z-index: 2;
                     top: 50%;
                     left: 50%;
-                    transform: translate(-50%, -50%);
+                    @include transform(translate(-50%, -50%));
 
                     color: white;
-                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                     font-size: 24px;
                     font-weight: 600;
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 }
             }
         }
         &-button {
             width: 60%;
             height: 80px;
-
             margin: 25px 0px;
 
             transition: 0.3s;
-            opacity: 1;
             cursor: pointer;
+            opacity: 1;
 
             outline: none;
-            box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
             border: 2px solid white;
+            box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
 
             background: transparent;
 
             color: white;
-            font-size: 20px;
-            text-transform: uppercase;
-            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-size: 20px;
+            font-weight: 600;
             &[disabled] {
                 cursor: default;
                 opacity: 0.6;
@@ -399,13 +393,13 @@
 
             transition: 0.3s;
             cursor: pointer;
-            user-select: none;
-
+           
             color: white;
+            user-select: none;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
             text-decoration: none;
-            font-size: 20px;
             letter-spacing: 2px;
+            font-size: 20px;
             font-weight: 600;
             &:hover {
                 letter-spacing: 3px;
@@ -419,7 +413,7 @@
                 position: absolute;
                 bottom: 25%;
                 left: 50%;
-                transform: translate(-50%, 0%);
+                @include transform(translate(-50%, 0%));
 
                 transition: 0.3s;
 

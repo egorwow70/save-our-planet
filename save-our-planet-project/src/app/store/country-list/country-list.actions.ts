@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import { Country } from 'src/app/models/country-list/country';
 import { Capital } from 'src/app/models/country-list/capital';
+import { Donation } from 'src/app/models/donation-list/donation';
 
 export enum countryListActionsType {
 	initCountries = '[COUNTRY-LIST/API] Init-Countries Country-List',
@@ -21,6 +22,7 @@ export enum countryListActionsType {
 	toggleShowCapitalsMode = '[COUNTRY-LIST/API] Toggle-Is-Show-Capitals-Mode Country-List',
 	searchMapCountry = '[COUNTRY-LIST/API] Search-Map-Country Country-List',
 	dontSearchMapCountry = '[COUNTRY-LIST/API] Dont-Search-Map-Country Country-List',
+	countCountryForestArea = '[COUNTRY-LIST/API] Count-Country-Forest-Area Country-List',
 }
 
 export class InitCountryListAction implements Action {
@@ -193,6 +195,19 @@ export class DontSearchMapCountryAction implements Action {
 	public readonly type: string = countryListActionsType.dontSearchMapCountry;
 }
 
+// tslint:disable-next-line: max-classes-per-file
+export class CountCountryForestAreaAction implements Action {
+	public readonly type: string = countryListActionsType.countCountryForestArea;
+
+	constructor(private _payload: {
+		donation: Donation
+	}) { }
+
+	public get donation(): Donation {
+		return this._payload.donation;
+	}
+}
+
 export type CountryListActions =
 	InitCountryListAction
 	| InitCountryListSuccessAction
@@ -209,4 +224,5 @@ export type CountryListActions =
 	| ToggleMapModeCountryListAction
 	| ToggleShowCapitalsModeCountryListAction
 	| SearchMapCountryAction
-	| DontSearchMapCountryAction;
+	| DontSearchMapCountryAction
+	| CountCountryForestAreaAction;
