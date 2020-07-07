@@ -14,6 +14,14 @@
     transition: $args;
 }
 
+@mixin transition-delay($args...) {
+    -webkit-transition-delay: $args;
+    -moz-transition-delay: $args;
+    -ms-transition-delay: $args;
+    -o-transition-delay: $args;
+    transition-delay: $args;
+}
+
 @mixin opacity($opacity) {
     opacity: $opacity;
     $opacity-ie: $opacity * 100;
@@ -501,13 +509,13 @@
                 font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
             }
             &_registration-mode {
-                transition-delay: 0.8s;
+                @include transition-delay(0.8s);
 
                 top: 10%;
                 left: 90%;
                 @include transform(translate(-50%, -50%) rotate(45deg));
                 &::before {
-                    transition-delay: 0.8s;
+                    @include transition-delay(0.8s);
                     color: black;
                 }
             }
@@ -516,7 +524,7 @@
                 left: 50%;
                 @include transform(translate(-50%, -50%) rotate(0deg));
                 &::before {
-                    transition-delay: 0.8s;
+                    @include transition-delay(0.8s);
                     color: white;
                 }
             }
