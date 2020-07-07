@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Country } from 'src/app/models/country-list/country';
 import { selectSubRegionsCountries, selectSearchCountry } from 'src/app/store/country-list/country-list.selectors';
 import { FacadeServiceCountryList } from 'src/app/store/country-list/country-list.facade';
+import { selectCountriesForDonation } from 'src/app/store/donation-list/donation-list.selectors';
 
 @Component({
 	selector: 'app-region',
@@ -20,6 +21,8 @@ export class RegionComponent implements OnInit, OnDestroy {
 
 	private _windowScrollHeight: Number = 2;
 	private _scrollBlock: HTMLElement;
+
+	private _countriesForDonation: Country[];
 
 	public regionName: string;
 	public subRegionName: string;
@@ -74,6 +77,15 @@ export class RegionComponent implements OnInit, OnDestroy {
 				}
 			});
 
+		this._store$.select(selectCountriesForDonation)
+			.pipe(
+				takeUntil(this._destroySubject$)
+			).subscribe((countriesForDonation: Country[]) => {
+				if (Boolean(countriesForDonation)) {
+					this._countriesForDonation = countriesForDonation;
+				}
+			});
+
 		this._store$.select(selectSubRegionsCountries)
 			.pipe(
 				delay(0),
@@ -96,6 +108,13 @@ export class RegionComponent implements OnInit, OnDestroy {
 
 	public scrollTop(): void {
 		this._scrollBlock.scrollTo(0, 0);
+	}
+
+	public canDeactivate(): boolean {
+		const deactivateQuestion: string = 'You haven’t chosen country. Are you sure that you want to go from this page? For donation you need at least one country';
+		return (!Boolean(this._countriesForDonation))
+			? confirm(deactivateQuestion)
+			: true;
 	}
 
 }

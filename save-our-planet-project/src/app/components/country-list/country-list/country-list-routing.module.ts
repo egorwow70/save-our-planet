@@ -5,7 +5,7 @@ import { RegionComponent } from '../region/region.component';
 import { CountryComponent } from '../country/country.component';
 import { CanProceedToRegionGuard } from 'src/app/guards/country-list/can-proceed-to-region.guard';
 import { CanProceedToCountryGuard } from 'src/app/guards/country-list/can-proceed-to-country.guard';
-import { CanLeaveCountryGuard } from 'src/app/guards/country-list/can-leave-country.guard';
+import { CanLeaveRegionGuard } from 'src/app/guards/country-list/can-leave-country.guard';
 
 const routes: Routes = [
 	{
@@ -16,11 +16,11 @@ const routes: Routes = [
 		path: 'region/:regionName/:subRegionName',
 		component: RegionComponent,
 		canActivate: [CanProceedToRegionGuard],
+		canDeactivate: [CanLeaveRegionGuard],
 		children: [{
 			path: 'country/:countryName',
 			component: CountryComponent,
-			canActivate: [CanProceedToCountryGuard],
-			canDeactivate: [CanLeaveCountryGuard]
+			canActivate: [CanProceedToCountryGuard]
 		}]
 	},
 ];

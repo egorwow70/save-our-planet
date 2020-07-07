@@ -25,8 +25,6 @@ export class CountryComponent implements OnInit, OnDestroy {
 
 	private _appNavigationDonationButton: HTMLElement;
 
-	private _isChosenAtLeastOneCountry: boolean;
-
 	private _selectedCountriesForDonation: Country[];
 
 	public isSearchLoading: boolean = true;
@@ -100,7 +98,6 @@ export class CountryComponent implements OnInit, OnDestroy {
 				takeUntil(this._destroySubject$)
 			).subscribe((selectedCountriesForDonation: Country[]) => {
 				if (Boolean(selectedCountriesForDonation)) {
-					this._isChosenAtLeastOneCountry = true;
 					this._selectedCountriesForDonation = selectedCountriesForDonation;
 				}
 			});
@@ -174,13 +171,6 @@ export class CountryComponent implements OnInit, OnDestroy {
 	public switchToNextCountry(): void {
 		const nextCountryName: string = this.nextCountry.name;
 		this.switchRouterToSomeCountry(nextCountryName);
-	}
-
-	public canDeactivate(): boolean {
-		const deactivateQuestion: string = 'You haven’t chosen country. Are you sure that you want to go from this page? For donation you need at least one country';
-		return (!this._isChosenAtLeastOneCountry)
-			? confirm(deactivateQuestion)
-			: true;
 	}
 
 }
