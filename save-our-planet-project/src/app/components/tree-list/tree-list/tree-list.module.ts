@@ -9,6 +9,7 @@ import { CanProceedToTreeCategoryGuard } from 'src/app/guards/tree-list/can-proc
 import { CanProceedToTreeGuard } from 'src/app/guards/tree-list/can-proceed-to-tree.guard';
 import { CanLeaveTreeCategoryGuard } from 'src/app/guards/tree-list/can-leave-tree-category.guard';
 import { FormatTreeCategoryTitlePipe } from 'src/app/pipes/tree-list/format-tree-category-title.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,8 @@ import { FormatTreeCategoryTitlePipe } from 'src/app/pipes/tree-list/format-tree
 	imports: [
 		TreeListRoutingModule,
 		CommonModule,
+		FormsModule,
+		ReactiveFormsModule
 	],
 	providers: [
 		CanProceedToTreeCategoryGuard,

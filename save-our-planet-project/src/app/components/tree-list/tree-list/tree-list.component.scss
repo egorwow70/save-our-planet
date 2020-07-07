@@ -155,6 +155,7 @@ $blackOpacity0-4: rgba(0, 0, 0, 0.4);
         color: $black;
         user-select: none;
         text-transform: uppercase;
+        text-align: center;
         letter-spacing: 24px;
         font-style: italic;
     }
@@ -283,9 +284,13 @@ $blackOpacity0-4: rgba(0, 0, 0, 0.4);
         }
         &-title {
             top: 40%;
+
+            font-size: 20px;
         }
         &-sub-title {
             bottom: 5%;
+
+            font-size: 17px;
         }
         &-image {
             position: absolute;
@@ -310,13 +315,13 @@ $blackOpacity0-4: rgba(0, 0, 0, 0.4);
                 background-image: url('../../../../assets/images/tree-list/tree-list-patio-fruit-trees-bg.jpg');
             }
             &_evergreen {
-                background-image: url('../../../../assets/images/tree-list/tree-list-evergreen-bg.jpg');
+                background-image: url('../../../../assets/images/tree-list/tree-list-evergreen-trees-bg.jpg');
             }
             &_potgrown {
                 background-image: url('../../../../assets/images/tree-list/tree-list-pot-grown-trees-bg.jpg');
             }
             &_shrubs {
-                background-image: url('../../../../assets/images/tree-list/tree-list-shrubs-bg.jpg');
+                background-image: url('../../../../assets/images/tree-list/tree-list-shrubs-trees-bg.jpg');
             }
         }
     }

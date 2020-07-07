@@ -91,7 +91,7 @@ export class ContactsComponent {
 			]),
 			userEmail: new FormControl('', [
 				Validators.required,
-				Validators.pattern('^[^\s@]+@[^\s@]+\.[^\s@]+$')
+				Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
 			]),
 			userMessage: new FormControl('', [
 				Validators.required
