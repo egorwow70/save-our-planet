@@ -6,6 +6,8 @@ import { Store } from '@ngrx/store';
 import { selectTreeCategoryTrees, selectIsTreeRouterModeAction } from 'src/app/store/tree-list/tree-list.selectors';
 import { Tree } from 'src/app/models/tree-list/tree';
 import { FacadeServiceTreeList } from 'src/app/store/tree-list/tree-list.facade';
+import { selectDonationListBeforeRegistration } from 'src/app/store/donation-list/donation-list.selectors';
+import { Donation } from 'src/app/models/donation-list/donation';
 
 @Component({
 	selector: 'app-tree-category',
@@ -17,6 +19,8 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 	private _destroySubject$: Subject<boolean> = new Subject();
 
 	private _windowScrollHeight: number = 20;
+
+	private _donationListBeforeRegistration: Donation[];
 
 	public treeCategory: string;
 
@@ -64,6 +68,13 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 			).subscribe((isTreeRouterMode: boolean) => {
 				this.treeMode = isTreeRouterMode;
 			});
+		this._store$.select(selectDonationListBeforeRegistration)
+			.pipe(
+				delay(0),
+				takeUntil(this._destroySubject$)
+			).subscribe((donationListBeforeRegistration: Donation[]) => {
+				this._donationListBeforeRegistration = donationListBeforeRegistration;
+			});
 	}
 
 	public ngOnDestroy(): void {
@@ -79,6 +90,13 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 
 	public scrollTop(): void {
 		window.scrollTo(0, 0);
+	}
+
+	public canDeactivate(): boolean {
+		const deactivateQuestion: string = 'You haven’t chosen any tree. Are you sure that you want to go from this page? For donation you need at least one tree';
+		return (!Boolean(this._donationListBeforeRegistration))
+			? confirm(deactivateQuestion)
+			: true;
 	}
 
 }

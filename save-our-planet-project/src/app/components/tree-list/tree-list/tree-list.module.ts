@@ -7,7 +7,7 @@ import { TreeListRoutingModule } from './tree-list-routing.module';
 import { CommonModule } from '@angular/common';
 import { CanProceedToTreeCategoryGuard } from 'src/app/guards/tree-list/can-proceed-to-tree-category.guard';
 import { CanProceedToTreeGuard } from 'src/app/guards/tree-list/can-proceed-to-tree.guard';
-import { CanLeaveTreeGuard } from 'src/app/guards/tree-list/can-leave-tree.guard';
+import { CanLeaveTreeCategoryGuard } from 'src/app/guards/tree-list/can-leave-tree-category.guard';
 import { FormatTreeCategoryTitlePipe } from 'src/app/pipes/tree-list/format-tree-category-title.pipe';
 
 @NgModule({
@@ -25,7 +25,7 @@ import { FormatTreeCategoryTitlePipe } from 'src/app/pipes/tree-list/format-tree
 	providers: [
 		CanProceedToTreeCategoryGuard,
 		CanProceedToTreeGuard,
-		CanLeaveTreeGuard
+		CanLeaveTreeCategoryGuard
 	],
 	bootstrap: [TreeListComponent]
 })

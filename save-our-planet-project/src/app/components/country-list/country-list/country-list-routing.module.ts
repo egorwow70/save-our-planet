@@ -5,7 +5,7 @@ import { RegionComponent } from '../region/region.component';
 import { CountryComponent } from '../country/country.component';
 import { CanProceedToRegionGuard } from 'src/app/guards/country-list/can-proceed-to-region.guard';
 import { CanProceedToCountryGuard } from 'src/app/guards/country-list/can-proceed-to-country.guard';
-import { CanLeaveRegionGuard } from 'src/app/guards/country-list/can-leave-country.guard';
+import { CanLeaveRegionGuard } from 'src/app/guards/country-list/can-leave-region.guard';
 
 const routes: Routes = [
 	{
