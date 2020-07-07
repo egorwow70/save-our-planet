@@ -14,6 +14,41 @@
     transition: $args;
 }
 
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@include keyframes(fromBottomToTopLetter) {
+    0% {
+        bottom: 0%;
+    }
+    100% {
+        bottom: 45%;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};      
+}
+
 :host {
     position: relative;
 
@@ -36,14 +71,6 @@
     }
 }
 
-@keyframes fromBottomToTopLetter {
-    0% {
-        bottom: 0%;
-    }
-    100% {
-        bottom: 45%;
-    }
-}
 .-app-not-found {
     display: flex;
     flex-direction: column;
@@ -82,16 +109,13 @@
             left: 50%;
             @include transform(translate(-50%, 0%));
             &_left {
-                animation: 2s fromBottomToTopLetter 1s infinite alternate;
-                animation-timing-function: ease-out;
+                @include animation('2s ease-out fromBottomToTopLetter 1s infinite alternate');
             }
             &_middle {
-                animation: 2s fromBottomToTopLetter 1.3s infinite alternate;
-                animation-timing-function: ease-out;
+                @include animation('2s ease-out fromBottomToTopLetter 1.3s infinite alternate');
             }
             &_right {
-                animation: 2s fromBottomToTopLetter 0.7s infinite alternate;
-                animation-timing-function: ease-out;
+                @include animation('2s ease-out fromBottomToTopLetter 0.7s infinite alternate');
             }
         }
     }
