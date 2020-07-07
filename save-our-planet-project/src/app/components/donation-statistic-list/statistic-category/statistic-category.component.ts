@@ -142,7 +142,7 @@ export class StatisticCategoryComponent implements OnInit, OnDestroy, AfterViewI
 		this._zone.runOutsideAngular(() => {
 			am4core.useTheme(am4themes_animated);
 
-			const chart: am4charts.XYChart = am4core.create('-app-all-donators__chart', am4charts.XYChart);
+			const chart: am4charts.XYChart = am4core.create('-app-statistic__chart', am4charts.XYChart);
 			chart.hiddenState.properties.opacity = 0;
 
 			const optionsMinPolylineStep: number = 5;
@@ -189,7 +189,7 @@ export class StatisticCategoryComponent implements OnInit, OnDestroy, AfterViewI
 			series.sequencedInterpolation = true;
 			series.fillOpacity = 1;
 			series.strokeOpacity = 1;
-			const seriesColumnsWidth: number = 3.5;
+			const seriesColumnsWidth: number = 2.5;
 			series.columns.template.width = seriesColumnsWidth;
 			series.tooltip.pointerOrientation = 'horizontal';
 
@@ -219,6 +219,8 @@ export class StatisticCategoryComponent implements OnInit, OnDestroy, AfterViewI
 						series.tooltipText = '{categoryX}: [bold]{valueY}$[/b]';
 					}
 				});
+
+			const bullet: am4core.Sprite = series.bullets.create(am4charts.CircleBullet);
 
 			chart.cursor = new am4charts.XYCursor();
 

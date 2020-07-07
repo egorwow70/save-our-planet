@@ -1,55 +1,61 @@
-<div class="-app-all-donators">
-    <div class="-app-all-donators__header">
-        <div class="-app-all-donators__header-menu">
-            <div class="-app-all-donators__sort">
+<div class="-app-statistic">
+    <div class="-app-statistic__header">
+        <div class="-app-statistic__header-menu">
+            <div class="-app-statistic__sort">
                 <button 
-                    class="-app-all-donators__sort-button -app-all-donators__sort-button_top"
+                    class="-app-statistic__sort-button -app-statistic__sort-button_top"
                     (click)="sortTop()"
                     title="by increase"
+                    [class.-app-statistic__sort-button_top-active]="statisticDataIsSortedByIncrease"
                     [disabled]="statisticDataIsSortedByIncrease">
                 </button>
                 <button 
-                    class="-app-all-donators__sort-button -app-all-donators__sort-button_bottom"
+                    class="-app-statistic__sort-button -app-statistic__sort-button_bottom"
                     (click)="sortBottom()"
                     title="by decrease"
+                    [class.-app-statistic__sort-button_bottom-active]="statisticDataIsSortedByDecrease"
                     [disabled]="statisticDataIsSortedByDecrease">
                 </button>
             </div>
             <button
-                class="-app-all-donators__header-button -app-all-donators__header-button_by-tree" 
+                class="-app-statistic__header-button -app-statistic__header-button_by-tree" 
                 (click)="switchStatisticRouter(byTreeLink)"
                 title="by tree"
+                [class.-app-statistic__header-button_by-tree-active]="isInitedStatisticDataByTree"
                 [disabled]="isInitedStatisticDataByTree"
                 #byTreeLink>
             </button>
-            <div class="-app-all-donators__header-title">
+            <div class="-app-statistic__header-title">
                 {{ statisticSubCategory }}
             </div>
             <button 
-                class="-app-all-donators__header-button -app-all-donators__header-button_by-cost" 
+                class="-app-statistic__header-button -app-statistic__header-button_by-cost" 
                 (click)="switchStatisticRouter(byCostLink)"
                 title="by cost"
+                [class.-app-statistic__header-button_by-cost-active]="isInitedStatisticDataByCost"
                 [disabled]="isInitedStatisticDataByCost"
                 #byCostLink>
             </button>
         </div>
-        <div class="-app-all-donators__header-menu">
+        <div class="-app-statistic__header-menu">
             <button 
-                class="-app-all-donators__header-menu-button"
+                class="-app-statistic__header-menu-button"
                 (click)="switchStatisticRouter(byCostLink, all)"
+                [class.-app-statistic__header-menu-button_active]="isInitedAllDataStatistic"
                 [disabled]="isInitedAllDataStatistic"
                 #all>
                 all
             </button>
             <button 
-                class="-app-all-donators__header-menu-button"
+                class="-app-statistic__header-menu-button"
                 (click)="switchStatisticRouter(byCostLink, topTen)"
+                [class.-app-statistic__header-menu-button_active]="isInitedTopTenDataStatistic"
                 [disabled]="isInitedTopTenDataStatistic"
                 #topTen>
                 top-10
             </button>
         </div>
     </div>
-    <div class="-app-all-donators__chart">
+    <div class="-app-statistic__chart">
     </div>
 </div>
