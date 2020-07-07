@@ -5,6 +5,15 @@
     -o-transform: $property; 
     transform: $property;
 }
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
 :host {
     position: relative;
 
@@ -30,7 +39,7 @@
 
             width: 100%;
 
-            transition: 3s;
+            @include transition(3s);
             &_forest {
                 height: 100%;
 

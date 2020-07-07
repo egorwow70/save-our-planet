@@ -5,6 +5,21 @@
     -o-transform: $property; 
     transform: $property;
 }
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
 :host {
     position: fixed;
     right: 0;
@@ -176,7 +191,7 @@
             width: 100%;
             height: 2px;
 
-            transition: 0.4s;
+            @include  transition(0.4s);
 
             background-color: rgba(255, 255, 255, 1);
         }
@@ -208,7 +223,7 @@
             width: 100%;
             height: 2px;
 
-            transition: 0.4s;
+            @include  transition(0.4s);
 
             background-color: rgba(255, 255, 255, 1);
         }
@@ -250,7 +265,7 @@
         margin: 0;
         overflow: auto;
 
-        transition: 0.4s;
+        @include  transition(0.4s);
 
         text-align: center;
         letter-spacing: 2px;
@@ -275,7 +290,7 @@
         width: 100%;
         height: 100%;
 
-        transition: 0.4s;
+        @include  transition(0.4s);
         &_description-mode {
             position: absolute;
             top: 0%;
@@ -404,7 +419,7 @@
 
             padding: 15px 50px;
 
-            transition: 0.3s;
+            @include  transition(0.3s);
             cursor: pointer;
 
             outline: none;
@@ -434,10 +449,9 @@
 
         width: 40px;
         height: 40px;
-
         padding: 0px 10px;
 
-        transition: 0.3s;
+        @include  transition(0.3s);
         cursor: pointer;
 
         outline: none;
@@ -467,7 +481,7 @@
             font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
         }
         &.-app-current-tree__button[disabled] {
-            opacity: 0.6;
+            @include opacity(0.6);
         }
         &_plus {
             &::before {

@@ -5,6 +5,21 @@
     -o-transform: $property; 
     transform: $property;
 }
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
 :host {
     display: flex;
     justify-content: center;
@@ -34,10 +49,10 @@
 
 @keyframes blinkRegistration {
     0% {
-        opacity: 0;
+        @include opacity(0);
     }
     100% {
-        opacity: 1;
+        @include opacity(1);
         display: block;
     }
 }
@@ -63,8 +78,8 @@
         padding: 60px 50px 40px 50px;
         box-sizing: border-box;
 
-        transition: 0.2s;
-        opacity: 1;
+        @include  transition(0.2s);
+        @include opacity(1);
         
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
@@ -106,11 +121,11 @@
                 color: black;
             }
             animation: 0.4s blinkRegistration forwards 1s;
-            opacity: 0;
+            @include opacity(0);
         }
         &_not-login-mode {
             @include transform(translate(0%, -2.5%) scale(0.95));
-            opacity: 0.9;
+            @include opacity(0.9);
         }
         &__top-decoration {
             position: absolute;
@@ -122,15 +137,15 @@
             width: 95%;
             height: 20px;
 
-            transition: 0.2s;
-            opacity: 1;
+            @include  transition(0.2s);
+            @include opacity(1);
 
             border-radius: 20px 20px 0px 0px;
 
             background: rgba(255, 255, 255, 0.6);
             &_registration-mode {
                 @include transform(translate(-50%, -2%) scale(0.95));
-                opacity: 0.9;
+                @include opacity(0.9);
             }
         }
         &__title {
@@ -171,9 +186,9 @@
                 width: 50px;
                 height: 50px;
 
-                transition: 0.3s;
+                @include  transition(0.3s);
                 cursor: pointer;
-                opacity: 0;
+                @include opacity(0);
 
                 outline: none;
                 border: none;
@@ -181,7 +196,7 @@
                 background: none;
 
                 &_valid {
-                    opacity: 1;
+                    @include opacity(1);
 
                     z-index: 9000;
                     &.-app-registration-form__item-check::before {
@@ -221,16 +236,16 @@
                 width: 50px;
                 height: 50px;
 
-                transition: 0.3s;
+                @include  transition(0.3s);
                 cursor: pointer;
-                opacity: 0;
+                @include opacity(0);
 
                 outline: none;
                 border: none;
 
                 background: none;
                 &_invalid {
-                    opacity: 1;
+                    @include opacity(1);
 
                     z-index: 9000;
                     &.-app-registration-form__item-warning::before {
@@ -267,10 +282,9 @@
                 left: 0%;
                 @include transform(translate(0%, -50%));
 
-                transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                opacity: 1;
+
+                @include  transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
+                @include opacity(1);
 
                 letter-spacing: 1.5px;
                 font-weight: 600;
@@ -278,7 +292,7 @@
                     color: black;
                 }
                 &_invisible {
-                    opacity: 0;
+                    @include opacity(0);
                 }
             }
             &-line {
@@ -289,9 +303,7 @@
                 width: 0%;
                 height: 2px;
 
-                transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                @include  transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
 
                 background-color: #ffd4ad;
                 &_valid {
@@ -308,7 +320,7 @@
                 width: 100%;
                 height: 40px;
 
-                transition: 0.3s;
+                @include  transition(0.3s);
                 cursor: pointer;
 
                 outline: none;
@@ -329,7 +341,7 @@
                         left: 0%;
                         @include transform(translate(0%, -50%));
 
-                        opacity: 1;
+                        @include opacity(1);
                     }
                 }
             }
@@ -339,9 +351,9 @@
             height: 80px;
             margin: 25px 0px;
 
-            transition: 0.3s;
+            @include  transition(0.3s);
             cursor: pointer;
-            opacity: 1;
+            @include opacity(1);
 
             outline: none;
             border: 2px solid white;
@@ -402,7 +414,7 @@
             }
             &[disabled] {
                 cursor: default;
-                opacity: 0.7;
+                @include opacity(0.7);
 
                 box-shadow: none;
             }
@@ -438,9 +450,7 @@
             width: 130px;
             height: 130px;
 
-            transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            @include  transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
 
             border-radius: 50%;
 
@@ -471,9 +481,7 @@
 
             background: transparent;
 
-            transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            @include  transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
             &:hover {
                 &::before {
                     font-size: 34px;

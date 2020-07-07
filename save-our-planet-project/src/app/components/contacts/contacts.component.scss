@@ -5,6 +5,21 @@
     -o-transform: $property; 
     transform: $property;
 }
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
 :host {
     width: 100%;
     height: 100vh;
@@ -58,7 +73,7 @@
         height: 70px;
         margin: 0px 30px;
 
-        transition: 0.3s;
+        @include  transition(0.3s);
         cursor: pointer;
 
         border: 2px solid rgba(0, 0, 0, 1);
@@ -67,7 +82,7 @@
 
         background-color: rgba(0, 0, 0, 0.6);
         &:hover {
-            transition: 0.3s;
+            @include  transition(0.3s);
 
             box-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
             &::before {
@@ -128,7 +143,7 @@
         padding: 30px;
         box-sizing: border-box;
 
-        transition: 0.2s;
+        @include  transition(0.2s);
 
         color: white;
         &-title {
@@ -155,7 +170,7 @@
                 width: 100%;
                 height: 40px;
 
-                transition: 0.3s;
+                @include  transition(0.3s);
                 cursor: pointer;
 
                 outline: none;
@@ -176,7 +191,7 @@
                         left: 0%;
                         @include transform(translate(0%, -50%));
 
-                        opacity: 1;
+                        @include opacity(1);
                     }
                 }
             }
@@ -213,9 +228,7 @@
                 width: 0%;
                 height: 2px;
 
-                transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+                @include  transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
 
                 background-color: white;
                 &_valid {
@@ -229,10 +242,8 @@
                 left: 0%;
                 @include transform(translate(0%, -50%));
 
-                transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                -webkit-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-                opacity: 1;
+                @include transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
+                @include opacity(1);
 
                 color: white;
                 font-weight: 600;
@@ -242,7 +253,7 @@
                     @include transform(translate(0%, 0%));
                 }
                 &_invisible {
-                    opacity: 0;
+                    @include opacity(0);
                 }
             }
             &-warning {
@@ -255,9 +266,9 @@
                 width: 50px;
                 height: 50px;
 
-                transition: 0.3s;
+                @include transition(0.3s);
                 cursor: pointer;
-                opacity: 0;
+                @include opacity(0);
 
                 outline: none;
                 border: none;
@@ -268,7 +279,7 @@
                     @include transform(translate(0%, 25%));
                 }
                 &_invalid {
-                    opacity: 1;
+                    @include opacity(1);
 
                     z-index: 9000;
                     &.-app-contacts__form-item-warning::before {
@@ -303,9 +314,9 @@
                 width: 50px;
                 height: 50px;
 
-                transition: 0.3s;
+                @include transition(0.3s);
                 cursor: pointer;
-                opacity: 0;
+                @include opacity(0);
 
                 outline: none;
                 border: none;
@@ -316,7 +327,7 @@
                     @include transform(translate(0%, -25%));
                 }
                 &_valid {
-                    opacity: 1;
+                    @include opacity(1);
 
                     z-index: 9000;
                     &.-app-contacts__form-item-check::before {
@@ -347,9 +358,9 @@
             height: 80px;
             margin: 25px 0px;
 
-            transition: 0.3s;
+            @include transition(0.3s);
             cursor: pointer;
-            opacity: 1;
+            @include opacity(1);
 
             outline: none;
             border: 2px solid white;
@@ -364,7 +375,7 @@
             font-weight: 600;
             &[disabled] {
                 cursor: default;
-                opacity: 0.6;
+                @include opacity(0.6);
 
                 box-shadow: none;
                 &:hover {
@@ -391,7 +402,7 @@
 
             padding: 40px 20px;
 
-            transition: 0.3s;
+            @include transition(0.3s);
             cursor: pointer;
            
             color: white;
@@ -415,10 +426,10 @@
                 left: 50%;
                 @include transform(translate(-50%, 0%));
 
-                transition: 0.3s;
-
-                width: 00%;
+                width: 0%;
                 height: 2px;
+
+                @include transition(0.3s);
 
                 background-color: white;
             }

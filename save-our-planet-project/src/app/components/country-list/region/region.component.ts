@@ -4,7 +4,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Country } from 'src/app/models/country-list/country';
-import { selectSubRegionsCountries, selectSearchCountry, selectSearchMapCountry } from 'src/app/store/country-list/country-list.selectors';
+import { selectSubRegionsCountries, selectSearchCountry } from 'src/app/store/country-list/country-list.selectors';
 import { FacadeServiceCountryList } from 'src/app/store/country-list/country-list.facade';
 
 @Component({
@@ -16,7 +16,7 @@ export class RegionComponent implements OnInit, OnDestroy {
 
 	private _destroySubject$: Subject<boolean> = new Subject();
 
-	private _isSearchMapCountry: boolean;
+	private _isSearchCountry: boolean;
 
 	private _windowScrollHeight: Number = 2;
 	private _scrollBlock: HTMLElement;
@@ -64,12 +64,12 @@ export class RegionComponent implements OnInit, OnDestroy {
 				this._facadeCountryListService.searchSubRegionCountries(this.regionName, this.subRegionName);
 			});
 
-		this._store$.select(selectSearchMapCountry)
+		this._store$.select(selectSearchCountry)
 			.pipe(
 				takeUntil(this._destroySubject$)
-			).subscribe((searchMapCountry: Country) => {
-				if (Boolean(searchMapCountry)) {
-					this._isSearchMapCountry = true;
+			).subscribe((searchCountry: Country) => {
+				if (Boolean(searchCountry)) {
+					this._isSearchCountry = true;
 				}
 			});
 
@@ -79,7 +79,7 @@ export class RegionComponent implements OnInit, OnDestroy {
 			).subscribe((subRegionsCountries: Country[]) => {
 				if (Boolean(subRegionsCountries)) {
 					this.subRegionsCountries = subRegionsCountries;
-					if (!this._isSearchMapCountry) {
+					if (!this._isSearchCountry) {
 						this.navigateToCurrentSubRegionRoute();
 					}
 				}
