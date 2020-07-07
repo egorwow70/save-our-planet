@@ -1,3 +1,10 @@
+$white: rgba(255, 255, 255, 1);
+$blackOpacity0-8: rgba(0, 0, 0, 0.8);
+$blackOpacity0-6: rgba(0, 0, 0, 0.6);
+$blackOpacity0-2: rgba(0, 0, 0, 0.2);
+$dustyBlue: rgba(176, 223, 230, 1);
+$skyBlue: rgba(245, 254, 255, 1);
+
 @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
@@ -80,7 +87,7 @@
     width: 100%;
     height: 100%;
 
-    color: #f5feff;
+    color: $skyBlue;
     &__title {
         z-index: -1;
 
@@ -91,7 +98,7 @@
         width: 100%;
         height: 60%;
 
-        background: linear-gradient(180deg, rgb(176, 223, 230, 1), rgb(255, 255, 255, 1));
+        background: linear-gradient(180deg, $dustyBlue, $white);
         &-letter-wrapper {
             position: relative;
 
@@ -99,7 +106,7 @@
             width: 150px;
             padding: 0px 10px;
 
-            text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(0, 0, 0, 0.6);
+            text-shadow: 8px 8px 5px $blackOpacity0-2, 0px 0px 10px $blackOpacity0-6;
             font-size: 250px;
             font-weight: 600;
         }
@@ -136,7 +143,7 @@
             width: 100%;
             padding-bottom: 20px;
 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            text-shadow: 2px 2px 4px $blackOpacity0-6;
             text-transform: uppercase;
             text-align: center;
             letter-spacing: 2px;
@@ -150,21 +157,21 @@
             cursor: pointer;
 
             outline: none;
-            border: 2px solid #f5feff;
+            border: 2px solid $skyBlue;
             border-radius: 10px;
 
             background: transparent;
 
-            color: #f5feff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            color: $skyBlue;
+            text-shadow: 2px 2px 4px $blackOpacity0-6;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-size: 20px;
             font-weight: 600;
             &:hover {
-                background-color: #f5feff;
+                background-color: $skyBlue;
 
-                color: rgba(0, 0, 0, 0.8);
+                color: $blackOpacity0-8;
             }
         }
     }
