@@ -1,3 +1,9 @@
+$white: rgba(255, 255, 255, 1);
+$blackOpacity0-9: rgba(0, 0, 0, 0.9);
+$blackOpacity0-7: rgba(0, 0, 0, 0.7);
+$screamingGreen: rgba(135, 253, 135, 1);
+$screamingGreenOpacity0-8: rgba(135, 253, 135, 0.8);
+
 @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
@@ -74,7 +80,7 @@
         max-width: 100%;
         height: 100%;
 
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: $blackOpacity0-9;
     }
     &__toggle {
         position: absolute;
@@ -89,7 +95,7 @@
             @include  transition(0.3s);
             @include opacity(1);
 
-            color: white;
+            color: $white;
             letter-spacing: 1.5px;
             font-weight: 600;
             font-size: 18px;
@@ -115,10 +121,10 @@
             cursor: pointer;
 
             outline: none;
-            border: 2px solid white;
+            border: 2px solid $white;
             border-radius: 30px;
 
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: $blackOpacity0-9;
             &_globe-mode {
                 &.-app-country-map__toggle-button::before {
                     left: 95%;
@@ -139,7 +145,7 @@
                 @include  transition(0.3s);
 
                 border-radius: 50%;
-                background-color: rgba(135, 253, 135, 1);
+                background-color: $screamingGreen;
             }
         }
     }
@@ -158,7 +164,7 @@
             @include  transition(0.3s);
             @include opacity(0.4);
 
-            color: white;
+            color: $white;
             letter-spacing: 1.5px;
             font-weight: 600;
             font-size: 18px;
@@ -176,7 +182,7 @@
             cursor: pointer;
 
             outline: none;
-            border: 2px solid white;
+            border: 2px solid $white;
             border-radius: 50%;
 
             background: transparent;
@@ -201,7 +207,7 @@
 
                 border-radius: 50%;
 
-                background-color: rgba(135, 253, 135, 1);
+                background-color: $screamingGreen;
             }
         }
     }
@@ -218,11 +224,11 @@
 
             @include  transition(0.3s);
 
-            border: 2px solid rgba(135, 253, 135, 0.8);
+            border: 2px solid $screamingGreenOpacity0-8;
             border-radius: 15px;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: $blackOpacity0-7;
 
-            color: white;
+            color: $white;
             text-align: center;
             letter-spacing: 1.5px;
             line-height: 1.2;
@@ -263,7 +269,7 @@
                 left: 50%;
                 @include transform(translate(-50%, -50%));
 
-                color: rgba(135, 253, 135, 0.8);
+                color: $screamingGreenOpacity0-8;
                 font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 font-size: 24px;
             }
