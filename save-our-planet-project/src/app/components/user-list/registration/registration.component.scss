@@ -1,3 +1,14 @@
+$white: rgba(255, 255, 255, 1);
+$whiteOpacity0-6: rgba(255, 255, 255, 0.6);
+$black: rgba(0, 0, 0, 1);
+$blackOpacity0-8: rgba(0, 0, 0, 0.8);
+$blackOpacity0-6: rgba(0, 0, 0, 0.6);
+$blackOpacity0-4: rgba(0, 0, 0, 0.4);
+$blackOpacity0-2: rgba(0, 0, 0, 0.2);
+$peachCraiola: rgba(255, 212, 173, 1);
+$redSand: rgba(244, 166, 105, 1);
+$fireSiennaCraiola: rgba(226, 150, 93, 1);
+
 @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
@@ -116,43 +127,43 @@
         @include opacity(1);
         
         border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+        box-shadow: 0px 0px 10px $blackOpacity0-6;
 
-        background: rgba(0, 0, 0, 0.8);
+        background: $blackOpacity0-8;
 
-        color: white;
+        color: $white;
         &_registrate {
             display: none;
         }
         &_registration-mode {
-            background-color: #ffd4ad;
+            background-color: $peachCraiola;
 
-            color: black;
+            color: $black;
             & .-app-registration-form {
                 &__title {
                     &::before {
                         left: -49px;
 
-                        background-color: black;
+                        background-color: $black;
                     }
                 }
                 &__title,
                 &__sub-title {
-                    color: black;
+                    color: $black;
                 }
             }
             & .-app-registration-form__item {
                 &-input {
-                    color: black;
+                    color: $black;
                 }
                 &-line {
-                    background-color: black;
+                    background-color: $black;
                 }
             }
             & .-app-registration-form__button {
-                border: 2px solid black;
+                border: 2px solid $black;
 
-                color: black;
+                color: $black;
             }
             @include animation('0.4s blinkRegistration forwards 1s');
             @include opacity(0);
@@ -176,7 +187,7 @@
 
             border-radius: 20px 20px 0px 0px;
 
-            background: rgba(255, 255, 255, 0.6);
+            background: $whiteOpacity0-6;
             &_registration-mode {
                 @include transform(translate(-50%, -2%) scale(0.95));
                 @include opacity(0.9);
@@ -187,7 +198,7 @@
 
             width: 100%;
 
-            color: #ffd4ad;
+            color: $peachCraiola;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-size: 30px;
@@ -202,7 +213,7 @@
                 width: 4px;
                 height: 120%;
 
-                background-color: #ffd4ad;
+                background-color: $peachCraiola;
             }
         }
         &__item {
@@ -242,7 +253,7 @@
                 }
                 &.-app-registration-form__item-check_login {
                     &::before {
-                        color: #f4a669;
+                        color: $redSand;
                     }
                 }
                 &::before {
@@ -254,7 +265,7 @@
                     left: 50%;
                     @include transform(translate(-50%, -50%));
 
-                    color: #e2965d;
+                    color: $fireSiennaCraiola;
                     font-size: 24px;
                     font-weight: 600;
                     font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -291,7 +302,7 @@
                 }
                 &.-app-registration-form__item-warning_login {
                     &::before {
-                        color: #f4a669;
+                        color: $redSand;
                     }
                 }
                 &::before {
@@ -303,7 +314,7 @@
                     left: 50%;
                     @include transform(translate(-50%, -50%));
 
-                    color: #e2965d;
+                    color: $fireSiennaCraiola;
                     font-size: 24px;
                     font-weight: 600;
                     font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -323,7 +334,7 @@
                 letter-spacing: 1.5px;
                 font-weight: 600;
                 &_registration-mode {
-                    color: black;
+                    color: $black;
                 }
                 &_invisible {
                     @include opacity(0);
@@ -339,7 +350,7 @@
 
                 @include  transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
 
-                background-color: #ffd4ad;
+                background-color: $peachCraiola;
                 &_valid {
                     width: 100%;
                 }
@@ -362,7 +373,7 @@
 
                 background: transparent;
 
-                color: white;
+                color: $white;
                 letter-spacing: 1.5px;
                 font-weight: 600;
                 font-size: 18px;
@@ -390,54 +401,54 @@
             @include opacity(1);
 
             outline: none;
-            border: 2px solid white;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            border: 2px solid $white;
+            box-shadow: 2px 2px 8px $blackOpacity0-6;
 
             background: transparent;
 
-            color: white;
+            color: $white;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 20px;
             font-weight: 600;
             &:hover {
-                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+                box-shadow: 3px 3px 10px $blackOpacity0-6;
             }
             &_registrate {
                 &:hover {
                     &.-app-registration-form__button {
-                        border: 2px solid #e2965d;
+                        border: 2px solid $fireSiennaCraiola;
 
-                        background-color: #e2965d;
+                        background-color: $fireSiennaCraiola;
                     }
                 }
                 &[disabled] {
                     &:hover {
-                        border: 2px solid black;
+                        border: 2px solid $black;
 
                         background-color: transparent;
 
-                        color: black;
+                        color: $black;
                     }
                 }
             }
             &_login {
                 &:hover {
                     &.-app-registration-form__button {
-                        border: 2px solid #e2965d;
+                        border: 2px solid $fireSiennaCraiola;
 
-                        background-color: rgba(0, 0, 0, 0.2);
+                        background-color: $blackOpacity0-2;
 
-                        color: #e2965d;
+                        color: $fireSiennaCraiola;
                     }
                 }
                 &[disabled] {
                     &:hover {
-                        border: 2px solid white;
+                        border: 2px solid $white;
 
                         background-color: transparent;
 
-                        color: white;
+                        color: $white;
                     }
                 }
             }
@@ -458,7 +469,7 @@
 
             cursor: pointer;
 
-            color: #ffd4ad;
+            color: $peachCraiola;
             letter-spacing: 2px;
             &::before {
                 content: "";
@@ -471,7 +482,7 @@
                 width: 110%;
                 height: 2px;
 
-                background-color: #ffd4ad;
+                background-color: $peachCraiola;
             }
         }
         &__shape-button {
@@ -488,14 +499,14 @@
 
             border-radius: 50%;
 
-            background-color: #ffd4ad;
+            background-color: $peachCraiola;
             &_registration-mode {
                 top: 50%;
                 right: 50%;
                 @include transform(translate(50%, -50%));
 
                 @include animation('0.3s shapeButtonToRegistrationMode forwards 0.3s');
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+                box-shadow: 0px 0px 10px $blackOpacity0-4;
             }
         }
         &__plus {
@@ -529,7 +540,7 @@
                 left: 50%;
                 @include transform(translate(-50%, -50%));
 
-                color: white;
+                color: $white;
                 font-size: 30px;
                 font-weight: 900;
                 font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -542,7 +553,7 @@
                 @include transform(translate(-50%, -50%) rotate(45deg));
                 &::before {
                     @include transition-delay(0.8s);
-                    color: black;
+                    color: $black;
                 }
             }
             &_from-registration-mode {
@@ -551,7 +562,7 @@
                 @include transform(translate(-50%, -50%) rotate(0deg));
                 &::before {
                     @include transition-delay(0.8s);
-                    color: white;
+                    color: $white;
                 }
             }
         }
