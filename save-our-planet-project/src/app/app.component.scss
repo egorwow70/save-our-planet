@@ -1,3 +1,14 @@
+$greenJungleCraiola: rgba(68, 170, 153, 1);
+$white: rgba(255, 255, 255, 1);
+$whiteOpacity0-6: rgba(255, 255, 255, 0.6);
+$black: rgba(0, 0, 0, 1);
+$blackOpacity0-9: rgba(0, 0, 0, 0.9);
+$blackOpacity0-8: rgba(0, 0, 0, 0.8);
+$blackOpacity0-4: rgba(0, 0, 0, 0.4);
+$fernCraiola: rgba(105, 179, 105, 1);
+$honeyDew: rgba(207, 255, 192, 1);
+$verdepomovy: rgba(91, 219, 52, 1);
+
 @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
@@ -89,7 +100,7 @@
     }
     100% {
         @include opacity(1);
-        text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
+        text-shadow: 0px 0px 2px $whiteOpacity0-6;
     }
 }
 
@@ -120,10 +131,10 @@
 
 @include keyframes(blinkDonationButton) {
     0% {
-        color: white;
+        color: $white;
     }
     100% {
-        color: rgb(105, 179, 105);
+        color: $fernCraiola;
     }
 }
 
@@ -152,14 +163,14 @@
 
         @include  transition(0.4s);
 
-        border-right: 3px solid rgba(255, 255, 255, 1);
-        box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.4);
+        border-right: 3px solid $white;
+        box-shadow: 2px 0px 6px $blackOpacity0-4;
 
-        background-color: rgba(0, 0, 0, 1);
+        background-color: $black;
         &_menu-mode {
             width: 100%;
 
-            background-color: #cfffc0;
+            background-color: $honeyDew;
             .-app-navigation__button {
                 &:hover {
                     filter: brightness(0.8);
@@ -169,7 +180,7 @@
                         @include transform-origin(left top);
                         @include transform(translate(11px, -4px) rotate(45deg));
 
-                        background-color: rgba(0, 0, 0, 0.9);
+                        background-color: $blackOpacity0-9;
                     }
                     &_middle {
                         @include transform(scale(0));
@@ -180,7 +191,7 @@
                         transform-origin: right bottom;
                         @include transform(translate(-6px, -40px) rotate(-45deg));
 
-                        background-color: rgba(0, 0, 0, 0.9);
+                        background-color: $blackOpacity0-9;
                     }
                 }
             }
@@ -231,7 +242,7 @@
 
             text-decoration: none;
             &::before {
-                color: white;
+                color: $white;
                 font-size: 40px;
                 font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
             }
@@ -268,7 +279,7 @@
 
                 border-radius: 3px;
 
-                background-color: rgba(255, 255, 255, 1);
+                background-color: $white;
             }
         }
         &__menu {
@@ -301,8 +312,8 @@
                 @include  transition(0.2s);
                 cursor: pointer;
 
-                color: rgba(0, 0, 0, 0.9);
-                white-space: nowrap;
+                color: $blackOpacity0-9;
+                $white-space: nowrap;
                 text-decoration: none;
                 text-transform: uppercase;
                 font-size: 70px;
@@ -314,7 +325,7 @@
                 }
                 &:hover {
                     filter: brightness(0.9);
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+                    text-shadow: 2px 2px 4px $blackOpacity0-8;
                     &::before {
                         @include transform(translate(-50%, 0%) scale(1, 1));
                     }
@@ -335,7 +346,7 @@
                     @include animation('0.8s menuLine');
                     @include  transition(0.2s);
 
-                    background-color: rgb(0, 0, 0, 1);
+                    background-color: $black;
                 }
             }
         }
@@ -359,7 +370,7 @@
 
         user-select: none;
 
-        background-color: #000000;
+        background-color: $black;
         &__representation {
             position: fixed;
             z-index: 9999;
@@ -369,7 +380,7 @@
             width: 100%;
             height: 100vh;
 
-            background-color: #000000;
+            background-color: $black;
             &.-app-loading__representation_cinema {
                 @include animation('3s endLoadingRepresentation 17s forwards');
             }
@@ -385,7 +396,7 @@
             
             @include animation('1.5s blinkLoading 4  backwards');
 
-            color: white;
+            color: $white;
             text-transform: uppercase;
             letter-spacing: 4px;
             font-size: 20px;
@@ -402,7 +413,7 @@
             animation-timing-function: cubic-bezier(1, 0, 0, 0.5);
             animation-fill-mode: forwards;
 
-            background-color: #5bdb34;
+            background-color: $verdepomovy;
         }
         &__present-title {
             position: absolute;
@@ -414,7 +425,7 @@
             @include opacity(0);
             user-select: none;
 
-            color: white;
+            color: $white;
             letter-spacing: 5px;
             font-size: 20px;
             font-weight: 600;
@@ -434,8 +445,8 @@
 
             user-select: none;
 
-            color: white;
-            text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.6);
+            color: $white;
+            text-shadow: 0px 0px 2px $whiteOpacity0-6;
             letter-spacing: 3px;
             font-size: 20px;
             &-letter {
