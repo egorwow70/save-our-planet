@@ -3,9 +3,9 @@
 
     width: 100%;
     height: 100vh;
-
     &::before {
         content: "";
+
         position: absolute;
         z-index: 1;
         bottom: 0%;
@@ -49,18 +49,16 @@
         height: 60%;
 
         background: linear-gradient(180deg, rgb(176, 223, 230, 1), rgb(255, 255, 255, 1));
-
         &-letter-wrapper {
             position: relative;
 
             height: 100%;
             width: 150px;
-
             padding: 0px 10px;
 
+            text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(0, 0, 0, 0.6);
             font-size: 250px;
             font-weight: 600;
-            text-shadow: 8px 8px 5px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(0, 0, 0, 0.6);
         }
         &-letter {
             position: absolute;
@@ -96,7 +94,6 @@
         width: 100%;
         &-sub-title {
             width: 100%;
-
             padding-bottom: 20px;
 
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);

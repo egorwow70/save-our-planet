@@ -30,19 +30,16 @@
     align-items: center;
     justify-content: center;
 
-    overflow: scroll;
-
     width: 50%;
     height: 100vh;
+    overflow: scroll;
     &__title,
     &__sub-title {
         width: 100%;
-
         margin: 0px;
 
-        user-select: none;
-
         color: white;
+        user-select: none;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         text-align: center;
         letter-spacing: 2.5px;

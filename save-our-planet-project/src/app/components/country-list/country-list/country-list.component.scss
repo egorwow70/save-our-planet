@@ -39,10 +39,11 @@
 
         width: 200px;
         height: 100px;
-
         &_menu-mode {
             transition: 0.4s;
+
             z-index: -1;
+
             opacity: 0;
         }
         &::before {
@@ -65,9 +66,9 @@
 
             transition: 0.2s;
             cursor: pointer;
-            user-select: none;
-
+            
             color: rgba(255, 255, 255, 1);
+            user-select: none;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
             text-align: center;
             letter-spacing: 2px;
@@ -89,7 +90,6 @@
             height: 100%;
 
             cursor: pointer;
-
             &::before {
                 content: "\f002";
 
@@ -100,16 +100,15 @@
 
                 color: rgba(255, 255, 255, 1);
                 text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 font-size: 26px;
                 font-weight: 900;
+                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
             }
         }
     }
     &__menu {
         width: 100%;
         height: 100%;
-
         &_bg {
             position: absolute;
             z-index: 1;
@@ -142,8 +141,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
 
-            opacity: 0;
             transition: 1s;
+            opacity: 0;
 
             width: 50px;
             height: 50px;
@@ -151,6 +150,7 @@
             cursor: pointer;
             &_visible {
                 left: 25%;
+
                 opacity: 1;
             }
             &::before {
@@ -162,9 +162,9 @@
                 transform: translate(-50%, -50%);
 
                 color: rgba(255, 255, 255, 1);
-                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 font-size: 20px;
                 font-weight: 900;
+                font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
             }
         }
         &-item {
@@ -176,8 +176,8 @@
 
             transition: 0.5s;
             opacity: 0;
+           
             text-shadow: none;
-
             text-align: center;
             &_south-eastern-asia {
                 width: 200px;
@@ -187,7 +187,6 @@
             }
             &_visible {
                 opacity: 1;
-
                 &-southern-asia,
                 &-southern-africa,
                 &-south-america {
@@ -242,11 +241,11 @@
             transform: translate(-50%, -50%);
 
             transition: 1s;
-            opacity: 0;
             cursor: pointer;
-            user-select: none;
-
+            opacity: 0;
+            
             color: rgba(255, 255, 255, 1);
+            user-select: none;
             letter-spacing: 2px;
             font-size: 30px;
             &_invisible {
@@ -261,6 +260,7 @@
             &_asia {
                 top: 20%;
                 left: 80%;
+
                 opacity: 1;
                 &-menu-mode {
                     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
@@ -275,6 +275,7 @@
             &_africa {
                 top: 80%;
                 left: 20%;
+
                 opacity: 1;
                 &-menu-mode {
                     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
@@ -283,6 +284,7 @@
             &_oceania {
                 top: 80%;
                 left: 80%;
+
                 opacity: 1;
                 &-menu-mode {
                     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
@@ -291,6 +293,7 @@
             &_america {
                 top: 20%;
                 left: 20%;
+                
                 opacity: 1;
                 &-menu-mode {
                     text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
