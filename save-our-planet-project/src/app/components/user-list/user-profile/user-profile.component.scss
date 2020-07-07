@@ -1,3 +1,9 @@
+$white: rgba(255, 255, 255, 1);
+$black: rgba(0, 0, 0, 1);
+$blackOpacity0-8: rgba(0, 0, 0, 0.8);
+$honeyDew: rgba(210, 255, 208, 1);
+$apricot: rgba(248, 178, 166, 1);
+
 @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
@@ -50,12 +56,12 @@
     width: 60%;
     height: 75%;
 
-    border: 2px solid #d2ffd0;
+    border: 2px solid $honeyDew;
     border-radius: 20px;
 
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: $blackOpacity0-8;
 
-    color: #d2ffd0;
+    color: $honeyDew;
     &__image-container {
         position: absolute;
         z-index: 9000;
@@ -69,7 +75,7 @@
 
         cursor: pointer;
 
-        border: 2px solid #d2ffd0;
+        border: 2px solid $honeyDew;
         border-radius: 50%;
         &::before {
             content: "";
@@ -86,7 +92,7 @@
 
             border-radius: 50%;
 
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: $blackOpacity0-8;
         }
         &:hover {
             &::before {
@@ -214,7 +220,7 @@
                         left: 50%;
                         @include transform(translate(-50%, -50%));
 
-                        color: #f8b2a6;
+                        color: $apricot;
                         font-size: 24px;
                         font-weight: 600;
                         font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -237,11 +243,11 @@
                     cursor: pointer;
 
                     outline: none;
-                    border: 2px solid #d2ffd0;
+                    border: 2px solid $honeyDew;
 
                     background: transparent;
 
-                    color: #d2ffd0;
+                    color: $honeyDew;
                     text-transform: uppercase;
                     letter-spacing: 1.5px;
                     font-size: 20px;
@@ -252,13 +258,13 @@
                         &:hover {
                             background: transparent;
 
-                            color: #d2ffd0;
+                            color: $honeyDew;
                         }
                     }
                     &:hover {
-                        background-color: #d2ffd0;
+                        background-color: $honeyDew;
 
-                        color: black;
+                        color: $black;
                     }
                 }
                 &-item {
@@ -285,7 +291,7 @@
 
                         background: none;
 
-                        color: #d2ffd0;
+                        color: $honeyDew;
                         text-align: center;
                         letter-spacing: 1px;
                         font-size: 18px;
@@ -327,7 +333,7 @@
 
                         @include  transition(0.3s);
 
-                        background-color: #d2ffd0;
+                        background-color: $honeyDew;
                     }
                 }
                 &-message {
@@ -345,18 +351,18 @@
 
                         outline: none;
                         border: none;
-                        border-bottom: 2px solid #d2ffd0;
+                        border-bottom: 2px solid $honeyDew;
 
                         background-color: transparent;
 
-                        color: #d2ffd0;
+                        color: $honeyDew;
                         text-align: center;
                         letter-spacing: 1px;
                         font-size: 18px;
                         font-weight: 500;
                         font-family: 'NotoSans', sans-serif;
                         &::placeholder {
-                            color: #d2ffd0;
+                            color: $honeyDew;
                         }
                     }
                 }
@@ -389,7 +395,7 @@
                         left: 50%;
                         @include transform(translate(-50%, -50%));
 
-                        color: #d2ffd0;
+                        color: $honeyDew;
                         font-size: 24px;
                         font-weight: 600;
                         font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -426,7 +432,7 @@
                     left: 50%;
                     @include transform(translate(-50%, -50%));
 
-                    color: #d2ffd0;
+                    color: $honeyDew;
                     font-size: 24px;
                     font-weight: 600;
                     font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -466,7 +472,7 @@
 
         box-sizing: border-box;
 
-        border-right: 2px solid #d2ffd0;
+        border-right: 2px solid $honeyDew;
 
         user-select: none;
         &_image-mode {
@@ -481,9 +487,9 @@
             padding-top: 120px;
             box-sizing: border-box;
 
-            border-bottom: 2px solid #d2ffd0;
+            border-bottom: 2px solid $honeyDew;
 
-            color: #d2ffd0;
+            color: $honeyDew;
             text-transform: uppercase;
             text-align: center;
             letter-spacing: 2.5px;
@@ -515,7 +521,7 @@
         @include  transition(0.3s);
         @include opacity(0);
 
-        border-right: 2px solid #d2ffd0;
+        border-right: 2px solid $honeyDew;
 
         background-color: transparent;
         &_image-mode {
@@ -534,7 +540,7 @@
             height: 300px;
             margin: 20px 0px;
 
-            border: 2px solid #d2ffd0;
+            border: 2px solid $honeyDew;
         }
         &-title,
         &-image,
@@ -574,10 +580,10 @@
 
             background-color: transparent;
 
-            color: white;
+            color: $white;
             font-size: 16px;
             &::placeholder {
-                color: #d2ffd0;
+                color: $honeyDew;
             }
             &:focus {
                 & + .-app-user-profile__change-input-line {
@@ -590,7 +596,7 @@
 
                 @include  transition(0.2s);
 
-                background-color: #d2ffd0;
+                background-color: $honeyDew;
             }
         }
         &-switch-button {
@@ -601,12 +607,12 @@
             cursor: pointer;
 
             outline: none;
-            border: 2px solid #d2ffd0;
+            border: 2px solid $honeyDew;
             border-radius: 30px;
 
             background-color: transparent;
 
-            color: #d2ffd0;
+            color: $honeyDew;
             text-transform: uppercase;
             font-size: 16px;
             font-weight: 600;
@@ -631,7 +637,7 @@
                 left: 50%;
                 @include transform(translate(-50%, -50%));
 
-                color: white;
+                color: $white;
                 font-size: 20px;
                 font-weight: 900;
                 font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -639,7 +645,7 @@
         }
     }
     &__current-donation:not(:last-child) {
-        border-bottom: 2px solid #d2ffd0;
+        border-bottom: 2px solid $honeyDew;
     }
     &__start-donation {
         display: flex;
@@ -653,7 +659,7 @@
         @include  transition(0.3s);
         @include opacity(1);
 
-        color: #d2ffd0;
+        color: $honeyDew;
         text-align: center;
         letter-spacing: 1.5px;
         font-weight: 600;
@@ -684,12 +690,12 @@
             cursor: pointer;
 
             outline: none;
-            border: 2px solid #d2ffd0;
+            border: 2px solid $honeyDew;
             border-radius: 35px;
 
             background: transparent;
 
-            color: #d2ffd0;
+            color: $honeyDew;
             letter-spacing: 2px;
             font-size: 18px;
             font-weight: 600;
