@@ -1,3 +1,8 @@
+$white: rgba(255, 255, 255, 1);
+$black: rgba(0, 0, 0, 1);
+$blackOpacity0-9: rgba(0, 0, 0, 0.9);
+$phthalocyanineGreenOpacity: rgba(8, 37, 8, 1);
+
 @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
@@ -60,8 +65,8 @@
         margin: 0px;
         padding-top: 50px;
 
-        color: white;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+        color: $white;
+        text-shadow: 2px 2px 8px $blackOpacity0-9;
         letter-spacing: 4px;
         font-size: 36px;
     }
@@ -78,7 +83,7 @@
             height: 100px;
             width: 4px;
 
-            background-color: white;
+            background-color: $white;
         }
     }
     &__back-button {
@@ -94,11 +99,11 @@
         cursor: pointer;
         @include opacity(0);
 
-        border: 1px solid white;
+        border: 1px solid $white;
         border-radius: 50%;
-        box-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+        box-shadow: 0px 0px 8px $black;
 
-        background-color: rgba(8, 37, 8, 1);
+        background-color: $phthalocyanineGreenOpacity;
         &:active {
             @include transform(translate(-50%, 2%));
 
@@ -107,7 +112,7 @@
         }
         &:hover {
             &::before {
-                text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+                text-shadow: 2px 2px 6px $black;
             }
         }
         &::before {
@@ -119,8 +124,8 @@
 
             @include  transition(0.3s);
 
-            color: white;
-            text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+            color: $white;
+            text-shadow: 0px 0px 8px $black;
             font-size: 23px;
             font-weight: 900;
             font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
