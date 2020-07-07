@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { Country } from 'src/app/models/country-list/country';
 import { selectCountriesForDonation } from 'src/app/store/donation-list/donation-list.selectors';
 import { FacadeServiceUserList } from 'src/app/store/user-list/user-list.facade';
+import { FacadeServiceCountryList } from 'src/app/store/country-list/country-list.facade';
 @Component({
 	selector: 'app-donation-before-registration',
 	templateUrl: './donation-before-registration.component.html',
@@ -29,18 +30,29 @@ export class DonationBeforeRegistrationComponent implements OnInit {
 	public countriesForDonation: Country[];
 	public selectCountryMode: boolean;
 
+	public isChoosenCountry: boolean;
+
 	constructor(
 		private _store$: Store,
 		private _router: Router,
 		private _facadeDonationListService: FacadeServiceDonationList,
-		private _facadeUserListService: FacadeServiceUserList
+		private _facadeUserListService: FacadeServiceUserList,
+		private _facadeCountryListService: FacadeServiceCountryList,
 	) { }
 
 	private findCurrentSelectedCountry(countryName: string): Country {
 		return this.countriesForDonation.find((country: Country) => country.name === countryName);
 	}
 
+	private canMakeDonation(): void {
+		if (Boolean(this.donation) && Boolean(this.donation.country)) {
+			this.isChoosenCountry = true;
+		}
+	}
+
 	public ngOnInit(): void {
+		this.canMakeDonation();
+
 		this._store$.select(selectUser)
 			.pipe(
 				takeUntil(this._destroySubject$)
@@ -62,6 +74,7 @@ export class DonationBeforeRegistrationComponent implements OnInit {
 	public makeDonation(): void {
 		if (Boolean(this._currentDonationUser)) {
 			this._facadeDonationListService.makeDonation(this.donation, this._currentDonationUser.id);
+			this._facadeCountryListService.countCountryForestArea(this.donation);
 			this._facadeUserListService.addMedicalPointsForCurrentUser(this.donation.treeDonation.cost);
 		} else {
 			this._router.navigate([

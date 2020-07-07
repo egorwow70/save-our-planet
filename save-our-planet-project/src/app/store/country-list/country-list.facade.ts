@@ -18,9 +18,11 @@ import {
 	InitCapitalsCoordinatesAction,
 	IsCountriesLoadingSuccessAction,
 	SearchMapCountryAction,
-	DontSearchMapCountryAction
+	DontSearchMapCountryAction,
+	CountCountryForestAreaAction
 } from './country-list.actions';
 import { Country } from 'src/app/models/country-list/country';
+import { Donation } from 'src/app/models/donation-list/donation';
 
 @Injectable()
 export class FacadeServiceCountryList {
@@ -102,6 +104,10 @@ export class FacadeServiceCountryList {
 
 	public dontSearchMapCountry(): void {
 		this._store$.dispatch(new DontSearchMapCountryAction());
+	}
+
+	public countCountryForestArea(donation: Donation): void {
+		this._store$.dispatch(new CountCountryForestAreaAction({ donation }));
 	}
 
 }

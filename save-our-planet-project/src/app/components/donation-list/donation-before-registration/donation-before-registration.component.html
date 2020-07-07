@@ -86,6 +86,8 @@
     </div>
     <button 
         class="-app-donation__donation-button -app-donation__donation-button_make"
+        [disabled]="!isChoosenCountry"
+        title="{{ !isChoosenCountry ? 'select country before donation' : 'donate' }}"
         (click)="makeDonation()">
         make donation
     </button>
