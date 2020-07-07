@@ -84,25 +84,15 @@ export class CountryComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnInit(): void {
+		this._appNavigationDonationButton = document.querySelector('.-app-navigation__donation-button');
+
 		this._activatedRoute.params
 			.pipe(
 				takeUntil(this._destroySubject$)
 			).subscribe((params: Params) => {
-				this._appNavigationDonationButton = document.querySelector('.-app-navigation__donation-button');
 				this._appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
 
-				if (Boolean(this.country)) {
-					const currentCountryRouteName: string = this.country.name.replace(/\./g, '')
-						.replace(/\(|\)/g, '')
-						.toLowerCase()
-						.split(' ')
-						.join('-');
-					if (currentCountryRouteName !== params.countryName) {
-						this._facadeCountryListService.searchCountry(params.countryName);
-					}
-				} else {
-					this._facadeCountryListService.searchCountry(params.countryName);
-				}
+				this._facadeCountryListService.searchCountry(params.countryName);
 			});
 
 		this._store$.select(selectCountriesForDonation)
@@ -160,6 +150,7 @@ export class CountryComponent implements OnInit, OnDestroy {
 	public ngOnDestroy(): void {
 		this._destroySubject$.next(true);
 		this._destroySubject$.complete();
+		this._appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
 	}
 
 	public choose(): void {

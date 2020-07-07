@@ -155,6 +155,8 @@ export class AppComponent implements OnInit, OnDestroy {
 	}
 
 	public toggleMenuMode(): void {
+		const appNavigationDonationButton: HTMLElement = document.querySelector('.-app-navigation__donation-button');
+		appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
 		this.menuMode = !this.menuMode;
 	}
 }

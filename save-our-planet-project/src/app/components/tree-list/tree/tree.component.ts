@@ -109,6 +109,7 @@ export class TreeComponent implements OnInit, OnDestroy {
 	public ngOnDestroy(): void {
 		this._destroySubject$.next(true);
 		this._destroySubject$.complete();
+		this._appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
 	}
 
 	public toggleMenuMode(): void {
