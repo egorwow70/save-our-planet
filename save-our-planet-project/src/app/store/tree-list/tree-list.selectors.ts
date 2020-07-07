@@ -75,3 +75,12 @@ export const selectIsTreeRouterModeAction: MemoizedSelector<
 	selectStateTreeList,
 	(state: ITreeListState): boolean => state.isTreeRouterMode
 );
+
+export const selectIsSelectedTree: MemoizedSelector<
+	object,
+	boolean,
+	DefaultProjectorFn<boolean>
+> = createSelector(
+	selectStateTreeList,
+	(state: ITreeListState): boolean => state.isSelectedTree
+);

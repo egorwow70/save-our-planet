@@ -1,14 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Tree } from 'src/app/models/tree-list/tree';
 import { takeUntil, delay } from 'rxjs/operators';
-import { selectSearchTree, selectIsTreeSearchLoading } from 'src/app/store/tree-list/tree-list.selectors';
+import { selectSearchTree, selectIsTreeSearchLoading, selectIsSelectedTree } from 'src/app/store/tree-list/tree-list.selectors';
 import { FacadeServiceDonationList } from 'src/app/store/donation-list/donation-list.facade';
 import { Donation } from 'src/app/models/donation-list/donation';
 import { TreeDonation } from 'src/app/models/tree-list/tree-donation';
 import { FacadeServiceTreeList } from 'src/app/store/tree-list/tree-list.facade';
+import { selectDonationListBeforeRegistration } from 'src/app/store/donation-list/donation-list.selectors';
 
 @Component({
 	selector: 'app-tree',
@@ -23,6 +24,8 @@ export class TreeComponent implements OnInit, OnDestroy {
 
 	private _isChosenAtLeastOneTree: boolean;
 
+	private _donationListBeforeRegistration: Donation[] = null;
+
 	public tree: Tree;
 	public isSearchLoading: boolean = true;
 
@@ -32,11 +35,14 @@ export class TreeComponent implements OnInit, OnDestroy {
 	public totalCost: number;
 	public canMinusTreeNumber: boolean;
 
+	public isSelectedTree: boolean;
+
 	constructor(
 		private _activatedRoute: ActivatedRoute,
 		private _store$: Store,
 		private _facadeDonationListService: FacadeServiceDonationList,
-		private _facadeTreeListService: FacadeServiceTreeList
+		private _facadeTreeListService: FacadeServiceTreeList,
+		private _router: Router
 	) { }
 
 	private calculateTotalBuyCost(): number {
@@ -48,29 +54,37 @@ export class TreeComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnInit(): void {
+		this._appNavigationDonationButton = document.querySelector('.-app-navigation__donation-button');
+
 		this._activatedRoute.params
 			.pipe(
 				takeUntil(this._destroySubject$)
 			).subscribe((params: Params) => {
-				this._appNavigationDonationButton = document.querySelector('.-app-navigation__donation-button');
 				this._appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
 
 				this.treeBuyNumber = 1;
-				if (Boolean(this.tree)) {
-					const currentTreeRouteName: string = this.tree.name.replace(/\(|\)/g, '')
-						.toLowerCase()
-						.split(' ')
-						.join('-');
-					if (currentTreeRouteName !== params.countryName) {
-						this._facadeTreeListService.searchTree(params.treeName);
-						this._facadeTreeListService.goToTreeRouterMode();
-					}
-				} else {
-					this._facadeTreeListService.searchTree(params.treeName);
-					this._facadeTreeListService.goToTreeRouterMode();
+				this.isSelectedTree = false;
+				this._facadeTreeListService.isSelectedTreeForDonation(params.treeName, this._donationListBeforeRegistration);
+				this._facadeTreeListService.searchTree(params.treeName);
+				this._facadeTreeListService.goToTreeRouterMode();
+			});
+
+		this._store$.select(selectDonationListBeforeRegistration)
+			.pipe(
+				takeUntil(this._destroySubject$)
+			).subscribe((donationListBeforeRegistration: Donation[]) => {
+				if (Boolean(donationListBeforeRegistration)) {
+
+					this._donationListBeforeRegistration = donationListBeforeRegistration;
 				}
 			});
 
+		this._store$.select(selectIsSelectedTree)
+			.pipe(
+				takeUntil(this._destroySubject$)
+			).subscribe((isSelectedTree: boolean) => {
+				this.isSelectedTree = isSelectedTree;
+			});
 		const searTreeDelay: number = 3000;
 		this._store$.select(selectSearchTree)
 			.pipe(
@@ -134,7 +148,12 @@ export class TreeComponent implements OnInit, OnDestroy {
 			),
 			new Date()
 		);
+		this.isSelectedTree = true;
 		this._facadeDonationListService.initNewUserDonationBeforeRegistration(donation);
+	}
+
+	public applyDonation(): void {
+		this._router.navigate(['/donation']);
 	}
 
 	public canDeactivate(): boolean {

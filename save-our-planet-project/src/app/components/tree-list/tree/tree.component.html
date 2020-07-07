@@ -8,6 +8,12 @@
                 {{ tree.name }}
             </h2>
             <div class="-app-current-tree__title-ribbon_right"></div>
+            <div 
+                class="-app-current-tree__selected-tree"
+                [class.-app-current-tree__selected-tree_visible]="isSelectedTree"
+                (click)="applyDonation()"
+                title="apply donation">
+            </div>
         </div>
         <div class="-app-current-tree__menu">
             <a 
@@ -86,7 +92,8 @@
                 class="-app-current-tree__button -app-current-tree__button_plus"
                 (click)="plusTreeBuyNumber()">
             </button>
-            <button  class="-app-current-tree__donate-button -app-current-tree__donate-button_donate"
+            <button 
+                class="-app-current-tree__donate-button -app-current-tree__donate-button_donate" 
                 (click)="choose()">
                 Choose
             </button>

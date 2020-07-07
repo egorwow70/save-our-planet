@@ -72,6 +72,38 @@ $phthalocyanineGreenOpacity0-95: rgba(8, 37, 8, 0.95);
 
         background-color: $phthalocyanineGreenOpacity0-95;
     }
+    &__selected-tree {
+        position: absolute;
+        z-index: -1;
+        right: 2.5%;
+        top: 50%;
+        @include transform(translate(0%,-50%));
+
+        width: 50px;
+        height: 50px;
+
+        @include transition(0.3s);
+        opacity: 0;
+        &::before {
+            content: '\f00c';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%,-50%));
+
+            color: $phthalocyanineGreenOpacity;
+            font-size: 40px;
+            font-weight: 600;
+            font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+        }
+        &_visible {
+            opacity: 1;
+
+            z-index: 5;
+
+            cursor: pointer;
+        }
+    }
     &__title-ribbon {
         position: absolute;
         top: 15px;
@@ -157,6 +189,8 @@ $phthalocyanineGreenOpacity0-95: rgba(8, 37, 8, 0.95);
         width: 100%;
         margin: 0px;
         padding: 25px 0px;
+        padding-right: 80px;
+        box-sizing: border-box;
 
         color: $phthalocyanineGreenOpacity0-95;
         text-shadow: 2px 2px 4px $blackOpacity0-7;

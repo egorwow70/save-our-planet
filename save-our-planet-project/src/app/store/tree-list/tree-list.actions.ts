@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Tree } from 'src/app/models/tree-list/tree';
+import { Donation } from 'src/app/models/donation-list/donation';
 
 export enum treeListActionsType {
 	initTrees = '[TREE-LIST/API] Init-Trees Tree-List',
@@ -9,7 +10,8 @@ export enum treeListActionsType {
 	searchTree = '[TREE-LIST/API] Search-Tree Tree-List',
 	searchTreeSuccess = '[TREE-LIST/API] Search-Tree-Success Tree-List',
 	treeRouterMode = '[TREE-LIST/API] Tree-Router-Mode Tree-List',
-	goFromTreeRouterMode = '[TREE-LIST/API] Go-From-Tree-Router-Mode Tree-List'
+	goFromTreeRouterMode = '[TREE-LIST/API] Go-From-Tree-Router-Mode Tree-List',
+	isSelectedTreeForDonation = '[TREE-LIST/API] Is-Selected-Tree-For-Donation Tree-List',
 }
 
 export class InitTreeListAction implements Action {
@@ -76,6 +78,24 @@ export class GoFromTreeRouterAction implements Action {
 	public readonly type: string = treeListActionsType.goFromTreeRouterMode;
 }
 
+// tslint:disable-next-line: max-classes-per-file
+export class IsSelectedTreeForDonationAction implements Action {
+	public readonly type: string = treeListActionsType.isSelectedTreeForDonation;
+
+	constructor(private _payload: {
+		treeRouteName: string,
+		donationListBeforeRegistration: Donation[]
+	}) { }
+
+	public get treeRouteName(): string {
+		return this._payload.treeRouteName;
+	}
+
+	public get donationListBeforeRegistration(): Donation[] {
+		return this._payload.donationListBeforeRegistration;
+	}
+}
+
 export type TreeListActions =
 	InitTreeListAction
 	| InitTreeListSuccessAction
@@ -84,4 +104,5 @@ export type TreeListActions =
 	| SearchTreeAction
 	| SearchTreeSuccessAction
 	| TreeRouterModeAction
-	| GoFromTreeRouterAction;
+	| GoFromTreeRouterAction
+	| IsSelectedTreeForDonationAction;
