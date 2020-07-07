@@ -20,6 +20,14 @@
     filter: alpha(opacity=$opacity-ie);
 }
 
+@mixin transition-delay($args...) {
+    -webkit-transition-delay: $args;
+    -moz-transition-delay: $args;
+    -ms-transition-delay: $args;
+    -o-transition-delay: $args;
+    transition-delay: $args;
+}
+
 :host {
     display: flex;
     align-items: center;
@@ -98,7 +106,7 @@
             @include transform(translate(-50%, -50%));
 
             @include  transition(0.4s);
-            transition-delay: 0.1s;
+            @include transition-delay(0.1s);
             @include opacity(0);
 
             font-size: 30px;
@@ -540,7 +548,7 @@
 
             user-select: none;
             &_image-mode {
-                transition-delay: 0.5s;
+                @include transition-delay(0.5s);
                 @include opacity(1);
             }
         }

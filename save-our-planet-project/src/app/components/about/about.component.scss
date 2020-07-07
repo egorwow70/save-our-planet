@@ -14,6 +14,30 @@
     transition: $args;
 }
 
+@mixin transform-style($args...) {
+    -webkit-transform-style: $args;
+    -moz-transform-style: $args;
+    -ms-transform-style: $args;
+    -o-transform-style: $args;
+    transform-style: $args;
+}
+
+@mixin perspective($args...) {
+    -webkit-perspective: $args;
+    -moz-perspective: $args;
+    -ms-perspective: $args;
+    -o-perspective: $args;
+    perspective: $args;
+}
+
+@mixin perspective-origin($args...) {
+    -webkit-perspective-origin: $args;
+    -moz-perspective-origin: $args;
+    -ms-perspective-origin: $args;
+    -o-perspective-origin: $args;
+    perspective-origin: $args;
+}
+
 :host {
     position: relative;
 
@@ -50,9 +74,9 @@
 
                 height: 80%;
 
-                perspective: 800px;
-                perspective-origin: top right;
-                transform-style: preserve-3d;
+                @include perspective(800px);
+                @include perspective-origin(top right);
+                @include transform-style(preserve-3d);
                 @include transform(rotate(0deg, 10deg, 10deg));
 
                 background: url('../../../assets/images/about/desert-right-image.png') top right / 100% no-repeat;
@@ -65,9 +89,9 @@
 
                 height: 70%;
 
-                perspective: 800px;
-                perspective-origin: bottom left;
-                transform-style: preserve-3d;
+                @include perspective(800px);
+                @include perspective-origin(bottom left);
+                @include transform-style(preserve-3d);
                 @include transform(rotate(0deg, 10deg, 10deg));
 
                 background: url('../../../assets/images/about/desert-left-image.png') left top / 45% no-repeat;
