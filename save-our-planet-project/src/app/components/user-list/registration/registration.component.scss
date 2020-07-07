@@ -44,6 +44,9 @@
         position: absolute;
         top: 0%;
         left: 0%;
+        transform: translate(0%, 0%) scale(1);
+        -webkit-transform: translate(0%, 0%) scale(1);
+        -ms-transform: translate(0%, 0%) scale(1);
 
         display: flex;
         flex-direction: column;
@@ -52,19 +55,14 @@
 
         width: 100%;
         height: 100%;
-
         padding: 60px 50px 40px 50px;
-
-        transform: translate(0%, 0%) scale(1);
-        -webkit-transform: translate(0%, 0%) scale(1);
-        -ms-transform: translate(0%, 0%) scale(1);
-        opacity: 1;
-        transition: 0.2s;
-
         box-sizing: border-box;
 
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+        transition: 0.2s;
+        opacity: 1;
+        
         border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
 
         background: rgba(0, 0, 0, 0.8);
 
@@ -73,10 +71,9 @@
             display: none;
         }
         &_registration-mode {
-            color: black;
-
             background-color: #ffd4ad;
 
+            color: black;
             & .-app-registration-form {
                 &__title {
                     &::before {
@@ -103,9 +100,8 @@
 
                 color: black;
             }
-
-            opacity: 0;
             animation: 0.4s blinkRegistration forwards 1s;
+            opacity: 0;
         }
         &_not-login-mode {
             transform: translate(0%, -2.5%) scale(0.95);
@@ -118,15 +114,15 @@
             z-index: 0;
             top: -15px;
             left: 50%;
-
             transform: translate(-50%, 0%) scale(1);
             -webkit-transform: translate(-50%, 0%) scale(1);
             -ms-transform: translate(-50%, 0%) scale(1);
-            opacity: 1;
-            transition: 0.2s;
 
             width: 95%;
             height: 20px;
+
+            transition: 0.2s;
+            opacity: 1;
 
             border-radius: 20px 20px 0px 0px;
 
@@ -177,8 +173,8 @@
                 height: 50px;
 
                 transition: 0.3s;
-                opacity: 0;
                 cursor: pointer;
+                opacity: 0;
 
                 outline: none;
                 border: none;
@@ -211,9 +207,9 @@
                     transform: translate(-50%, -50%);
 
                     color: #e2965d;
-                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                     font-size: 24px;
                     font-weight: 600;
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 }
             }
             &-warning {
@@ -227,14 +223,13 @@
                 height: 50px;
 
                 transition: 0.3s;
-                opacity: 0;
                 cursor: pointer;
+                opacity: 0;
 
                 outline: none;
                 border: none;
 
                 background: none;
-
                 &_invalid {
                     opacity: 1;
 
@@ -261,9 +256,9 @@
                     transform: translate(-50%, -50%);
 
                     color: #e2965d;
-                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                     font-size: 24px;
                     font-weight: 600;
+                    font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 }
             }
             &-label {
@@ -278,8 +273,8 @@
                 -ms-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
                 opacity: 1;
 
-                font-weight: 600;
                 letter-spacing: 1.5px;
+                font-weight: 600;
                 &_registration-mode {
                     color: black;
                 }
@@ -343,25 +338,23 @@
         &__button {
             width: 60%;
             height: 80px;
-
             margin: 25px 0px;
 
             transition: 0.3s;
-            opacity: 1;
             cursor: pointer;
+            opacity: 1;
 
             outline: none;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
             border: 2px solid white;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 
             background: transparent;
 
             color: white;
-            font-size: 20px;
-            text-transform: uppercase;
-            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-size: 20px;
+            font-weight: 600;
             &:hover {
                 box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
             }
@@ -405,11 +398,12 @@
             }
             &:active {
                 filter: brightness(1.5);
+
                 font-size: 22px;
             }
             &[disabled] {
-                opacity: 0.7;
                 cursor: default;
+                opacity: 0.7;
 
                 box-shadow: none;
             }
@@ -475,6 +469,7 @@
 
             outline: none;
             border: none;
+            
             background: transparent;
 
             transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
