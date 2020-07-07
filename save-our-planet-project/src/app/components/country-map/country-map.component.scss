@@ -1,3 +1,10 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
 :host {
     display: block;
 
@@ -31,7 +38,7 @@
         position: absolute;
         top: 2%;
         right: 5%;
-        transform: translate(0%, 0%);
+        @include transform(translate(0%, 0%));
 
         display: flex;
         justify-content: center;
@@ -73,7 +80,7 @@
             &_globe-mode {
                 &.-app-country-map__toggle-button::before {
                     left: 95%;
-                    transform: translate(-100%, -50%);
+                    @include transform(translate(-100%, -50%));
                 }
             }
             &::before {
@@ -82,7 +89,7 @@
                 position: absolute;
                 top: 50%;
                 left: 5%;
-                transform: translate(0%, -50%);
+                @include transform(translate(0%, -50%));
 
                 width: 20px;
                 height: 20px;
@@ -98,7 +105,7 @@
         position: absolute;
         top: 2%;
         left: 5%;
-        transform: translate(0%, 0%);
+        @include transform(translate(0%, 0%));
 
         display: flex;
         justify-content: center;
@@ -142,7 +149,7 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                @include transform(translate(-50%, -50%));
 
                 width: 17px;
                 height: 17px;
@@ -212,7 +219,7 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                @include transform(translate(-50%, -50%));
 
                 color: rgba(135, 253, 135, 0.8);
                 font-family: "Font Awesome 5 free", "Font Awesome 5 brands";

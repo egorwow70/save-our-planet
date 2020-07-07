@@ -1,3 +1,10 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
 :host {
     display: block;
 
@@ -9,16 +16,12 @@
     0% {
         top: 100%;
         right: 0%;
-        -webkit-transform: translate(0%, 50%);
-        -ms-transform: translate(0%, 50%);
-        transform: translate(0%, 50%);
+        @include transform(translate(0%, 50%));
     }
     100% {
         top: 50%;
         right: 0%;
-        -webkit-transform: translate(0%, -50%);
-        -ms-transform: translate(0%, -50%);
-        transform: translate(0%, -50%);
+        @include transform(translate(0%, -50%));
     }
 }
 
@@ -89,9 +92,7 @@
         z-index: 9999;
         top: 50%;
         left: 0%;
-        -webkit-transform: translate(0%, -50%);
-        -ms-transform: translate(0%, -50%);
-        transform: translate(0%, -50%);
+        @include transform(translate(0%, -50%));
 
         display: flex;
         justify-content: flex-end;
@@ -119,22 +120,18 @@
                         -webkit-transform-origin: left top;
                         -ms-transform-origin: left top;
                         transform-origin: left top;
-                        -webkit-transform: translate(11px, -4px) rotate(45deg);
-                        -ms-transform: translate(11px, -4px) rotate(45deg);
-                        transform: translate(11px, -4px) rotate(45deg);
+                        @include transform(translate(11px, -4px) rotate(45deg));
 
                         background-color: rgba(0, 0, 0, 0.9);
                     }
                     &_middle {
-                        transform: scale(0);
+                        @include transform(scale(0));
                     }
                     &_bottom {
                         -webkit-transform-origin: right bottom;
                         -ms-transform-origin: right bottom;
                         transform-origin: right bottom;
-                        -webkit-transform: translate(-6px, -40px) rotate(-45deg);
-                        -ms-transform: translate(-6px, -40px) rotate(-45deg);
-                        transform: translate(-6px, -40px) rotate(-45deg);
+                        @include transform(translate(-6px, -40px) rotate(-45deg));
 
                         background-color: rgba(0, 0, 0, 0.9);
                     }
@@ -173,9 +170,7 @@
         &__statistic-button {
             position: absolute;
             left: 60px;
-            -webkit-transform: translate(-50%, 0%);
-            -ms-transform: translate(-50%, 0%);
-            transform: translate(-50%, 0%);
+            @include transform(translate(-50%, 0%));
 
             display: flex;
             justify-content: center;
@@ -203,9 +198,7 @@
             position: absolute;
             top: 50%;
             left: 60px;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             display: flex;
             flex-direction: column;
@@ -253,9 +246,7 @@
                 position: absolute;
                 top: 50%;
                 right: 0%;
-                -webkit-transform: translate(0%, -50%);
-                -ms-transform: translate(0%, -50%);
-                transform: translate(0%, -50%);
+                @include transform(translate(0%, -50%));
 
                 box-sizing: content-box;
 
@@ -271,18 +262,14 @@
                 font-weight: 600;
                 &.active {
                     &::before {
-                        -webkit-transform: translate(-50%, 0%) scale(1, 1);
-                        -ms-transform: translate(-50%, 0%) scale(1, 1);
-                        transform: translate(-50%, 0%) scale(1, 1);
+                        @include transform(translate(-50%, 0%) scale(1, 1));
                     }
                 }
                 &:hover {
                     filter: brightness(0.9);
                     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
                     &::before {
-                        -webkit-transform: translate(-50%, 0%) scale(1, 1);
-                        -ms-transform: translate(-50%, 0%) scale(1, 1);
-                        transform: translate(-50%, 0%) scale(1, 1);
+                        @include transform(translate(-50%, 0%) scale(1, 1));
                     }
                 }
                 &::before {
@@ -291,9 +278,7 @@
                     position: absolute;
                     bottom: -5%;
                     left: 50%;
-                    -webkit-transform: translate(-50%, 0%) scale(0, 1);
-                    -ms-transform: translate(-50%, 0%) scale(0, 1);
-                    transform: translate(-50%, 0%) scale(0, 1);
+                    @include transform(translate(-50%, 0%) scale(0, 1));
 
                     display: block;
 
@@ -346,9 +331,7 @@
             position: absolute;
             top: 47%;
             left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             opacity: 0;
 
@@ -364,9 +347,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             height: 3px;
 
@@ -380,9 +361,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             animation: 3s 2 alternate blinkLoading 7s;
             opacity: 0;
@@ -398,9 +377,7 @@
             z-index: 5;
             top: 50%;
             left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             display: flex;
             justify-content: space-between;

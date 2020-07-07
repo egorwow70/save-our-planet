@@ -1,3 +1,11 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
+
 :host {
     display: flex;
     align-items: center;
@@ -31,9 +39,7 @@
         z-index: 9000;
         left: 25%;
         top: 0%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+        @include transform(translate(-50%, -50%));
 
         width: 200px;
         height: 200px;
@@ -49,9 +55,7 @@
             position: absolute;
             bottom: 0%;
             left: 50%;
-            -webkit-transform: translate(-50%, 0%);
-            -ms-transform: translate(-50%, 0%);
-            transform: translate(-50%, 0%);
+            @include transform(translate(-50%, 0%));
 
             width: 0%;
             height: 0%;
@@ -77,9 +81,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             transition: 0.4s;
             transition-delay: 0.1s;
@@ -110,9 +112,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             display: flex;
             flex-direction: column;
@@ -126,18 +126,14 @@
             &_medical-mode {
                 &.-app-user-profile__info-list {
                     left: 0%;
-                    -webkit-transform: translate(-100%, -50%);
-                    -ms-transform: translate(-100%, -50%);
-                    transform: translate(-100%, -50%);
+                    @include transform(translate(-100%, -50%));
                 }
             }
             &-form {
                 position: absolute;
                 top: 50%;
                 left: 100%;
-                -webkit-transform: translate(0%, -50%);
-                -ms-transform: translate(0%, -50%);
-                transform: translate(0%, -50%);
+                @include transform(translate(0%, -50%));
 
                 display: flex;
                 flex-direction: column;
@@ -151,9 +147,7 @@
                 &_medical-mode {
                     &.-app-user-profile__info-list-form {
                         left: 0%;
-                         -webkit-transform: translate(0%, -50%);
-                        -ms-transform: translate(0%, -50%);
-                        transform: translate(0%, -50%);
+                        @include transform(translate(0%, -50%));
                     }
                 }
                 &-warning {
@@ -180,16 +174,12 @@
                     &_item {
                         top: 50%;
                         right: 10%;
-                        -webkit-transform: translate(0%, -50%);
-                        -ms-transform: translate(0%, -50%);
-                        transform: translate(0%, -50%);
+                        @include transform(translate(0%, -50%));
                     }
                     &_message {
                         top: 2.5%;
                         right: 5%;
-                        -webkit-transform: translate(0%, 0%);
-                        -ms-transform: translate(0%, 0%);
-                        transform: translate(0%, 0%);
+                        @include transform(translate(0%, 0%));
                     }
                     &:hover {
                         filter: brightness(0.8);
@@ -200,9 +190,7 @@
                         position: absolute;
                         top: 50%;
                         left: 50%;
-                        -webkit-transform: translate(-50%, -50%);
-                        -ms-transform: translate(-50%, -50%);
-                        transform: translate(-50%, -50%);
+                        @include transform(translate(-50%, -50%));
 
                         color: #f8b2a6;
                         font-size: 24px;
@@ -292,9 +280,7 @@
                         z-index: 1;
                         top: 50%;
                         left: 50%;
-                        -webkit-transform: translate(-50%, -50%);
-                        -ms-transform: translate(-50%, -50%);
-                        transform: translate(-50%, -50%);
+                        @include transform(translate(-50%, -50%));
 
                         width: 100%;
 
@@ -312,9 +298,7 @@
                         position: absolute;
                         bottom: 0%;
                         left: 50%;
-                        -webkit-transform: translate(-50%, 0%);
-                        -ms-transform: translate(-50%, 0%);
-                        transform: translate(-50%, 0%);
+                        @include transform(translate(-50%, 0%));
 
                         width: 80%;
                         height: 2px;
@@ -359,9 +343,7 @@
                     z-index: 9000;
                     top: 5%;
                     right: 5%;
-                    -webkit-transform: translate(0%, 0%);
-                    -ms-transform: translate(0%, 0%);
-                    transform: translate(0%, 0%);
+                    @include transform(translate(0%, 0%));
 
                     width: 50px;
                     height: 50px;
@@ -383,9 +365,7 @@
                         z-index: 9001;
                         top: 50%;
                         left: 50%;
-                        -webkit-transform: translate(-50%, -50%);
-                        -ms-transform: translate(-50%, -50%);
-                        transform: translate(-50%, -50%);
+                        @include transform(translate(-50%, -50%));
 
                         color: #d2ffd0;
                         font-size: 24px;
@@ -398,9 +378,7 @@
                 position: absolute;
                 bottom: 5%;
                 right: 5%;
-                -webkit-transform: translate(0%, 0%);
-                -ms-transform: translate(0%, 0%);
-                transform: translate(0%, 0%);
+                @include transform(translate(0%, 0%));
 
                 width: 50px;
                 height: 50px;
@@ -424,9 +402,7 @@
                     position: absolute;
                     top: 50%;
                     left: 50%;
-                    -webkit-transform: translate(-50%, -50%);
-                    -ms-transform: translate(-50%, -50%);
-                    transform: translate(-50%, -50%);
+                    @include transform(translate(-50%, -50%));
 
                     color: #d2ffd0;
                     font-size: 24px;
@@ -503,9 +479,7 @@
         z-index: 1;
         bottom: 0;
         left: 25%;
-        -webkit-transform: translate(-50%, 0%);
-        -ms-transform: translate(-50%, 0%);
-        transform: translate(-50%, 0%);
+        @include transform(translate(-50%, 0%));
 
         display: flex;
         flex-direction: column;
@@ -633,7 +607,7 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                @include transform(translate(-50%, -50%));
 
                 color: white;
                 font-size: 20px;

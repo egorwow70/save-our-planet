@@ -1,3 +1,10 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
 :host {
     display: flex;
 
@@ -51,7 +58,7 @@
             position: absolute;
             top: 87%;
             left: 50%;
-            transform: translate(-50%, 0%);
+            @include transform(translate(-50%, 0%));
 
             height: 100px;
             width: 4px;
@@ -63,7 +70,7 @@
         position: fixed;
         bottom: 10%;
         left: 10%;
-        transform: translate(-50%, 0%);
+        @include transform(translate(-50%, 0%));
 
         width: 60px;
         height: 60px;
@@ -78,7 +85,7 @@
 
         background-color: rgba(8, 37, 8, 1);
         &:active {
-            transform: translate(-50%, 2%);
+            @include transform(translate(-50%, 2%));
 
             width: 65px;
             height: 65px;
@@ -93,7 +100,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            @include transform(translate(-50%, -50%));
 
             transition: 0.3s;
 

@@ -1,7 +1,15 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
 :host {
     width: 100%;
     min-height: 100vh;
 }
+
 .-app-donation-list {
     position: relative;
 
