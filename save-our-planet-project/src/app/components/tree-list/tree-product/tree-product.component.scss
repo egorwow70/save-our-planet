@@ -9,7 +9,7 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
     -webkit-transform: $property;
     -moz-transform: $property;
     -ms-transform: $property;
-    -o-transform: $property; 
+    -o-transform: $property;
     transform: $property;
 }
 
@@ -45,7 +45,8 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
     height: 100%;
     overflow: hidden;
 
-    @include  transition(0.3s);
+    @include transition(0.3s);
+    cursor: pointer;
 
     border: 3px solid $white;
     border-radius: 50%;
@@ -56,6 +57,9 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
             top: -50%;
         }
         & .-app-tree-product__button {
+            @include opacity(1);
+        }
+        & .-app-tree-product__sub-title {
             @include opacity(1);
         }
         &::before {
@@ -72,7 +76,7 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
         width: 100%;
         height: 100%;
 
-        @include  transition(0.2s);
+        @include transition(0.2s);
 
         background-color: $blackOpacity0-8;
     }
@@ -98,7 +102,7 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
         width: 80%;
         margin: 0px;
 
-        @include  transition(0.2s);
+        @include transition(0.2s);
 
         color: $white;
         text-shadow: 2px 2px 6px $black;
@@ -116,7 +120,7 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
         background-image: url('../../../../assets/images/tree-list/tree-product-image.jpg');
         background-size: cover;
     }
-    &__button {
+    &__sub-title {
         position: absolute;
         z-index: 2;
         top: 50%;
@@ -125,17 +129,18 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
 
         width: 170px;
 
-        @include  transition(0.4s);
-        cursor: pointer;
+        @include transition(0.4s);
         @include opacity(0);
 
         color: $white;
+        text-shadow: 0px 0px 4px $blackOpacity0-6;
         letter-spacing: 3px;
         font-size: 18px;
+        font-weight: 700;
         &:hover {
-            text-shadow: 0px 0px 4px $blackOpacity0-6;
+            filter: brightness(1.3);
             &::before {
-                text-shadow: 0px 0px 4px $blackOpacity0-6;
+                filter: brightness(1.3);
             }
         }
         &::before {
@@ -146,9 +151,10 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
             left: 90%;
             @include transform(translate(0%, -50%) rotate(180deg));
 
-            @include  transition(0.6s);
+            @include transition(0.6s);
 
             color: $white;
+            text-shadow: 0px 0px 4px $blackOpacity0-6;
             font-size: 20px;
             font-weight: 900;
             font-family: "Font Awesome 5 free", "Font Awesome 5 brands";

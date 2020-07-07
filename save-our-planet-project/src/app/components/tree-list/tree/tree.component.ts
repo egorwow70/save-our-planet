@@ -10,6 +10,7 @@ import { Donation } from 'src/app/models/donation-list/donation';
 import { TreeDonation } from 'src/app/models/tree-list/tree-donation';
 import { FacadeServiceTreeList } from 'src/app/store/tree-list/tree-list.facade';
 import { selectDonationListBeforeRegistration } from 'src/app/store/donation-list/donation-list.selectors';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-tree',
@@ -35,20 +36,44 @@ export class TreeComponent implements OnInit, OnDestroy {
 
 	public isSelectedTree: boolean;
 
+	public myFormTreeNumber: FormGroup;
+
 	constructor(
 		private _activatedRoute: ActivatedRoute,
 		private _store$: Store,
 		private _facadeDonationListService: FacadeServiceDonationList,
 		private _facadeTreeListService: FacadeServiceTreeList,
 		private _router: Router
-	) { }
+	) {
+		this.initTreeNumberForm();
+	}
 
-	private calculateTotalBuyCost(): number {
-		return this.tree.cost * this.treeBuyNumber;
+	private initTreeNumberForm(): void {
+		this.myFormTreeNumber = new FormGroup({
+			treeDonationNumber: new FormControl('1', [
+				Validators.required,
+				this.donationTreeNumberValidator
+			])
+		});
+	}
+
+	private donationTreeNumberValidator(control: FormControl): { [s: string]: boolean } {
+		const currentDonationTreeNumber: number = Number(control.value);
+
+		const maxTreeBuyNumber: number = 50;
+		if (
+			!isNaN(currentDonationTreeNumber)
+			&& currentDonationTreeNumber > 0
+			&& currentDonationTreeNumber <= maxTreeBuyNumber) {
+			return null;
+		} else {
+			return { userNameInputControlName: true };
+		}
 	}
 
 	private isCanMinusTreeNumber(): boolean {
-		return (this.treeBuyNumber > 1) ? true : false;
+		const currentTreeBuyNumber: number = Number(this.myFormTreeNumber.controls.treeDonationNumber.value);
+		return (currentTreeBuyNumber > 1) ? true : false;
 	}
 
 	public ngOnInit(): void {
@@ -60,7 +85,8 @@ export class TreeComponent implements OnInit, OnDestroy {
 			).subscribe((params: Params) => {
 				this._appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
 
-				this.treeBuyNumber = 1;
+				this.descriptionMode = true;
+				this.removeTreeBuyNumber();
 				this.isSelectedTree = false;
 				this._facadeTreeListService.isSelectedTreeForDonation(params.treeName, this._donationListBeforeRegistration);
 				this._facadeTreeListService.searchTree(params.treeName);
@@ -72,7 +98,6 @@ export class TreeComponent implements OnInit, OnDestroy {
 				takeUntil(this._destroySubject$)
 			).subscribe((donationListBeforeRegistration: Donation[]) => {
 				if (Boolean(donationListBeforeRegistration)) {
-
 					this._donationListBeforeRegistration = donationListBeforeRegistration;
 				}
 			});
@@ -102,6 +127,16 @@ export class TreeComponent implements OnInit, OnDestroy {
 			).subscribe((isSearchLoading: boolean) => {
 				this.isSearchLoading = isSearchLoading;
 			});
+
+		this.myFormTreeNumber.controls.treeDonationNumber.valueChanges
+			.pipe(
+				takeUntil(this._destroySubject$)
+			).subscribe((treeNumber: string) => {
+				if (this.myFormTreeNumber.controls.treeDonationNumber.valid) {
+					this.treeBuyNumber = Number(treeNumber);
+					this.totalCost = Number(this.treeBuyNumber) * this.tree.cost;
+				}
+			});
 	}
 
 	public ngOnDestroy(): void {
@@ -115,32 +150,34 @@ export class TreeComponent implements OnInit, OnDestroy {
 	}
 
 	public minusTreeBuyNumber(): void {
-		this.treeBuyNumber--;
-		this.totalCost = this.calculateTotalBuyCost();
+		const currentTreeBuyNumber: number = Number(this.myFormTreeNumber.controls.treeDonationNumber.value);
+		const currentFormTreeBuyNumberAfterMinus: string = String(currentTreeBuyNumber - 1);
+		this.myFormTreeNumber.patchValue({ treeDonationNumber: currentFormTreeBuyNumberAfterMinus });
 		this.canMinusTreeNumber = this.isCanMinusTreeNumber();
 	}
 
 	public plusTreeBuyNumber(): void {
-		this.treeBuyNumber++;
-		this.totalCost = this.calculateTotalBuyCost();
+		const currentTreeBuyNumber: number = Number(this.myFormTreeNumber.controls.treeDonationNumber.value);
+		const currentFormTreeBuyNumberAfterPlus: string = String(currentTreeBuyNumber + 1);
+		this.myFormTreeNumber.patchValue({ treeDonationNumber: currentFormTreeBuyNumberAfterPlus });
 		this.canMinusTreeNumber = true;
 	}
 
 	public removeTreeBuyNumber(): void {
-		this.treeBuyNumber = 1;
-		this.totalCost = this.calculateTotalBuyCost();
+		this.myFormTreeNumber.patchValue({ treeDonationNumber: '1' });
 		this.canMinusTreeNumber = false;
 	}
 
 	public choose(): void {
 		this._appNavigationDonationButton.classList.add('-app-navigation__donation-button_blinking');
 
+		const chosenTreeNumber: number = Number(this.myFormTreeNumber.controls.treeDonationNumber.value);
 		const donation: Donation = new Donation(
 			'D',
 			null,
 			new TreeDonation(
 				'TD',
-				this.treeBuyNumber,
+				chosenTreeNumber,
 				this.totalCost,
 				this.tree
 			),

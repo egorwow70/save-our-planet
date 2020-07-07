@@ -33,7 +33,7 @@
             <p 
                 class="-app-current-tree__description"
                 [class.-app-current-tree__description_not-description-mode]="!descriptionMode">
-            {{ tree.description }}
+                {{ tree.description }}
             </p>
             <div 
                 class="-app-current-tree__details"
@@ -60,7 +60,7 @@
                     </div>
                     <div class="-app-current-tree__feature">
                         <div class="-app-current-tree__feature-title">
-                         Key Feature:
+                            Key Feature:
                         </div>
                         <div class="-app-current-tree_feature-sub-title">
                             {{ tree.keyFeature }}
@@ -75,28 +75,39 @@
             </span>
         </div>
         <div class="-app-current-tree__donate">
-            <button 
-                class="-app-current-tree__button -app-current-tree__button_remove"
-                (click)="removeTreeBuyNumber()"
-                [disabled]="!canMinusTreeNumber">
-            </button>
-            <button 
-                class="-app-current-tree__button -app-current-tree__button_minus"
-                (click)="minusTreeBuyNumber()"
-                [disabled]="!canMinusTreeNumber">
-            </button>
-            <div class="-app-current-tree__tree-number">
-                {{ treeBuyNumber }}
-            </div>
-            <button 
-                class="-app-current-tree__button -app-current-tree__button_plus"
-                (click)="plusTreeBuyNumber()">
-            </button>
-            <button 
-                class="-app-current-tree__donate-button -app-current-tree__donate-button_donate" 
-                (click)="choose()">
-                Choose
-            </button>
+            <form 
+                class="-app-current-tree__form"
+                [formGroup]="myFormTreeNumber">
+                <button 
+                    class="-app-current-tree__form-button -app-current-tree__form-button_remove"
+                    (click)="removeTreeBuyNumber()"
+                    [disabled]="!canMinusTreeNumber">
+                </button>
+                <button 
+                    class="-app-current-tree__form-button -app-current-tree__form-button_minus"
+                    (click)="minusTreeBuyNumber()"
+                    [disabled]="!canMinusTreeNumber">
+                </button>
+                <input 
+                    class="-app-current-tree__form-input" 
+                    [class.-app-current-tree__form-input_invalid]="myFormTreeNumber.controls['treeDonationNumber'].touched
+                        && myFormTreeNumber.controls['treeDonationNumber'].invalid"
+                    name="name"
+                    type="text"
+                    formControlName="treeDonationNumber"
+                    autocomplete="off"
+                    title="max number of trees per donation - 50">
+                <button 
+                    class="-app-current-tree__form-button -app-current-tree__form-button_plus"
+                    (click)="plusTreeBuyNumber()">
+                </button>
+                <button 
+                    class="-app-current-tree__form-donate-button -app-current-tree__form-donate-button_donate"
+                    [disabled]="myFormTreeNumber.controls['treeDonationNumber'].invalid"
+                    (click)="choose()">
+                    Choose
+                </button>
+            </form>
         </div>
     </div>
 </div>

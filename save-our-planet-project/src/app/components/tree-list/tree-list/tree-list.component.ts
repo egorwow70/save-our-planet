@@ -13,8 +13,8 @@ export class TreeListComponent {
 	) { }
 
 	public switchRouter(treeTypeHtmlElement: HTMLElement): void {
-		const treeTypeContent: string = treeTypeHtmlElement.innerHTML.toLowerCase();
-		const treeCategory: string = treeTypeContent.split(' ').join('-');
+		const treeTypeContent: string = treeTypeHtmlElement.innerHTML;
+		const treeCategory: string = treeTypeContent.toLowerCase().split(' ').join('-');
 		this._router.navigate(['/trees', 'tree-category', treeCategory]);
 	}
 }
