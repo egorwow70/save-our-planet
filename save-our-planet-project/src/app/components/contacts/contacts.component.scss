@@ -1,3 +1,12 @@
+$white: rgba(255, 255, 255, 1);
+$whiteOpacity0-8: rgba(255, 255, 255, 0.8);
+$whiteOpacity0-3: rgba(255, 255, 255, 0.3);
+$black: rgba(0, 0, 0, 1);
+$blackOpacity0-9: rgba(0, 0, 0, 0.9);
+$blackOpacity0-8: rgba(0, 0, 0, 0.8);
+$blackOpacity0-6: rgba(0, 0, 0, 0.6);
+$brightTangerine: rgba(255, 168, 153, 1);
+
 @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
@@ -50,11 +59,11 @@
         width: 1000px;
         height: 700px;
 
-        border: 2px solid white;
+        border: 2px solid $white;
         border-radius: 10px;
-        box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.6);
+        box-shadow: 2px 2px 7px $blackOpacity0-6;
 
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: $blackOpacity0-6;
     }
     &__link-bar {
         display: flex;
@@ -76,15 +85,15 @@
         @include  transition(0.3s);
         cursor: pointer;
 
-        border: 2px solid rgba(0, 0, 0, 1);
+        border: 2px solid $black;
         border-radius: 50%;
-        box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.3);
+        box-shadow: 0px 0px 4px $whiteOpacity0-3;
 
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: $blackOpacity0-6;
         &:hover {
             @include  transition(0.3s);
 
-            box-shadow: 0px 0px 4px rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 4px $white;
             &::before {
                 font-size: 26px;
             }
@@ -95,8 +104,8 @@
             left: 50%;
             @include transform(translate(-50%, -50%));
 
-            color: white;
-            text-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
+            color: $white;
+            text-shadow: 0px 0px 7px $black;
             font-size: 24px;
             font-weight: 900;
             font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -145,7 +154,7 @@
 
         @include  transition(0.2s);
 
-        color: white;
+        color: $white;
         &-title {
             width: 100%;
             margin: 0px;
@@ -178,7 +187,7 @@
 
                 background: transparent;
 
-                color: white;
+                color: $white;
                 letter-spacing: 1.5px;
                 font-weight: 600;
                 font-size: 18px;
@@ -209,11 +218,11 @@
 
                 outline: none;
                 border: none;
-                border-bottom: 2px solid white;
+                border-bottom: 2px solid $white;
 
                 background-color: transparent;
 
-                color: white;
+                color: $white;
                 text-align: left;
                 letter-spacing: 1px;
                 font-size: 18px;
@@ -230,7 +239,7 @@
 
                 @include  transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
 
-                background-color: white;
+                background-color: $white;
                 &_valid {
                     width: 100%;
                 }
@@ -245,7 +254,7 @@
                 @include transition(300ms cubic-bezier(0.4, 0, 0.2, 1));
                 @include opacity(1);
 
-                color: white;
+                color: $white;
                 font-weight: 600;
                 letter-spacing: 1.5px;
                 &_textarea {
@@ -298,7 +307,7 @@
                     left: 50%;
                     @include transform(translate(-50%, -50%));
 
-                    color: #ffa899;
+                    color: $brightTangerine;
                     font-size: 24px;
                     font-weight: 600;
                     font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -346,7 +355,7 @@
                     left: 50%;
                     @include transform(translate(-50%, -50%));
 
-                    color: white;
+                    color: $white;
                     font-size: 24px;
                     font-weight: 600;
                     font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -363,12 +372,12 @@
             @include opacity(1);
 
             outline: none;
-            border: 2px solid white;
-            box-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+            border: 2px solid $white;
+            box-shadow: 2px 2px 8px $whiteOpacity0-8;
 
             background: transparent;
 
-            color: white;
+            color: $white;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 20px;
@@ -383,7 +392,7 @@
                 }
             }
             &:hover {
-                box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.8);
+                box-shadow: 3px 3px 10px $whiteOpacity0-8;
             }
         }
     }
@@ -396,7 +405,7 @@
         width: 50%;
         height: 100%;
 
-        border-left: 2px solid white;
+        border-left: 2px solid $white;
         &-link {
             position: relative;
 
@@ -405,9 +414,9 @@
             @include transition(0.3s);
             cursor: pointer;
            
-            color: white;
+            color: $white;
             user-select: none;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
+            text-shadow: 2px 2px 5px $blackOpacity0-9;
             text-decoration: none;
             letter-spacing: 2px;
             font-size: 20px;
@@ -431,7 +440,7 @@
 
                 @include transition(0.3s);
 
-                background-color: white;
+                background-color: $white;
             }
         }
     }
