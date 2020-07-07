@@ -63,7 +63,7 @@
                 {{ user.email }}
             </div>
             <div class="-app-user-profile__info-item">
-                Age: {{ user.age }}
+                Age: {{ (user.age) | formatUserAge }}
             </div>
             <div class="-app-user-profile__info-item">
                 Join our project: {{ user.date | date }}
@@ -76,7 +76,7 @@
             <div 
                 class="-app-user-profile__info-item"
                 title="1 medical point = 1 donation $">
-                Medical Points: {{ user.medicalPoints }}
+                Medical Points: {{ (user.medicalPoints) | formatUserMedicalPoints }}
             </div>
             <button
                 class="-app-user-profile__info-list-button"

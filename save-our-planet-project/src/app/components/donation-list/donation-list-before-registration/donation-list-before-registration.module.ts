@@ -4,11 +4,13 @@ import { DonationBeforeRegistrationComponent } from '../donation-before-registra
 import { NgModule } from '@angular/core';
 import { DonationListBeforeRegistrationRoutingModule } from './donation-list-before-registration-routing.module';
 import { CommonModule } from '@angular/common';
+import { FormatDonationBeforeRegistrationTreeAmountPipe } from 'src/app/pipes/donation-list/format-donation-before-registration-tree-amount.pipe';
 
 @NgModule({
 	declarations: [
 		DonationListBeforeRegistrationComponent,
 		DonationBeforeRegistrationComponent,
+		FormatDonationBeforeRegistrationTreeAmountPipe
 	],
 	imports: [
 		DonationListBeforeRegistrationRoutingModule,

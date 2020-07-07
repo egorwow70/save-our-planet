@@ -20,7 +20,7 @@
             tree number:            
         </div>
         <div class="-app-user-profile-donation__item-info">
-            {{ donation.treeDonation.amount }}
+            {{ (donation.treeDonation.amount) | formatUserProfileTreeAmount }}
         </div>
     </div>
     <div class="-app-user-profile-donation__item">
@@ -28,7 +28,7 @@
             cost:            
         </div>
         <div class="-app-user-profile-donation__item-info">
-            {{ donation.treeDonation.amount }}
+            {{ (donation.treeDonation.cost) | currency }}
         </div>
     </div>
     <div class="-app-user-profile-donation__item">
