@@ -43,7 +43,33 @@ body {
     font-family: "NotoSans", sans-serif;
 }
 
-@keyframes centerBall {
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@include keyframes(centerBall) {
     0% {
         @include opacity(1);
         -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -64,7 +90,7 @@ body {
     }
 }
 
-@keyframes moveBall {
+@include keyframes(moveBall) {
     0% {
         left: -10%;
         @include opacity(0);
@@ -101,7 +127,7 @@ body {
     }
 }
 
-@keyframes radialPulseButton {
+@include keyframes(radialPulseButton) {
     0% {
         box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
     }
@@ -129,8 +155,7 @@ body {
         width: 0;
         height: 100%;
 
-        -webkit-animation: moveBall 2.8s infinite linear;
-        animation: moveBall 2.8s infinite linear;
+        @include animation('moveBall 2.8s infinite linear');
         @include opacity(0);
 
         background: #4a9;
@@ -163,8 +188,7 @@ body {
             -webkit-animation-delay: 1s;
             animation-delay: 1s;
 
-            -webkit-animation: centerBall 2.8s infinite cubic-bezier(0.55, 0.055, 0.675, 0.19);
-            animation: centerBall 2.8s infinite cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            @include animation('centerBall 2.8s infinite cubic-bezier(0.55, 0.055, 0.675, 0.19)');
             & .-app-loader__inner {
                 top: -15px;
             }
@@ -195,7 +219,7 @@ body {
     width: 60px;
     height: 60px;
 
-    animation: radialPulseButton 1s infinite;
+    @include animation('radialPulseButton 1s infinite');
     @include  transition(0.3s);
     cursor: pointer;
     @include opacity(0);

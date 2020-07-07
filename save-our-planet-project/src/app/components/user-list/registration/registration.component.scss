@@ -40,7 +40,33 @@
     background-size: cover;
 }
 
-@keyframes shapeButtonToRegistrationMode {
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};      
+}
+
+@include keyframes(shapeButtonToRegistrationMode) {
     0% {
         width: 120px;
         height: 120px;
@@ -55,7 +81,7 @@
     }
 }
 
-@keyframes blinkRegistration {
+@include keyframes(blinkRegistration) {
     0% {
         @include opacity(0);
     }
@@ -128,7 +154,7 @@
 
                 color: black;
             }
-            animation: 0.4s blinkRegistration forwards 1s;
+            @include animation('0.4s blinkRegistration forwards 1s');
             @include opacity(0);
         }
         &_not-login-mode {
@@ -468,7 +494,7 @@
                 right: 50%;
                 @include transform(translate(50%, -50%));
 
-                animation: 0.3s shapeButtonToRegistrationMode forwards 0.3s;
+                @include animation('0.3s shapeButtonToRegistrationMode forwards 0.3s');
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
             }
         }

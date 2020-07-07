@@ -28,6 +28,32 @@
     transform-origin: $args;
 }
 
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};      
+}
+
 :host {
     display: block;
 
@@ -35,7 +61,7 @@
     min-height: 100vh;
 }
 
-@keyframes menuLinksFromBottomToTop {
+@include keyframes(menuLinksFromBottomToTop) {
     0% {
         top: 100%;
         right: 0%;
@@ -48,7 +74,7 @@
     }
 }
 
-@keyframes menuLine {
+@include keyframes(menuLine) {
     0% {
         width: 0%;
     }
@@ -57,7 +83,7 @@
     }
 }
 
-@keyframes blinkLoading {
+@include keyframes(blinkLoading) {
     0% {
         @include opacity(0);
     }
@@ -67,7 +93,7 @@
     }
 }
 
-@keyframes loadingLine {
+@include keyframes(loadingLine) {
     0% {
         width: 0%;
     }
@@ -76,7 +102,7 @@
     }
 }
 
-@keyframes endLoadingRepresentation {
+@include keyframes(endLoadingRepresentation) {
     0% {
         @include opacity(1);
     }
@@ -92,7 +118,7 @@
     }
 }
 
-@keyframes blinkDonationButton {
+@include keyframes(blinkDonationButton) {
     0% {
         color: white;
     }
@@ -169,7 +195,7 @@
             top: 15%;
             &_blinking {
                 &::before {
-                    animation: 1s blinkDonationButton 4 0.3s alternate;
+                    @include animation('1s blinkDonationButton 4 0.3s alternate');
                 }
             }
             &::before {
@@ -271,7 +297,7 @@
 
                 box-sizing: content-box;
 
-                animation: 1.5s menuLinksFromBottomToTop;
+                @include animation('1.5s menuLinksFromBottomToTop');
                 @include  transition(0.2s);
                 cursor: pointer;
 
@@ -306,7 +332,7 @@
                     width: 100%;
                     height: 4px;
 
-                    animation: 0.8s menuLine;
+                    @include animation('0.8s menuLine');
                     @include  transition(0.2s);
 
                     background-color: rgb(0, 0, 0, 1);
@@ -345,7 +371,7 @@
 
             background-color: #000000;
             &.-app-loading__representation_cinema {
-                animation: 3s endLoadingRepresentation 17s forwards;
+                @include animation('3s endLoadingRepresentation 17s forwards');
             }
         }
         &__title {
@@ -356,8 +382,8 @@
 
             @include opacity(0);
 
-            animation: 1.5s blinkLoading 4;
-            animation-fill-mode: backwards;
+            
+            @include animation('1.5s blinkLoading 4  backwards');
 
             color: white;
             text-transform: uppercase;
@@ -384,7 +410,7 @@
             left: 50%;
             @include transform(translate(-50%, -50%));
 
-            animation: 3s 2 alternate blinkLoading 7s;
+            @include animation('3s 2 alternate blinkLoading 7s');
             @include opacity(0);
             user-select: none;
 
@@ -432,71 +458,71 @@
             }
             &_first {
                 &-s {
-                    animation: 6s blinkLoading 12.5s;
+                    @include animation('6s blinkLoading 12.5s');
                 }
                 &-a {
-                    animation: 5s blinkLoading 13.5s;
+                    @include animation('5s blinkLoading 13.5s');
                 }
                 &-v {
-                    animation: 3.5s blinkLoading 15s;
+                    @include animation('3.5s blinkLoading 15s');
                 }
                 &-e {
-                    animation: 4.5s blinkLoading 14s;
+                    @include animation('4.5s blinkLoading 14s');
                 }
             }
             &_second {
                 position: relative;
                 &-o {
-                    animation: 4s blinkLoading 14.5s;
+                    @include animation('5.5s blinkLoading 13s');
                 }
                 &-u {
-                    animation: 5s blinkLoading 13.5s;
+                    @include animation('5s blinkLoading 13.5s');
                 }
                 &-r {
-                    animation: 5.5s blinkLoading 13s;
+                    @include animation('4.5s blinkLoading 14s');
                 }
             }
             &_third {
                 &-p {
-                    animation: 3.5s blinkLoading 15s;
+                    @include animation('3.5s blinkLoading 15s');
                 }
                 &-l {
-                    animation: 5s blinkLoading 13.5s;
+                    @include animation('5s blinkLoading 13.5s');
                 }
                 &-a {
-                    animation: 4.5s blinkLoading 14s;
+                    @include animation('4.5s blinkLoading 14s');
                 }
                 &-n {
-                    animation: 5.5s blinkLoading 13s;
+                    @include animation('5.5s blinkLoading 13s');
                 }
                 &-e {
-                    animation: 4.5s blinkLoading 14s;
+                    @include animation('4.5s blinkLoading 14s');
                 }
                 &-t {
-                    animation: 4s blinkLoading 14.5s;
+                    @include animation('4s blinkLoading 14.5s');
                 }
             }
             &_fourth {
                 &-p {
-                    animation: 6s blinkLoading 12.5s;
+                    @include animation('6s blinkLoading 12.5s');
                 }
                 &-r {
-                    animation: 4s blinkLoading 14.5s;
+                    @include animation('4s blinkLoading 14.5s');
                 }
                 &-o {
-                    animation: 5.5s blinkLoading 13s;
+                    @include animation('5.5s blinkLoading 13s');
                 }
                 &-j {
-                    animation: 3s blinkLoading 15.5s;
+                    @include animation('3s blinkLoading 15.5s');
                 }
                 &-e {
-                    animation: 4s blinkLoading 14.5s;
+                    @include animation('4s blinkLoading 14.5s');
                 }
                 &-c {
-                    animation: 4.5s blinkLoading 14s;
+                    @include animation('4.5s blinkLoading 14s');
                 }
                 &-t {
-                    animation: 3s blinkLoading 15.5s;
+                    @include animation('3s blinkLoading 15.5s');
                 }
             }
         }
