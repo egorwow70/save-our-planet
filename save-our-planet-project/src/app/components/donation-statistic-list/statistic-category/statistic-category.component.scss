@@ -1,15 +1,14 @@
 $white: rgba(255, 255, 255, 1);
-$whiteOpacity0-6: rgba(255, 255, 255, 0.6);
-$black: rgba(0, 0, 0, 1);
 $blackOpacity0-9: rgba(0, 0, 0, 0.9);
-$blackOpacity0-75: rgba(0, 0, 0, 0.75);
+$blackOpacity0-8: rgba(0, 0, 0, 0.8);
 $blackOpacity0-6: rgba(0, 0, 0, 0.6);
+$blue: rgba(71, 141, 174, 1);
 
 @mixin transform($property) {
     -webkit-transform: $property;
     -moz-transform: $property;
     -ms-transform: $property;
-    -o-transform: $property; 
+    -o-transform: $property;
     transform: $property;
 }
 
@@ -37,7 +36,7 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
     background-color: $white;
 }
 
-.-app-all-donators {
+.-app-statistic {
     position: relative;
 
     display: flex;
@@ -64,6 +63,8 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
             width: 50%;
             height: 100%;
             &-button {
+                position: relative;
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -71,24 +72,39 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
                 width: 200px;
                 padding: 20px 40px;
 
-                @include  transition(0.3s);
+                @include transition(0.3s);
                 cursor: pointer;
 
                 outline: none;
-                border: 2px solid $black;
-                border-radius: 20px;
-                box-shadow: 0px 0px 4px $blackOpacity0-6;
+                border: none;
 
-                background-color: $blackOpacity0-75;
+                background: none;
 
                 color: $white;
-                text-shadow: 0px 0px 4px $whiteOpacity0-6;
+                text-shadow: 2px 2px 6px $blackOpacity0-8;
                 letter-spacing: 2px;
                 font-weight: 600;
-                font-size: 26px;
+                font-size: 34px;
                 &[disabled] {
                     cursor: default;
-                    @include opacity(0.4);
+                }
+                &::before {
+                    content: "";
+
+                    position: absolute;
+                    bottom: 0%;
+
+                    @include transition(0.3s);
+
+                    width: 100%;
+                    height: 3px;
+
+                    background-color: $blackOpacity0-9;
+                }
+                &_active {
+                    &::before {
+                        background-color: $blue;
+                    }
                 }
             }
         }
@@ -109,14 +125,14 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
             width: 50px;
             height: 50px;
 
-            @include  transition(0.2s);
+            @include transition(0.2s);
+            cursor: pointer;
 
             outline: none;
             border: none;
             background: none;
             &[disabled] {
                 cursor: default;
-                @include opacity(0.4);
             }
             &::before {
                 position: absolute;
@@ -124,8 +140,7 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
                 left: 50%;
                 @include transform(translate(-50%, -50%));
 
-                @include  transition(0.3s);
-                cursor: pointer;
+                @include transition(0.3s);
 
                 color: $blackOpacity0-9;
                 font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
@@ -147,6 +162,19 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
                     content: "\f1bb";
                 }
             }
+            &_by-cost,
+            &_by-tree {
+                &-active {
+                    &:hover {
+                        &::before {
+                            filter: brightness(1);
+                        }
+                    }
+                    &::before {
+                        color: $blue;
+                    }
+                }
+            }
         }
     }
     &__sort {
@@ -161,18 +189,18 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
             height: 30px;
             padding: 0px;
 
-            @include  transition(0.2s);
+            @include transition(0.2s);
+            cursor: pointer;
 
             outline: none;
             border: none;
             background: none;
             &[disabled] {
                 cursor: default;
-                @include opacity(0.4);
             }
             &:hover {
                 &::before {
-                    filter: brightness(1.5);
+                    filter: brightness(1.3);
                 }
             }
             &::before {
@@ -182,13 +210,23 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
                 left: 50%;
                 @include transform(translate(-50%, -50%));
 
-                @include  transition(0.3s);
-                cursor: pointer;
+                @include transition(0.3s);
 
                 border-radius: 7px;
             }
             &_top {
                 top: 20%;
+                &.-app-statistic__sort-button_top-active {
+                    &:hover {
+                        &::before {
+                            filter: brightness(1);
+                        }
+                    }
+                    &::before {
+                        border: 13px solid transparent;
+                        border-bottom: 13px solid $blue;
+                    }
+                }
                 &::before {
                     border: 13px solid transparent;
                     border-bottom: 13px solid $blackOpacity0-9;
@@ -196,6 +234,17 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
             }
             &_bottom {
                 bottom: 20%;
+                &.-app-statistic__sort-button_bottom-active {
+                    &:hover {
+                        &::before {
+                            filter: brightness(1);
+                        }
+                    }
+                    &::before {
+                        border: 13px solid transparent;
+                        border-top: 13px solid $blue;
+                    }
+                }
                 &::before {
                     border: 13px solid transparent;
                     border-top: 13px solid $blackOpacity0-9;
