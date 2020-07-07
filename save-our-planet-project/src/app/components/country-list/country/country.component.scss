@@ -5,6 +5,15 @@
     -o-transform: $property; 
     transform: $property;
 }
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
 :host {
     display: flex;
     align-items: center;
@@ -123,8 +132,7 @@
             left: 50%;
             @include transform(translate(-50%, -50%));
 
-            transition: 0.2s;
-
+            @include  transition(0.2s);
             width: 3px;
             height: 60%;
 
@@ -151,7 +159,7 @@
 
             padding: 25px 80px;
 
-            transition: 0.4s;
+            @include  transition(0.4s);
             cursor: pointer;
 
             outline: none;
@@ -200,7 +208,7 @@
             width: 70px;
             height: 70px;
 
-            transition: 0.2s;
+            @include  transition(0.2s);
             cursor: pointer;
 
             outline: none;
