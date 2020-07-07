@@ -14,6 +14,12 @@
     transition: $args;
 }
 
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
 :host {
     position: fixed;
     right: 0;
@@ -475,7 +481,7 @@
             font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
         }
         &.-app-current-tree__button[disabled] {
-            opacity: 0.6;
+            @include opacity(0.6);
         }
         &_plus {
             &::before {

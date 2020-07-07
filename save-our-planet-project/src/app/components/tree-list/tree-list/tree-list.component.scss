@@ -14,6 +14,12 @@
     transition: $args;
 }
 
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
 :host {
     width: 100%;
     height: 100vh;
@@ -189,14 +195,14 @@
             }
             & .-app-trees__item-title {
                 top: 50%;
-                opacity: 1;
+                @include opacity(1);
             }
             & .-app-trees__item-sub-title {
                 bottom: 20%;
-                opacity: 1;
+                @include opacity(1);
             }
             & .-app-trees__item-image {
-                opacity: 1;
+                @include opacity(1);
             }
         }
         &::before {
@@ -246,7 +252,7 @@
             box-sizing: border-box;
 
             @include  transition(0.3s);
-            opacity: 0;
+            @include opacity(0);
 
             text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
             text-align: center;
@@ -269,7 +275,7 @@
             width: 100%;
             height: 100%;
 
-            opacity: 0.9;
+            @include opacity(0.9);
 
             background-size: cover;
             &_native {

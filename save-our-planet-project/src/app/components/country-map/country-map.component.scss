@@ -14,6 +14,12 @@
     transition: $args;
 }
 
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
 :host {
     display: block;
 
@@ -23,10 +29,10 @@
 
 @keyframes blinkMap {
     0% {
-        opacity: 0;
+        @include opacity(0);
     }
     0% {
-        opacity: 1;
+        @include opacity(1);
     }
 }
 .-app-country-map {
@@ -54,7 +60,7 @@
         align-items: center;
         &-title {
             @include  transition(0.3s);
-            opacity: 1;
+            @include opacity(1);
 
             color: white;
             letter-spacing: 1.5px;
@@ -68,7 +74,7 @@
             }
             &_globe-mode,
             &_map-mode {
-                opacity: 0.4;
+                @include opacity(0.4);
             }
         }
         &-button {
@@ -123,14 +129,14 @@
             padding-left: 10px;
 
             @include  transition(0.3s);
-            opacity: 0.4;
+            @include opacity(0.4);
 
             color: white;
             letter-spacing: 1.5px;
             font-weight: 600;
             font-size: 18px;
             &_capitals-mode {
-                opacity: 1;
+                @include opacity(1);
             }
         }
         &-button {
@@ -149,7 +155,7 @@
             background: transparent;
             &.-app-country-map__show-capitals-button_capitals-mode {
                 &::before {
-                    opacity: 1;
+                    @include opacity(1);
                 }
             }
             &::before {
@@ -164,7 +170,7 @@
                 height: 17px;
 
                 @include  transition(0.3s);
-                opacity: 0;
+                @include opacity(0);
 
                 border-radius: 50%;
 

@@ -14,6 +14,12 @@
     transition: $args;
 }
 
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+}
+
 :host {
     height: 250px;
     width: 250px;
@@ -43,7 +49,7 @@
             top: -50%;
         }
         & .-app-tree-product__button {
-            opacity: 1;
+            @include opacity(1);
         }
         &::before {
             top: 0%;
@@ -114,7 +120,7 @@
 
         @include  transition(0.4s);
         cursor: pointer;
-        opacity: 0;
+        @include opacity(0);
 
         color: white;
         letter-spacing: 3px;
