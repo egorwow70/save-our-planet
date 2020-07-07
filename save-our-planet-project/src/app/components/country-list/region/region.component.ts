@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, delay } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Country } from 'src/app/models/country-list/country';
@@ -61,6 +61,7 @@ export class RegionComponent implements OnInit, OnDestroy {
 			).subscribe((params: Params) => {
 				this.regionName = params.regionName;
 				this.subRegionName = params.subRegionName;
+
 				this._facadeCountryListService.searchSubRegionCountries(this.regionName, this.subRegionName);
 			});
 
@@ -75,6 +76,7 @@ export class RegionComponent implements OnInit, OnDestroy {
 
 		this._store$.select(selectSubRegionsCountries)
 			.pipe(
+				delay(0),
 				takeUntil(this._destroySubject$)
 			).subscribe((subRegionsCountries: Country[]) => {
 				if (Boolean(subRegionsCountries)) {

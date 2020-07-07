@@ -310,6 +310,15 @@ export function countryListReducer(
 				};
 			}
 		}
+		case countryListActionsType.resetSearchCounrties: {
+			return {
+				...state,
+				searchCountry: null,
+				searchMapCountry: null,
+				searchNextCountry: null,
+				searchPreviousCountry: null
+			};
+		}
 		default: {
 			return {
 				...state
