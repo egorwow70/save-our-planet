@@ -113,17 +113,10 @@ $blackOpacity0-4: rgba(0, 0, 0, 0.4);
         @include transform(scale(0) translateX(-10vw));
         will-change: transform;
 
-       /*  animation-name: fly-right-one;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite; */
         &_first {
-           /*  animation-duration: 15s;
-            animation-delay: 0; */
             @include animation('15s linear 0s infinite flyRightOne');
         }
         &_second {
-            /* animation-duration: 16s;
-            animation-delay: 1s; */
             @include animation('17s linear 1s infinite flyRightOne');
         }
     }
@@ -134,18 +127,11 @@ $blackOpacity0-4: rgba(0, 0, 0, 0.4);
         height: 125px;
         will-change: background-position;
 
-     /*    animation-name: flyCycle;
-        animation-timing-function: steps(10);
-        animation-iteration-count: infinite; */
         &_first {
             @include animation('1s steps(10) -0.5s infinite flyCycle');
-           /*  animation-duration: 1s;
-            animation-delay: -0.5s; */
         }
         &_second {
             @include animation('0.9s steps(10) -0.75s infinite flyCycle');
-            /* animation-duration: 0.9s;
-            animation-delay: -0.75s; */
         }
     }
     &__title {

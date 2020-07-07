@@ -1,5 +1,6 @@
 import { Tree } from 'src/app/models/tree-list/tree';
 import { TreeListActions, treeListActionsType } from './tree-list.actions';
+import { Donation } from 'src/app/models/donation-list/donation';
 
 export interface ITreeListState {
 	isLoading: boolean;
@@ -9,6 +10,7 @@ export interface ITreeListState {
 	isSearchLoading: boolean;
 	searchTree: Tree;
 	isTreeRouterMode: boolean;
+	isSelectedTree: boolean;
 }
 
 export const treeListFeatureKey: 'TREE-LIST' = 'TREE-LIST';
@@ -20,7 +22,8 @@ const initialState: ITreeListState = {
 	treeCategoryTrees: null,
 	isSearchLoading: false,
 	searchTree: null,
-	isTreeRouterMode: false
+	isTreeRouterMode: false,
+	isSelectedTree: false
 };
 
 export function treeListReducer(
@@ -88,6 +91,35 @@ export function treeListReducer(
 				...state,
 				isTreeRouterMode: false
 			};
+		}
+		case treeListActionsType.isSelectedTreeForDonation: {
+			if (Boolean(action.donationListBeforeRegistration)) {
+				const selectedTreesForDonation: Tree[] = [...action.donationListBeforeRegistration].map((donation: Donation) => {
+					return donation.treeDonation.tree.clone();
+				});
+				const currentTree: Tree = [...selectedTreesForDonation].find((tree: Tree) => {
+					const treeRouteName: string = tree.name.replace(/\(|\)/g, '').toLowerCase().split(' ').join('-');
+					if (treeRouteName === action.treeRouteName) {
+						return tree.clone();
+					}
+				});
+				if (Boolean(currentTree)) {
+					return {
+						...state,
+						isSelectedTree: true
+					};
+				} else {
+					return {
+						...state,
+						isSelectedTree: false
+					};
+				}
+			} else {
+				return {
+					...state,
+					isSelectedTree: false
+				};
+			}
 		}
 		default: {
 			return {

@@ -5,9 +5,10 @@ $black: rgba(0, 0, 0, 1);
 $blackOpacity0-9: rgba(0, 0, 0, 0.9);
 $blackOpacity0-8: rgba(0, 0, 0, 0.8);
 $blackOpacity0-4: rgba(0, 0, 0, 0.4);
-$fernCraiola: rgba(105, 179, 105, 1);
+$lime: rgba(0, 255, 0, 1);
 $honeyDew: rgba(207, 255, 192, 1);
 $verdepomovy: rgba(91, 219, 52, 1);
+$pastelGreen: rgba(108, 219, 108, 1);
 
 @mixin transform($property) {
     -webkit-transform: $property;
@@ -134,7 +135,7 @@ $verdepomovy: rgba(91, 219, 52, 1);
         color: $white;
     }
     100% {
-        color: $fernCraiola;
+        color: $lime;
     }
 }
 
@@ -196,6 +197,16 @@ $verdepomovy: rgba(91, 219, 52, 1);
                 }
             }
         }
+        &__profile-button,
+        &__donation-button,
+        &__statistic-button {
+            @include transition(0.4s);
+            &.active {
+                &::before {
+                    color: $pastelGreen;
+                }
+            }
+        }
         &__profile-button {
             top: 5%;
             &::before {
@@ -206,7 +217,7 @@ $verdepomovy: rgba(91, 219, 52, 1);
             top: 15%;
             &_blinking {
                 &::before {
-                    @include animation('1s blinkDonationButton 4 0.3s alternate');
+                    @include animation('1s blinkDonationButton 6 0.3s alternate');
                 }
             }
             &::before {
