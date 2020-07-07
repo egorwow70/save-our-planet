@@ -151,6 +151,7 @@ export class CountryComponent implements OnInit, OnDestroy {
 		this._destroySubject$.next(true);
 		this._destroySubject$.complete();
 		this._appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
+		this._facadeCountryListService.resetSearchCounrties();
 	}
 
 	public choose(): void {

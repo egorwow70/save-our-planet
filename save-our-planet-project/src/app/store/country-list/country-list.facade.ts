@@ -19,7 +19,8 @@ import {
 	IsCountriesLoadingSuccessAction,
 	SearchMapCountryAction,
 	DontSearchMapCountryAction,
-	CountCountryForestAreaAction
+	CountCountryForestAreaAction,
+	ResetSearchCountriesAction
 } from './country-list.actions';
 import { Country } from 'src/app/models/country-list/country';
 import { Donation } from 'src/app/models/donation-list/donation';
@@ -108,6 +109,10 @@ export class FacadeServiceCountryList {
 
 	public countCountryForestArea(donation: Donation): void {
 		this._store$.dispatch(new CountCountryForestAreaAction({ donation }));
+	}
+
+	public resetSearchCounrties(): void {
+		this._store$.dispatch(new ResetSearchCountriesAction());
 	}
 
 }

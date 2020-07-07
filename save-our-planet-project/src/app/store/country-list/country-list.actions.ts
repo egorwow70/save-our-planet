@@ -23,6 +23,7 @@ export enum countryListActionsType {
 	searchMapCountry = '[COUNTRY-LIST/API] Search-Map-Country Country-List',
 	dontSearchMapCountry = '[COUNTRY-LIST/API] Dont-Search-Map-Country Country-List',
 	countCountryForestArea = '[COUNTRY-LIST/API] Count-Country-Forest-Area Country-List',
+	resetSearchCounrties = '[COUNTRY-LIST/API] Reset-Search-Countries Country-List',
 }
 
 export class InitCountryListAction implements Action {
@@ -208,6 +209,11 @@ export class CountCountryForestAreaAction implements Action {
 	}
 }
 
+// tslint:disable-next-line: max-classes-per-file
+export class ResetSearchCountriesAction implements Action {
+	public readonly type: string = countryListActionsType.resetSearchCounrties;
+}
+
 export type CountryListActions =
 	InitCountryListAction
 	| InitCountryListSuccessAction
@@ -225,4 +231,5 @@ export type CountryListActions =
 	| ToggleShowCapitalsModeCountryListAction
 	| SearchMapCountryAction
 	| DontSearchMapCountryAction
-	| CountCountryForestAreaAction;
+	| CountCountryForestAreaAction
+	| ResetSearchCountriesAction;
