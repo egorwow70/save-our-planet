@@ -11,14 +11,14 @@
             [tree]="tree">
         </app-tree-product>
     </ng-container>
+    <a 
+        class="-app-scroll-up-button -app-scroll-up-button_tree-category"
+        (click)="scrollTop()">
+    </a>
 </div>
 <div
     class="-app-tree-category__back-button"
     [class.-app-tree-category__back-button_tree-mode]="treeMode"
     (click)="goToTreeCategoryRouter()">
 </div>
-<a 
-    class="-app-scroll-up-button -app-scroll-up-button_tree-category"
-    (click)="scrollTop()">
-</a>
 <router-outlet></router-outlet>

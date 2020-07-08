@@ -16,9 +16,10 @@ import { Donation } from 'src/app/models/donation-list/donation';
 })
 export class TreeCategoryComponent implements OnInit, OnDestroy {
 
-	private _destroySubject$: Subject<boolean> = new Subject();
+	public static scrollUpButton: HTMLElement;
+	public static windowScrollHeight: number = 2;
 
-	private _windowScrollHeight: number = 20;
+	private _destroySubject$: Subject<boolean> = new Subject();
 
 	private _donationListBeforeRegistration: Donation[];
 
@@ -35,16 +36,18 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 		private _facadeTreeListService: FacadeServiceTreeList
 	) { }
 
-	public ngOnInit(): void {
-		const scrollUpButton: HTMLElement = document.querySelector('.-app-scroll-up-button_tree-category');
+	public static isScrolling(): void {
+		if (window.scrollY > TreeCategoryComponent.windowScrollHeight) {
+			TreeCategoryComponent.scrollUpButton.classList.add('-app-scroll-up-button_tree-category-visible');
+		} else {
+			TreeCategoryComponent.scrollUpButton.classList.remove('-app-scroll-up-button_tree-category-visible');
+		}
+	}
 
-		window.addEventListener('scroll', () => {
-			if (window.scrollY > this._windowScrollHeight) {
-				scrollUpButton.classList.add('-app-scroll-up-button_tree-category-visible');
-			} else {
-				scrollUpButton.classList.remove('-app-scroll-up-button_tree-category-visible');
-			}
-		});
+	public ngOnInit(): void {
+		TreeCategoryComponent.scrollUpButton = document.querySelector('.-app-scroll-up-button_tree-category');
+
+		window.addEventListener('scroll', TreeCategoryComponent.isScrolling);
 
 		this._activatedRoute.params
 			.pipe(
@@ -81,6 +84,7 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 		this._destroySubject$.next(true);
 		this._destroySubject$.complete();
 		this._facadeTreeListService.goFromTreeRouter();
+		window.removeEventListener('scroll', TreeCategoryComponent.isScrolling);
 	}
 
 	public goToTreeCategoryRouter(): void {
@@ -89,7 +93,10 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 	}
 
 	public scrollTop(): void {
-		window.scrollTo(0, 0);
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
 	}
 
 	public canDeactivate(): boolean {
