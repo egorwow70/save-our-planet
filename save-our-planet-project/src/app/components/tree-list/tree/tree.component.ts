@@ -15,7 +15,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
 	selector: 'app-tree',
 	templateUrl: './tree.component.html',
-	styleUrls: ['./tree.component.scss']
+	styleUrls: ['./tree.component.scss', './tree-media.component.scss']
 })
 export class TreeComponent implements OnInit, OnDestroy {
 

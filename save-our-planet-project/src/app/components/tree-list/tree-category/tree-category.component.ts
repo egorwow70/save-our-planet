@@ -12,7 +12,7 @@ import { Donation } from 'src/app/models/donation-list/donation';
 @Component({
 	selector: 'app-tree-category',
 	templateUrl: './tree-category.component.html',
-	styleUrls: ['./tree-category.component.scss']
+	styleUrls: ['./tree-category.component.scss', './tree-category-media.component.scss']
 })
 export class TreeCategoryComponent implements OnInit, OnDestroy {
 

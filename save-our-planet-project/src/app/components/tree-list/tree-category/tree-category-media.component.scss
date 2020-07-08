@@ -1,0 +1,68 @@
+@media screen and (max-width: 1700px) {
+    .-app-tree-category {
+        &::after {
+            left: 110px;
+        }
+        &-router-outlet {
+            padding-left: 110px;
+        }
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .-app-tree-category {
+        &::after {
+            left: 100px;
+        }
+        &-router-outlet {
+            padding-left: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .-app-tree-category {
+        &::after {
+            left: 80px;
+        }
+        &-router-outlet {
+            padding-left: 80px;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .-app-tree-category {
+        &::after {
+            left: 70px;
+        }
+        &-router-outlet {
+            padding-left: 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .-app-tree-category {
+        &::after {
+            left: 60px;
+        }
+        &-router-outlet {
+            padding-left: 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .-app-tree-category {
+        &::after {
+            left: 50px;
+        }
+        &-router-outlet {
+            padding-left: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+}
