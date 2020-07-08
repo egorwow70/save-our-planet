@@ -1,10 +1,10 @@
 <div class="-app-countries">
     <div 
         class="-app-countries__start-menu"
-        [class.-app-countries__start-menu_menu-mode]="menuMode">
+        [class.-app-countries__start-menu_menu-mode]="menuMode"
+        (click)="toggleMenuMode()">
         <div
-            class="-app-countries__start-menu-title"
-            (click)="toggleMenuMode()">
+            class="-app-countries__start-menu-title">
             Menu
         </div>
         <span 
