@@ -4,6 +4,7 @@ $black: rgba(0, 0, 0, 1);
 $blackOpacity0-8: rgba(0, 0, 0, 0.8);
 $blackOpacity0-6: rgba(0, 0, 0, 0.6);
 $blackOpacity0-2: rgba(0, 0, 0, 0.2);
+$lime: rgba(47, 255, 47, 1);
 
 @mixin transform($property) {
     -webkit-transform: $property;
@@ -52,6 +53,10 @@ $blackOpacity0-2: rgba(0, 0, 0, 0.2);
     border-radius: 50%;
 
     user-select: none;
+    &_selected {
+        box-shadow: 0px 0px 10px $black;
+        border: 3px solid $lime;
+    }
     &:hover {
         & .-app-tree-product__title {
             top: -50%;

@@ -116,6 +116,7 @@ export class TreeComponent implements OnInit, OnDestroy {
 			).subscribe((tree: Tree) => {
 				if (Boolean(tree)) {
 					this.tree = tree;
+					this._facadeTreeListService.selectTreeProduct(this.tree);
 					this.totalCost = this.tree.cost;
 					this._facadeTreeListService.searchTreeSuccess();
 				}

@@ -135,4 +135,9 @@ export class Tree {
 		);
 	}
 
+	public equals(tree: Tree): boolean {
+		return (Boolean(tree)
+			&& JSON.stringify(tree) === JSON.stringify(this));
+	}
+
 }

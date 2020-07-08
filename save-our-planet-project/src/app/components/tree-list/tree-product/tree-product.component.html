@@ -1,5 +1,6 @@
 <div 
     class="-app-tree-product"
+    [class.-app-tree-product_selected]="isTreeProductSelected"
     (click)="goToCurrentTreeRouter()">
     <h2 class="-app-tree-product__title">
         {{ tree.name }}

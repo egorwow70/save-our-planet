@@ -12,6 +12,7 @@ export enum treeListActionsType {
 	treeRouterMode = '[TREE-LIST/API] Tree-Router-Mode Tree-List',
 	goFromTreeRouterMode = '[TREE-LIST/API] Go-From-Tree-Router-Mode Tree-List',
 	isSelectedTreeForDonation = '[TREE-LIST/API] Is-Selected-Tree-For-Donation Tree-List',
+	selectTreeProduct = '[COUNTRY-LIST/API] Select-Tree-Product Tree-List'
 }
 
 export class InitTreeListAction implements Action {
@@ -96,6 +97,19 @@ export class IsSelectedTreeForDonationAction implements Action {
 	}
 }
 
+// tslint:disable-next-line: max-classes-per-file
+export class SelectTreeProductAction implements Action {
+	public readonly type: string = treeListActionsType.selectTreeProduct;
+
+	constructor(private _payload: {
+		treeProduct: Tree
+	}) { }
+
+	public get treeProduct(): Tree {
+		return this._payload.treeProduct;
+	}
+}
+
 export type TreeListActions =
 	InitTreeListAction
 	| InitTreeListSuccessAction
@@ -105,4 +119,5 @@ export type TreeListActions =
 	| SearchTreeSuccessAction
 	| TreeRouterModeAction
 	| GoFromTreeRouterAction
-	| IsSelectedTreeForDonationAction;
+	| IsSelectedTreeForDonationAction
+	| SelectTreeProductAction;

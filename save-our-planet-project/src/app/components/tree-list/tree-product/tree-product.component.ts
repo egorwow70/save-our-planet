@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Tree } from 'src/app/models/tree-list/tree';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
@@ -17,6 +17,12 @@ export class TreeProductComponent implements OnInit, OnDestroy {
 
 	@Input()
 	public tree: Tree;
+
+	@Input()
+	public isTreeProductSelected: boolean;
+
+	@Output()
+	public onTreeProductSelected: EventEmitter<Tree> = new EventEmitter<Tree>();
 
 	constructor(
 		private _activatedRoute: ActivatedRoute,
@@ -38,6 +44,7 @@ export class TreeProductComponent implements OnInit, OnDestroy {
 	}
 
 	public goToCurrentTreeRouter(): void {
+		this.onTreeProductSelected.emit(this.tree);
 		const currentTreeName: string = this.tree.name;
 		const currentTreeRouterName: string = currentTreeName.replace(/\(|\)/g, '').toLowerCase().split(' ').join('-');
 		this._router.navigate(['/trees', 'tree-category', this._treeCategoryName, 'tree', currentTreeRouterName]);

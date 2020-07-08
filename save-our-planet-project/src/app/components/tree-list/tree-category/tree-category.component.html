@@ -8,7 +8,9 @@
         <app-tree-product
             class="-app-tree-category__product"
             *ngFor="let tree of treeCategoryTrees"
-            [tree]="tree">
+            [tree]="tree"
+            (onTreeProductSelected)="selectTreeProduct($event)"
+            [isTreeProductSelected]=isTreeProductSelected(tree)>
         </app-tree-product>
     </ng-container>
     <a 
