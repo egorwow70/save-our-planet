@@ -15,12 +15,13 @@ import { selectCountriesForDonation } from 'src/app/store/donation-list/donation
 })
 export class RegionComponent implements OnInit, OnDestroy {
 
+	public static windowScrollHeight: Number = 2;
+	public static scrollBlock: HTMLElement;
+	public static scrollUpButton: HTMLElement;
+
 	private _destroySubject$: Subject<boolean> = new Subject();
 
 	private _isSearchCountry: boolean;
-
-	private _windowScrollHeight: Number = 2;
-	private _scrollBlock: HTMLElement;
 
 	private _countriesForDonation: Country[];
 
@@ -36,6 +37,14 @@ export class RegionComponent implements OnInit, OnDestroy {
 		private _facadeCountryListService: FacadeServiceCountryList,
 	) { }
 
+	public static isScrolling(): void {
+		if (RegionComponent.scrollBlock.scrollTop > RegionComponent.windowScrollHeight) {
+			RegionComponent.scrollUpButton.classList.add('-app-scroll-up-button_tree-category-visible');
+		} else {
+			RegionComponent.scrollUpButton.classList.remove('-app-scroll-up-button_tree-category-visible');
+		}
+	}
+
 	private navigateToCurrentSubRegionRoute(): void {
 		const firstSubRegionCountryName: string = this.subRegionsCountries[0].name;
 		const firstSubRegionCountryRouterName: string = firstSubRegionCountryName.replace(/\./g, '')
@@ -47,16 +56,11 @@ export class RegionComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnInit(): void {
-		const scrollUpButton: HTMLElement = document.querySelector('.-app-scroll-up-button_sub-region-category');
-		this._scrollBlock = document.querySelector('.-app-region');
+		RegionComponent.scrollBlock = document.querySelector('.-app-region');
 
-		this._scrollBlock.addEventListener('scroll', () => {
-			if (this._scrollBlock.scrollTop > this._windowScrollHeight) {
-				scrollUpButton.classList.add('-app-scroll-up-button_sub-region-category-visible');
-			} else {
-				scrollUpButton.classList.remove('-app-scroll-up-button_sub-region-category-visible');
-			}
-		});
+		RegionComponent.scrollUpButton = document.querySelector('.-app-scroll-up-button_sub-region-category');
+
+		RegionComponent.scrollBlock.addEventListener('scroll', RegionComponent.isScrolling);
 
 		this._activatedRoute.params
 			.pipe(
@@ -104,10 +108,14 @@ export class RegionComponent implements OnInit, OnDestroy {
 	public ngOnDestroy(): void {
 		this._destroySubject$.next(true);
 		this._destroySubject$.complete();
+		RegionComponent.scrollBlock.removeEventListener('scroll', RegionComponent.isScrolling);
 	}
 
 	public scrollTop(): void {
-		this._scrollBlock.scrollTo(0, 0);
+		RegionComponent.scrollBlock.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
 	}
 
 	public canDeactivate(): boolean {
