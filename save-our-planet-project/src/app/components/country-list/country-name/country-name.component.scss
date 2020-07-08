@@ -1,4 +1,5 @@
 $black: rgba(0, 0, 0, 1);
+$screamingGreen: rgba(84, 255, 84, 1);
 
 @mixin transition($args...) {
     -webkit-transition: $args;
@@ -44,7 +45,7 @@ $black: rgba(0, 0, 0, 1);
             letter-spacing: 3.5px;
         }
         &_selected {
-            color: green;
+            color: $screamingGreen;
         }
     }
 }
