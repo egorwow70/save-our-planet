@@ -1,9 +1,10 @@
 
 <div class="-app-country">
-    <div 
+    <button 
         class="-app-country__name"
         [class.-app-country__name_selected]="isCountrySelected"
+        [disabled]="isSearchLoading"
         (click)="goToCurrentCountryRouter()">
         {{ country.name }}
-    </div>
+    </button>
 </div>

@@ -44,6 +44,11 @@ $screamingGreen: rgba(84, 255, 84, 1);
         @include  transition(0.2s);
         cursor: pointer;
         
+        outline: none;
+        border: none;
+
+        background-color: transparent;
+
         color: white;
         user-select: none;
         text-shadow: 2px 2px 4px $black;
@@ -51,6 +56,9 @@ $screamingGreen: rgba(84, 255, 84, 1);
         letter-spacing: 1.5px;
         font-size: 22px;
         font-weight: 600;
+        &[disabled]{
+            cursor: default;
+        }
         &:hover {
             letter-spacing: 3.5px;
         }

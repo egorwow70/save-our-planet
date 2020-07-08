@@ -3,6 +3,8 @@ import { Country } from 'src/app/models/country-list/country';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { selectIsCountrySearchLoading } from 'src/app/store/country-list/country-list.selectors';
+import { Store } from '@ngrx/store';
 
 @Component({
 	selector: 'app-country-name',
@@ -16,6 +18,8 @@ export class CountryNameComponent implements OnInit, OnDestroy {
 	private _regionName: string;
 	private _subRegionName: string;
 
+	public isSearchLoading: boolean = true;
+
 	@Input()
 	public country: Country;
 
@@ -28,6 +32,7 @@ export class CountryNameComponent implements OnInit, OnDestroy {
 	constructor(
 		private _router: Router,
 		private _activatedRoute: ActivatedRoute,
+		private _store$: Store
 	) { }
 
 	public ngOnInit(): void {
@@ -37,6 +42,13 @@ export class CountryNameComponent implements OnInit, OnDestroy {
 			).subscribe((params: Params) => {
 				this._regionName = params.regionName;
 				this._subRegionName = params.subRegionName;
+			});
+
+		this._store$.select(selectIsCountrySearchLoading)
+			.pipe(
+				takeUntil(this._destroySubject$)
+			).subscribe((isSearchLoading: boolean) => {
+				this.isSearchLoading = isSearchLoading;
 			});
 	}
 
