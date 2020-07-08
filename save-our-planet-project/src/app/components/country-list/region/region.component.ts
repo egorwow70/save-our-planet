@@ -118,7 +118,6 @@ export class RegionComponent implements OnInit, OnDestroy {
 	public ngOnDestroy(): void {
 		this._destroySubject$.next(true);
 		this._destroySubject$.complete();
-		this._facadeCountryListService.resetSelectedCountry();
 		RegionComponent.scrollBlock.removeEventListener('scroll', RegionComponent.isScrolling);
 	}
 
