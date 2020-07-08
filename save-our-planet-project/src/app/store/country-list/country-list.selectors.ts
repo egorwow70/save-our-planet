@@ -157,3 +157,12 @@ export const selectSearchMapCountry: MemoizedSelector<
 	selectStateCountryList,
 	(state: ICountryListState): Country => state.searchMapCountry
 );
+
+export const selectSelectedCountry: MemoizedSelector<
+	object,
+	Country,
+	DefaultProjectorFn<Country>
+> = createSelector(
+	selectStateCountryList,
+	(state: ICountryListState): Country => state.selectedCountry
+);

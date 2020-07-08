@@ -20,7 +20,9 @@ import {
 	SearchMapCountryAction,
 	DontSearchMapCountryAction,
 	CountCountryForestAreaAction,
-	ResetSearchCountriesAction
+	ResetSearchCountriesAction,
+	SelectCountryAction,
+	ResetSelectedCountryAction
 } from './country-list.actions';
 import { Country } from 'src/app/models/country-list/country';
 import { Donation } from 'src/app/models/donation-list/donation';
@@ -113,6 +115,14 @@ export class FacadeServiceCountryList {
 
 	public resetSearchCounrties(): void {
 		this._store$.dispatch(new ResetSearchCountriesAction());
+	}
+
+	public selectCountry(country: Country): void {
+		this._store$.dispatch(new SelectCountryAction({ country }));
+	}
+
+	public resetSelectedCountry(): void {
+		this._store$.dispatch(new ResetSelectedCountryAction());
 	}
 
 }

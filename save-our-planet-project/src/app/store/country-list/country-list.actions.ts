@@ -24,6 +24,8 @@ export enum countryListActionsType {
 	dontSearchMapCountry = '[COUNTRY-LIST/API] Dont-Search-Map-Country Country-List',
 	countCountryForestArea = '[COUNTRY-LIST/API] Count-Country-Forest-Area Country-List',
 	resetSearchCounrties = '[COUNTRY-LIST/API] Reset-Search-Countries Country-List',
+	selectCountry = '[COUNTRY-LIST/API] Select-Country Country-List',
+	resetSelectedCountry = '[COUNTRY-LIST/API] Reset-Selected-Country Country-List'
 }
 
 export class InitCountryListAction implements Action {
@@ -214,6 +216,24 @@ export class ResetSearchCountriesAction implements Action {
 	public readonly type: string = countryListActionsType.resetSearchCounrties;
 }
 
+// tslint:disable-next-line: max-classes-per-file
+export class SelectCountryAction implements Action {
+	public readonly type: string = countryListActionsType.selectCountry;
+
+	constructor(private _payload: {
+		country: Country
+	}) { }
+
+	public get country(): Country {
+		return this._payload.country;
+	}
+}
+
+// tslint:disable-next-line: max-classes-per-file
+export class ResetSelectedCountryAction implements Action {
+	public readonly type: string = countryListActionsType.resetSelectedCountry;
+}
+
 export type CountryListActions =
 	InitCountryListAction
 	| InitCountryListSuccessAction
@@ -232,4 +252,6 @@ export type CountryListActions =
 	| SearchMapCountryAction
 	| DontSearchMapCountryAction
 	| CountCountryForestAreaAction
-	| ResetSearchCountriesAction;
+	| ResetSearchCountriesAction
+	| SelectCountryAction
+	| ResetSelectedCountryAction;

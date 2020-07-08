@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Country } from 'src/app/models/country-list/country';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -18,6 +18,12 @@ export class CountryNameComponent implements OnInit, OnDestroy {
 
 	@Input()
 	public country: Country;
+
+	@Input()
+	public isCountrySelected: boolean;
+
+	@Output()
+	public onSelected: EventEmitter<Country> = new EventEmitter<Country>();
 
 	constructor(
 		private _router: Router,
@@ -40,6 +46,7 @@ export class CountryNameComponent implements OnInit, OnDestroy {
 	}
 
 	public goToCurrentCountryRouter(): void {
+		this.onSelected.emit(this.country);
 		const countryName: string = this.country.name.replace(/\./g, '')
 			.replace(/\(|\)/g, '')
 			.toLowerCase()

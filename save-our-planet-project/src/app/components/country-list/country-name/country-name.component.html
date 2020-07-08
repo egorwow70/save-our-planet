@@ -2,6 +2,7 @@
 <div class="-app-country">
     <div 
         class="-app-country__name"
+        [class.-app-country__name_selected]="isCountrySelected"
         (click)="goToCurrentCountryRouter()">
         {{ country.name }}
     </div>

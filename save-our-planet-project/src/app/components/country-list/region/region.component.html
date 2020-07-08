@@ -8,7 +8,9 @@
     <div class="-app-region__country-list">
         <app-country-name 
             *ngFor="let country of subRegionsCountries" 
-            [country]="country">
+            [country]="country"
+            (onSelected)="selectCountry($event)"
+            [isCountrySelected]=isCountrySelected(country)>
         </app-country-name>
     </div>
     <a 

@@ -109,6 +109,7 @@ export class CountryComponent implements OnInit, OnDestroy {
 			).subscribe((country: Country) => {
 				if (Boolean(country)) {
 					this.country = country;
+					this._facadeCountryListService.selectCountry(country);
 					this.isCanChosenCountry = this.canChosenCountry(this.country.name);
 					this._facadeCountryListService.searchCountrySuccess();
 				}
