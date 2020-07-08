@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
 	selector: 'app-tree-list',
 	templateUrl: './tree-list.component.html',
-	styleUrls: ['./tree-list.component.scss']
+	styleUrls: ['./tree-list.component.scss', './tree-list-media.component.scss']
 })
 export class TreeListComponent {
 
