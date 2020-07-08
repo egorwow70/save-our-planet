@@ -1,8 +1,10 @@
 import { Component, OnInit, Input, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { Tree } from 'src/app/models/tree-list/tree';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, delay } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectIsTreeRouterModeAction } from 'src/app/store/tree-list/tree-list.selectors';
 
 @Component({
 	selector: 'app-tree-product',
@@ -26,7 +28,8 @@ export class TreeProductComponent implements OnInit, OnDestroy {
 
 	constructor(
 		private _activatedRoute: ActivatedRoute,
-		private _router: Router
+		private _router: Router,
+		private _store$: Store
 	) { }
 
 	public ngOnInit(): void {
@@ -35,6 +38,15 @@ export class TreeProductComponent implements OnInit, OnDestroy {
 				takeUntil(this._destroySubject$),
 			).subscribe((params: Params) => {
 				this._treeCategoryName = params.categoryName;
+			});
+		this._store$.select(selectIsTreeRouterModeAction)
+			.pipe(
+				delay(0),
+				takeUntil(this._destroySubject$),
+			).subscribe((isTreeRouterModeAction: boolean) => {
+				if (!isTreeRouterModeAction) {
+					this.isTreeProductSelected = false;
+				}
 			});
 	}
 
