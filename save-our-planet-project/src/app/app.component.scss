@@ -14,7 +14,7 @@ $pastelGreen: rgba(108, 219, 108, 1);
     -webkit-transform: $property;
     -moz-transform: $property;
     -ms-transform: $property;
-    -o-transform: $property; 
+    -o-transform: $property;
     transform: $property;
 }
 
@@ -46,24 +46,24 @@ $pastelGreen: rgba(108, 219, 108, 1);
     }
     @-moz-keyframes #{$animation-name} {
         @content;
-    }  
+    }
     @-ms-keyframes #{$animation-name} {
         @content;
     }
     @-o-keyframes #{$animation-name} {
         @content;
-    }  
+    }
     @keyframes #{$animation-name} {
         @content;
     }
 }
 
 @mixin animation($str) {
-  -webkit-animation: #{$str};
-  -moz-animation: #{$str};
-  -ms-animation: #{$str};
-  -o-animation: #{$str};
-  animation: #{$str};      
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
 }
 
 :host {
@@ -162,7 +162,7 @@ $pastelGreen: rgba(108, 219, 108, 1);
         width: 120px;
         height: 100%;
 
-        @include  transition(0.4s);
+        @include transition(0.4s);
 
         border-right: 3px solid $white;
         box-shadow: 2px 0px 6px $blackOpacity0-4;
@@ -172,30 +172,6 @@ $pastelGreen: rgba(108, 219, 108, 1);
             width: 100%;
 
             background-color: $honeyDew;
-            .-app-navigation__button {
-                &:hover {
-                    filter: brightness(0.8);
-                }
-                &-line {
-                    &_top {
-                        @include transform-origin(left top);
-                        @include transform(translate(11px, -4px) rotate(45deg));
-
-                        background-color: $blackOpacity0-9;
-                    }
-                    &_middle {
-                        @include transform(scale(0));
-                    }
-                    &_bottom {
-                        -webkit-transform-origin: right bottom;
-                        -ms-transform-origin: right bottom;
-                        transform-origin: right bottom;
-                        @include transform(translate(-6px, -40px) rotate(-45deg));
-
-                        background-color: $blackOpacity0-9;
-                    }
-                }
-            }
         }
         &__profile-button,
         &__donation-button,
@@ -217,7 +193,7 @@ $pastelGreen: rgba(108, 219, 108, 1);
             top: 15%;
             &_blinking {
                 &::before {
-                    @include animation('1s blinkDonationButton 6 0.3s alternate');
+                    @include animation("1s blinkDonationButton 6 0.3s alternate");
                 }
             }
             &::before {
@@ -248,7 +224,7 @@ $pastelGreen: rgba(108, 219, 108, 1);
             width: 50px;
             height: 50px;
 
-            @include  transition(0.5s);
+            @include transition(0.5s);
             cursor: pointer;
 
             text-decoration: none;
@@ -274,7 +250,7 @@ $pastelGreen: rgba(108, 219, 108, 1);
             justify-content: center;
             align-items: center;
 
-            @include  transition(0.2s);
+            @include transition(0.2s);
             cursor: pointer;
             &:hover {
                 filter: brightness(1.2);
@@ -286,11 +262,28 @@ $pastelGreen: rgba(108, 219, 108, 1);
                 height: 7px;
                 margin: 5px 0px;
 
-                @include  transition(0.4s);
+                @include transition(0.4s);
 
                 border-radius: 3px;
 
                 background-color: $white;
+                &_top {
+                    @include transform-origin(left top);
+                    @include transform(translate(11px, -4px) rotate(45deg));
+
+                    background-color: $blackOpacity0-9;
+                }
+                &_middle {
+                    @include transform(scale(0));
+                }
+                &_bottom {
+                    -webkit-transform-origin: right bottom;
+                    -ms-transform-origin: right bottom;
+                    transform-origin: right bottom;
+                    @include transform(translate(-6px, -40px) rotate(-45deg));
+
+                    background-color: $blackOpacity0-9;
+                }
             }
         }
         &__menu {
@@ -319,8 +312,8 @@ $pastelGreen: rgba(108, 219, 108, 1);
 
                 box-sizing: content-box;
 
-                @include animation('1.5s menuLinksFromBottomToTop');
-                @include  transition(0.2s);
+                @include animation("1.5s menuLinksFromBottomToTop");
+                @include transition(0.2s);
                 cursor: pointer;
 
                 color: $blackOpacity0-9;
@@ -354,8 +347,8 @@ $pastelGreen: rgba(108, 219, 108, 1);
                     width: 100%;
                     height: 4px;
 
-                    @include animation('0.8s menuLine');
-                    @include  transition(0.2s);
+                    @include animation("0.8s menuLine");
+                    @include transition(0.2s);
 
                     background-color: $black;
                 }
@@ -393,7 +386,7 @@ $pastelGreen: rgba(108, 219, 108, 1);
 
             background-color: $black;
             &.-app-loading__representation_cinema {
-                @include animation('3s endLoadingRepresentation 18s forwards');
+                @include animation("3s endLoadingRepresentation 18s forwards");
             }
         }
         &__title {
@@ -404,8 +397,7 @@ $pastelGreen: rgba(108, 219, 108, 1);
 
             @include opacity(0);
 
-            
-            @include animation('1.5s blinkLoading 4  backwards');
+            @include animation("1.5s blinkLoading 4  backwards");
 
             color: $white;
             text-align: center;
@@ -433,7 +425,7 @@ $pastelGreen: rgba(108, 219, 108, 1);
             left: 50%;
             @include transform(translate(-50%, -50%));
 
-            @include animation('3s 2 alternate blinkLoading 6.5s');
+            @include animation("3s 2 alternate blinkLoading 6.5s");
             @include opacity(0);
             user-select: none;
 
@@ -481,71 +473,71 @@ $pastelGreen: rgba(108, 219, 108, 1);
             }
             &_first {
                 &-s {
-                    @include animation('6s blinkLoading 12s');
+                    @include animation("6s blinkLoading 12s");
                 }
                 &-a {
-                    @include animation('5s blinkLoading 13s');
+                    @include animation("5s blinkLoading 13s");
                 }
                 &-v {
-                    @include animation('3.5s blinkLoading 14.5s');
+                    @include animation("3.5s blinkLoading 14.5s");
                 }
                 &-e {
-                    @include animation('4.5s blinkLoading 13.5s');
+                    @include animation("4.5s blinkLoading 13.5s");
                 }
             }
             &_second {
                 position: relative;
                 &-o {
-                    @include animation('5.5s blinkLoading 12.5s');
+                    @include animation("5.5s blinkLoading 12.5s");
                 }
                 &-u {
-                    @include animation('5s blinkLoading 13s');
+                    @include animation("5s blinkLoading 13s");
                 }
                 &-r {
-                    @include animation('4.5s blinkLoading 13.5s');
+                    @include animation("4.5s blinkLoading 13.5s");
                 }
             }
             &_third {
                 &-p {
-                    @include animation('3.5s blinkLoading 14.5s');
+                    @include animation("3.5s blinkLoading 14.5s");
                 }
                 &-l {
-                    @include animation('5s blinkLoading 13s');
+                    @include animation("5s blinkLoading 13s");
                 }
                 &-a {
-                    @include animation('4.5s blinkLoading 13.5s');
+                    @include animation("4.5s blinkLoading 13.5s");
                 }
                 &-n {
-                    @include animation('5.5s blinkLoading 12.5s');
+                    @include animation("5.5s blinkLoading 12.5s");
                 }
                 &-e {
-                    @include animation('4.5s blinkLoading 13.5s');
+                    @include animation("4.5s blinkLoading 13.5s");
                 }
                 &-t {
-                    @include animation('4s blinkLoading 14s');
+                    @include animation("4s blinkLoading 14s");
                 }
             }
             &_fourth {
                 &-p {
-                    @include animation('6s blinkLoading 12s');
+                    @include animation("6s blinkLoading 12s");
                 }
                 &-r {
-                    @include animation('4s blinkLoading 14s');
+                    @include animation("4s blinkLoading 14s");
                 }
                 &-o {
-                    @include animation('5.5s blinkLoading 12.5s');
+                    @include animation("5.5s blinkLoading 12.5s");
                 }
                 &-j {
-                    @include animation('3s blinkLoading 15s');
+                    @include animation("3s blinkLoading 15s");
                 }
                 &-e {
-                    @include animation('4s blinkLoading 14s');
+                    @include animation("4s blinkLoading 14s");
                 }
                 &-c {
-                    @include animation('4.5s blinkLoading 13.5s');
+                    @include animation("4.5s blinkLoading 13.5s");
                 }
                 &-t {
-                    @include animation('3s blinkLoading 15s');
+                    @include animation("3s blinkLoading 15s");
                 }
             }
         }

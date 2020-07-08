@@ -1,0 +1,366 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property;
+    transform: $property;
+}
+
+@media screen and (max-width: 1700px) {
+    .-app {
+        &-router-outlet {
+            padding-left: 110px;
+        }
+        &-navigation {
+            width: 110px;
+            &__item {
+                margin-right: 135px;
+            }
+            &_menu-mode {
+                width: 100%;
+            }
+            &__button {
+                &-line {
+                    width: 55px;
+                    height: 6.5px;
+                }
+            }
+            &__item {
+                &-link {
+                    font-size: 64px;
+                }
+            }
+            &__button,
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                left: 55px;
+            }
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .-app {
+        &-router-outlet {
+            padding-left: 100px;
+        }
+        &-navigation {
+            width: 100px;
+            &__item {
+                margin-right: 120px;
+            }
+            &_menu-mode {
+                width: 100%;
+            }
+            &__button {
+                &-line {
+                    width: 50px;
+                    height: 6px;
+                    &.-app-navigation__button-line_top {
+                        @include transform(translate(9px, 0px) rotate(45deg));
+                    }
+                    &.-app-navigation__button-line_bottom {
+                        @include transform(translate(-5px, -33px) rotate(-45deg));
+                    }
+                }
+            }
+            &__item {
+                &-link {
+                    font-size: 58px;
+                }
+            }
+            &__button,
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                left: 50px;
+            }
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                width: 40px;
+                height: 40px;
+                &::before {
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .-app {
+        &-router-outlet {
+            padding-left: 80px;
+        }
+        &-navigation {
+            width: 80px;
+            &__item {
+                height: 80px;
+                margin-right: 105px;
+                &-link {
+                    font-size: 50px;
+                    &::before {
+                        height: 3.5px;
+                    }
+                }
+            }
+            &_menu-mode {
+                width: 100%;
+            }
+            &__button {
+                &-line {
+                    width: 40px;
+                    height: 5px;
+                    &.-app-navigation__button-line_top {
+                        @include transform(translate(9px, 2px) rotate(45deg));
+                    }
+                    &.-app-navigation__button-line_bottom {
+                        @include transform(translate(-4px, -30px) rotate(-45deg));
+                    }
+                }
+            }
+            &__item {
+                &-link {
+                    font-size: 52px;
+                }
+            }
+            &__button,
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                left: 40px;
+            }
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                width: 30px;
+                height: 30px;
+                &::before {
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .-app {
+        &-router-outlet {
+            padding-left: 70px;
+        }
+        &-navigation {
+            width: 70px;
+            &__menu {
+                width: 50%;
+            }
+            &_menu-mode {
+                width: 100%;
+            }
+            &__button {
+                &-line {
+                    width: 35px;
+                    height: 4.5px;
+                    &.-app-navigation__button-line_top {
+                        @include transform(translate(9px, 2px) rotate(45deg));
+                    }
+                    &.-app-navigation__button-line_bottom {
+                        @include transform(translate(-4px, -29px) rotate(-45deg));
+                    }
+                }
+            }
+            &__item {
+                height: 80px;
+                margin-right: 90px;
+                padding: 25px 0px;
+                &-link {
+                    font-size: 46px;
+                    &::before {
+                        height: 3px;
+                    }
+                }
+            }
+            &__button,
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                left: 35px;
+            }
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                width: 25px;
+                height: 25px;
+                &::before {
+                    font-size: 28px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .-app {
+        &-router-outlet {
+            padding-left: 60px;
+        }
+        &-navigation {
+            width: 60px;
+            &__menu {
+                width: 75%;
+            }
+            &_menu-mode {
+                width: 100%;
+            }
+            &__button {
+                &-line {
+                    width: 30px;
+                    height: 4px;
+                    &.-app-navigation__button-line_top {
+                        @include transform(translate(7px, 4px) rotate(45deg));
+                    }
+                    &.-app-navigation__button-line_bottom {
+                        @include transform(translate(-4px, -25px) rotate(-45deg));
+                    }
+                }
+            }
+            &__item {
+                margin-right: 75px;
+                &-link {
+                    font-size: 40px;
+                    &::before {
+                        height: 2.5px;
+                    }
+                }
+            }
+            &__button,
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                left: 30px;
+            }
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                width: 20px;
+                height: 20px;
+                &::before {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .-app {
+        &-router-outlet {
+            padding-left: 50px;
+        }
+        &-navigation {
+            width: 50px;
+            &_menu-mode {
+                width: 100%;
+            }
+            &__button {
+                &-line {
+                    height: 3px;
+                    margin: 2.5px 0px;
+                    &.-app-navigation__button-line_top {
+                        @include transform(translate(6px, -2px) rotate(45deg));
+                    }
+                    &.-app-navigation__button-line_bottom {
+                        @include transform(translate(-2px, -19px) rotate(-45deg));
+                    }
+                }
+            }
+            &__item {
+                height: 65px;
+                margin-right: 60px;
+                &-link {
+                    font-size: 34px;
+                    &::before {
+                        height: 2px;
+                    }
+                }
+            }
+            &__button,
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                left: 25px;
+            }
+            &__statistic-button,
+            &__profile-button,
+            &__donation-button {
+                width: 17.5px;
+                height: 17.5px;
+                &::before {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .-app {
+        &-router-outlet {
+            padding-left: 50px;
+        }
+        &-navigation {
+            &__button {
+                &-line {
+                    width: 25px;
+                }
+            }
+            &__item {
+                height: 55px;
+                &-link {
+                    font-size: 30px;
+                    &::before {
+                        height: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .-app {
+        &-router-outlet {
+            padding-left: 50px;
+        }
+        &-navigation {
+            &__button {
+                &-line {
+                    height: 2.5px;
+                    margin: 2px 0px;
+                    &.-app-navigation__button-line_top {
+                        @include transform(translate(5px, -2px) rotate(45deg));
+                    }
+                    &.-app-navigation__button-line_bottom {
+                        @include transform(translate(-3px, -16px) rotate(-45deg));
+                    }
+                    
+                }
+            }
+            &__item {
+                &-link {
+                    font-size: 26px;
+                    &::before {
+                        height: 2px;
+                    }
+                }
+            }
+        }
+    }
+}

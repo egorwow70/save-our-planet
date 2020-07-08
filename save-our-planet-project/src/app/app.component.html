@@ -26,13 +26,19 @@
             routerLink="/donation-statistic">
         </a>
         <div 
-            class="-app-navigation__button" 
+            class="-app-navigation__button"
             (click)="toggleMenuMode()">
-            <span class="-app-navigation__button-line -app-navigation__button-line_top">
+            <span 
+                class="-app-navigation__button-line "
+                [class.-app-navigation__button-line_top]="menuMode">
             </span>
-            <span class="-app-navigation__button-line -app-navigation__button-line_middle">
+            <span 
+                class="-app-navigation__button-line"
+                [class.-app-navigation__button-line_middle]="menuMode">
             </span>
-            <span class="-app-navigation__button-line -app-navigation__button-line_bottom">
+            <span 
+                class="-app-navigation__button-line"
+                [class.-app-navigation__button-line_bottom]="menuMode">
             </span>
         </div>
         <ng-container *ngIf="menuMode">
