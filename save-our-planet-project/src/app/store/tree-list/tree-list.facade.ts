@@ -8,9 +8,11 @@ import {
 	GoFromTreeRouterAction,
 	InitTreeListAction,
 	IsTreesLoadingSuccessAction,
-	IsSelectedTreeForDonationAction
+	IsSelectedTreeForDonationAction,
+	SelectTreeProductAction
 } from './tree-list.actions';
 import { Donation } from 'src/app/models/donation-list/donation';
+import { Tree } from 'src/app/models/tree-list/tree';
 
 @Injectable()
 export class FacadeServiceTreeList {
@@ -49,6 +51,10 @@ export class FacadeServiceTreeList {
 
 	public isSelectedTreeForDonation(treeRouteName: string, donationListBeforeRegistration: Donation[]): void {
 		this._store$.dispatch(new IsSelectedTreeForDonationAction({ treeRouteName, donationListBeforeRegistration }));
+	}
+
+	public selectTreeProduct(treeProduct: Tree): void {
+		this._store$.dispatch(new SelectTreeProductAction({ treeProduct }));
 	}
 
 }

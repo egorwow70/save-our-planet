@@ -84,3 +84,12 @@ export const selectIsSelectedTree: MemoizedSelector<
 	selectStateTreeList,
 	(state: ITreeListState): boolean => state.isSelectedTree
 );
+
+export const selectSelectedTreeProduct: MemoizedSelector<
+	object,
+	Tree,
+	DefaultProjectorFn<Tree>
+> = createSelector(
+	selectStateTreeList,
+	(state: ITreeListState): Tree => state.selectedTreeProduct
+);

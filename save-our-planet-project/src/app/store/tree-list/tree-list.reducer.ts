@@ -11,6 +11,7 @@ export interface ITreeListState {
 	searchTree: Tree;
 	isTreeRouterMode: boolean;
 	isSelectedTree: boolean;
+	selectedTreeProduct: Tree;
 }
 
 export const treeListFeatureKey: 'TREE-LIST' = 'TREE-LIST';
@@ -23,7 +24,8 @@ const initialState: ITreeListState = {
 	isSearchLoading: false,
 	searchTree: null,
 	isTreeRouterMode: false,
-	isSelectedTree: false
+	isSelectedTree: false,
+	selectedTreeProduct: null
 };
 
 export function treeListReducer(
@@ -120,6 +122,12 @@ export function treeListReducer(
 					isSelectedTree: false
 				};
 			}
+		}
+		case treeListActionsType.selectTreeProduct: {
+			return {
+				...state,
+				selectedTreeProduct: action.treeProduct.clone()
+			};
 		}
 		default: {
 			return {

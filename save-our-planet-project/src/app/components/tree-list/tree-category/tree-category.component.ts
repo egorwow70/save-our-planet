@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { takeUntil, delay } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { selectTreeCategoryTrees, selectIsTreeRouterModeAction } from 'src/app/store/tree-list/tree-list.selectors';
+import { selectTreeCategoryTrees, selectIsTreeRouterModeAction, selectSelectedTreeProduct } from 'src/app/store/tree-list/tree-list.selectors';
 import { Tree } from 'src/app/models/tree-list/tree';
 import { FacadeServiceTreeList } from 'src/app/store/tree-list/tree-list.facade';
 import { selectDonationListBeforeRegistration } from 'src/app/store/donation-list/donation-list.selectors';
@@ -22,6 +22,8 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 	private _destroySubject$: Subject<boolean> = new Subject();
 
 	private _donationListBeforeRegistration: Donation[];
+
+	private _selectedTreeProduct: Tree;
 
 	public treeCategory: string;
 
@@ -78,6 +80,14 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 			).subscribe((donationListBeforeRegistration: Donation[]) => {
 				this._donationListBeforeRegistration = donationListBeforeRegistration;
 			});
+		this._store$.select(selectSelectedTreeProduct)
+			.pipe(
+				takeUntil(this._destroySubject$)
+			).subscribe((selectedTreeProduct: Tree) => {
+				if (Boolean(selectedTreeProduct)) {
+					this._selectedTreeProduct = selectedTreeProduct;
+				}
+			});
 	}
 
 	public ngOnDestroy(): void {
@@ -104,6 +114,15 @@ export class TreeCategoryComponent implements OnInit, OnDestroy {
 		return (!Boolean(this._donationListBeforeRegistration))
 			? confirm(deactivateQuestion)
 			: true;
+	}
+
+	public selectTreeProduct(tree: Tree): void {
+		this._facadeTreeListService.selectTreeProduct(tree);
+	}
+
+	public isTreeProductSelected(tree: Tree): boolean {
+		return Boolean(this._selectedTreeProduct)
+			&& this._selectedTreeProduct.equals(tree);
 	}
 
 }
