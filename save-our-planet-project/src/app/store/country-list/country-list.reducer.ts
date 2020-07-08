@@ -327,12 +327,6 @@ export function countryListReducer(
 				selectedCountry: action.country.clone()
 			};
 		}
-		case countryListActionsType.resetSelectedCountry: {
-			return {
-				...state,
-				selectedCountry: null
-			};
-		}
 		default: {
 			return {
 				...state

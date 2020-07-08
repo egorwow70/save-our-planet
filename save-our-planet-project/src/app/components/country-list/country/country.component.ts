@@ -90,6 +90,7 @@ export class CountryComponent implements OnInit, OnDestroy {
 			).subscribe((params: Params) => {
 				this._appNavigationDonationButton.classList.remove('-app-navigation__donation-button_blinking');
 
+				// this._facadeCountryListService.resetSelectedCountry();
 				this._facadeCountryListService.searchCountry(params.countryName);
 			});
 

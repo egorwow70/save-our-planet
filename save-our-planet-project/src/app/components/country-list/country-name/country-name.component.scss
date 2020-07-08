@@ -1,4 +1,5 @@
 $black: rgba(0, 0, 0, 1);
+$white: rgba(255, 255, 255, 1);
 $screamingGreen: rgba(84, 255, 84, 1);
 
 @mixin transition($args...) {
@@ -9,6 +10,13 @@ $screamingGreen: rgba(84, 255, 84, 1);
     transition: $args;
 }
 
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property; 
+    transform: $property;
+}
 
 :host {
     display: flex;
@@ -22,6 +30,8 @@ $screamingGreen: rgba(84, 255, 84, 1);
     width: 100%;
     height: 100%;
     &__name {
+        position: relative;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -44,8 +54,25 @@ $screamingGreen: rgba(84, 255, 84, 1);
         &:hover {
             letter-spacing: 3.5px;
         }
+        &::before {
+            content: '';
+
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            @include transform(translate(-50%, 20%));
+
+            width: 0%;
+            height: 2px;
+
+            @include transition(0.3s);
+
+            background-color: $white;
+        }
         &_selected {
-            color: $screamingGreen;
+            &::before {
+                width: 60%;
+            }
         }
     }
 }

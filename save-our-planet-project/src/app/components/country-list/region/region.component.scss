@@ -37,6 +37,8 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
     width: 50%;
     height: 100vh;
     overflow: scroll;
+
+    background-color: $blackOpacity0-6;
     &__title,
     &__sub-title {
         width: 100%;
