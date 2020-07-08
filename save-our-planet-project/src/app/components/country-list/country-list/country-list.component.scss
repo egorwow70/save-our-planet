@@ -92,6 +92,8 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
 
         width: 200px;
         height: 100px;
+
+        cursor: pointer;
         &_menu-mode {
             @include  transition(0.4s);
 
@@ -118,7 +120,6 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
             width: 50%;
 
             @include  transition(0.2s);
-            cursor: pointer;
 
             color: $white;
             user-select: none;
@@ -141,8 +142,6 @@ $blackOpacity0-6: rgba(0, 0, 0, 0.6);
 
             width: 50%;
             height: 100%;
-
-            cursor: pointer;
             &::before {
                 content: "\f002";
 
