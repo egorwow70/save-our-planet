@@ -21,6 +21,7 @@ export interface ICountryListState {
 	searchCountry: Country;
 	searchNextCountry: Country;
 	searchMapCountry: Country;
+	selectedCountry: Country;
 }
 
 export const countryListFeatureKey: 'COUNTRY-LIST' = 'COUNTRY-LIST';
@@ -41,7 +42,8 @@ const initialState: ICountryListState = {
 	searchPreviousCountry: null,
 	searchCountry: null,
 	searchNextCountry: null,
-	searchMapCountry: null
+	searchMapCountry: null,
+	selectedCountry: null
 };
 
 export function countryListReducer(
@@ -317,6 +319,12 @@ export function countryListReducer(
 				searchMapCountry: null,
 				searchNextCountry: null,
 				searchPreviousCountry: null
+			};
+		}
+		case countryListActionsType.selectCountry: {
+			return {
+				...state,
+				selectedCountry: action.country.clone()
 			};
 		}
 		default: {

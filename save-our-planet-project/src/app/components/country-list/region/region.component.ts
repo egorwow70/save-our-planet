@@ -4,7 +4,7 @@ import { takeUntil, delay } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Country } from 'src/app/models/country-list/country';
-import { selectSubRegionsCountries, selectSearchCountry } from 'src/app/store/country-list/country-list.selectors';
+import { selectSubRegionsCountries, selectSearchCountry, selectSelectedCountry } from 'src/app/store/country-list/country-list.selectors';
 import { FacadeServiceCountryList } from 'src/app/store/country-list/country-list.facade';
 import { selectCountriesForDonation } from 'src/app/store/donation-list/donation-list.selectors';
 
@@ -24,6 +24,8 @@ export class RegionComponent implements OnInit, OnDestroy {
 	private _isSearchCountry: boolean;
 
 	private _countriesForDonation: Country[];
+
+	private _selectedCountry: Country;
 
 	public regionName: string;
 	public subRegionName: string;
@@ -103,6 +105,14 @@ export class RegionComponent implements OnInit, OnDestroy {
 				}
 			});
 
+		this._store$.select(selectSelectedCountry)
+			.pipe(
+				takeUntil(this._destroySubject$)
+			).subscribe((selectedCountry: Country) => {
+				if (Boolean(selectedCountry)) {
+					this._selectedCountry = selectedCountry;
+				}
+			});
 	}
 
 	public ngOnDestroy(): void {
@@ -123,6 +133,15 @@ export class RegionComponent implements OnInit, OnDestroy {
 		return (!Boolean(this._countriesForDonation))
 			? confirm(deactivateQuestion)
 			: true;
+	}
+
+	public selectCountry(country: Country): void {
+		this._facadeCountryListService.selectCountry(country);
+	}
+
+	public isCountrySelected(country: Country): boolean {
+		return Boolean(this._selectedCountry)
+			&& this._selectedCountry.equals(country);
 	}
 
 }
