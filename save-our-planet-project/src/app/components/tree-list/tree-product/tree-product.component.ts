@@ -52,6 +52,7 @@ export class TreeProductComponent implements OnInit, OnDestroy {
 			});
 		this._store$.select(selectIsTreeSearchLoading)
 			.pipe(
+				delay(0),
 				takeUntil(this._destroySubject$)
 			).subscribe((isSearchLoading: boolean) => {
 				this.isSearchLoading = isSearchLoading;

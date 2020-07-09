@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angu
 import { Country } from 'src/app/models/country-list/country';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, delay } from 'rxjs/operators';
 import { selectIsCountrySearchLoading } from 'src/app/store/country-list/country-list.selectors';
 import { Store } from '@ngrx/store';
 
@@ -46,6 +46,7 @@ export class CountryNameComponent implements OnInit, OnDestroy {
 
 		this._store$.select(selectIsCountrySearchLoading)
 			.pipe(
+				delay(0),
 				takeUntil(this._destroySubject$)
 			).subscribe((isSearchLoading: boolean) => {
 				this.isSearchLoading = isSearchLoading;
