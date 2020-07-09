@@ -1,10 +1,13 @@
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1800px) {
     .-app-tree-category {
         &::after {
             left: 110px;
         }
         &-router-outlet {
             padding-left: 110px;
+        }
+        &__back-button {
+            left: 12.5%;
         }
     }
 }
@@ -22,28 +25,54 @@
 
 @media screen and (max-width: 1300px) {
     .-app-tree-category {
+        padding: 0px 50px;
+        box-sizing: border-box;
         &::after {
             left: 80px;
-        }
-        &-router-outlet {
-            padding-left: 80px;
         }
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1140px) {
     .-app-tree-category {
         &::after {
             left: 70px;
         }
+        &__title {
+            font-size: 32px;
+        }
         &-router-outlet {
             padding-left: 70px;
         }
+        &__back-button {
+            bottom: 4%;
+            left: 85%;
+        }
+    }
+    .-app-scroll-up-button {
+        bottom: 10%;
+        right: 7.5%;
     }
 }
 
 @media screen and (max-width: 800px) {
     .-app-tree-category {
+        &__title {
+            padding-top: 40px;
+            font-size: 27px;
+        }
+        &__back-button {
+            left: 80%;
+        }
+    }
+    .-app-scroll-up-button {
+        right: 12%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .-app-tree-category {
+        padding: 0px 30px;
         &::after {
             left: 60px;
         }
@@ -53,8 +82,54 @@
     }
 }
 
+@media screen and (max-width: 750px) {
+    .-app-tree-category {
+        padding: 0px 25px;
+        &__back-button {
+            left: 75%;
+        }
+    }
+    .-app-scroll-up-button {
+        right: 17%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .-app-tree-category {
+        &__back-button {
+            left: 67%;
+            bottom: 9%;
+            width: 50px;
+            height: 50px;
+            &::before {
+                font-size: 21px;
+            }
+        }
+    }
+    .-app-scroll-up-button {
+        right: 25%;
+        width: 50px;
+        height: 50px;
+        &::before {
+            font-size: 21px;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .-app-scroll-up-button {
+        right: 20%;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .-app-tree-category {
+        padding: 0px;
+        &__title {
+            padding: 0px 15px;
+            padding-top: 30px;
+            font-size: 23px;
+        }
         &::after {
             left: 50px;
         }
@@ -64,5 +139,24 @@
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
+    .-app-tree-category {
+        width: 35%;
+        &__back-button {
+            width: 40px;
+            height: 40px;
+            &::before {
+                font-size: 27px;
+            }
+        }
+    }
+
+    .-app-scroll-up-button {
+        width: 40px;
+        height: 40px;
+        &::before {
+            font-size: 27px;
+        }
+    }
+   
 }

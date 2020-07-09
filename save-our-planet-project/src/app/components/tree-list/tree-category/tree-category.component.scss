@@ -67,6 +67,7 @@ $phthalocyanineGreenOpacity: rgba(8, 37, 8, 1);
 
         color: $white;
         text-shadow: 2px 2px 8px $blackOpacity0-9;
+        text-align: center;
         letter-spacing: 4px;
         font-size: 36px;
     }
@@ -88,6 +89,7 @@ $phthalocyanineGreenOpacity: rgba(8, 37, 8, 1);
     }
     &__back-button {
         position: fixed;
+        z-index: 9000;
         bottom: 10%;
         left: 10%;
         @include transform(translate(-50%, 0%));

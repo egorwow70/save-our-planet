@@ -1,9 +1,390 @@
 @media screen and (max-width: 1900px) {
     .-app-current-tree {
+        height: 70%;
+        &__menu {
+            padding-top: 120px;
+        }
         &__form {
+            margin-top: 40px;
             &-donate-button {
                 left: 60%;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 1750px) {
+    .-app-current-tree {
+        &__form {
+            &-donate-button {
+                left: 70%;
+            }
+        }
+        &__feature-list {
+            font-size: 17px;
+        }
+        &__feature-title {
+            display: none;
+        }
+        &-feature-subtitle {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .-app-current-tree {
+        &__title {
+            font-size: 24px;
+        }
+        &__form {
+            &-donate-button {
+                left: 82.5%;
+                padding: 15px 30px;
+            }
+        }
+        &__feature-list {
+            font-size: 16px;
+        }
+        &__image {
+            width: 175px;
+            height: 175px;
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .-app-current-tree {
+        &__menu,
+        &__description-button,
+        &__details-button {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        &__content-wrapper {
+            min-height: 260px;
+        }
+        &__donate {
+            height: 100px;
+        }
+        &__form {
+            justify-content: space-around;
+            align-items: center;
+            margin: 0px;
+            &-input {
+                height: 50px;
+            }
+            &-donate-button {
+                top: 125%;
+                left: 50%;
+            }
+        }
+        &__feature-list {
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .-app-current-tree {
+        padding: 0px;
+        width: 500px;
+        &__donate {
+            margin: 0px;
+        }
+        &-wrapper {
+            padding: 50px;
+        }
+        &__title {
+            font-size: 21px;
+        }
+        &__description {
+            font-size: 15px;
+        }
+        &__form {
+            &-donate-button {
+                font-size: 16px;
+            }
+        }
+        &__feature-list {
+            font-size: 13px;
+        }
+        &__image {
+            width: 150px;
+            height: 150px;
+        }
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .-app-current-tree {
+        padding: 0px;
+        width: 450px;
+        &__feature-list {
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .-app-current-tree {
+        width: 400px;
+        &__title {
+            padding-right: 45px;
+            font-size: 18px;
+        }
+        &__feature-list {
+            font-size: 11px;
+        }
+        &__image {
+            width: 125px;
+            height: 125px;
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .-app-current-tree {
+        width: 350px;
+        height: 55%;
+        &__menu {
+            padding-top: 100px;
+            font-size: 14px;
+        }
+        &__description-button,
+        &__details-button {
+            font-size: 14px;
+        }
+        &__title {
+            font-size: 16px;
+        }
+        &-wrapper {
+            padding: 50px 40px;
+        }
+        &__content-wrapper {
+            min-height: 170px;
+        }
+        &__donate {
+            margin: 0px;
+        }
+        &__donate {
+            height: 80px;
+        }
+        &__form {
+            height: 50px;
+            &-button {
+                &::before {
+                    font-size: 18px;
+                }
+            }
+            &-input {
+                width: 35px;
+                height: 35px;
+            }
+            &-donate-button {
+                top: 170%;
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+        }
+        &__cost {
+            width: 80px;
+            font-size: 14px;
+            &-ribbon {
+                &::after {
+                    right: 10px;
+                    bottom: 38px;
+                    border-left: 48px solid transparent;
+                    border-right: 48px solid transparent;
+                }
+            }
+        }
+        &__feature-list {
+            font-size: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .-app-current-tree {
+        width: 300px;
+        &-wrapper {
+            padding: 50px 30px;
+        }
+        &__menu {
+            padding-top: 110px;
+        }
+        &__description-button,
+        &__details-button {
+            font-size: 11px;
+        }
+        &__form {
+            &-button {
+                &::before {
+                    font-size: 16px;
+                }
+            }
+            &-donate-button {
+                top: 160%;
+            }
+        }
+        &__image {
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .-app-current-tree {
+        width: 250px;
+        &-wrapper {
+            padding: 50px 20px;
+        }
+        &__title {
+            padding: 10px;
+            padding-right: 30px;
+        }
+        &__description {
+            font-size: 9px;
+        }
+        &__menu {
+            padding-top: 110px;
+            font-size: 12px;
+        }
+        &__form {
+            height: 40px;
+            &-button {
+                &::before {
+                    font-size: 14px;
+                }
+            }
+            &-input {
+                width: 25px;
+                height: 30px;
+            }
+            &-donate-button {
+                top: 190%;
+            }
+        }
+        &__image {
+            width: 75px;
+            height: 75px;
+        }
+        &__feature-list {
+            font-size: 9px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :host {
+        width: 55%;
+    }
+    .-app-current-tree {
+        width: 225px;
+        &__menu {
+            padding-bottom: 10px;
+        }
+        &-wrapper {
+            padding: 50px 15px;
+        }
+        &__title {
+            font-size: 14px;
+        }
+        &__description-button,
+        &__details-button {
+            font-size: 8px;
+            padding: 10px 5px;
+        }
+        &__form {
+            &-input {
+                width: 20px;
+                height: 25px;
+            }
+        }
+        &__feature-list {
+            font-size: 7.5px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .-app-current-tree {
+        width: 200px;
+        height: 500px;
+        &-wrapper {
+            padding: 50px 10px;
+        }
+        &__title {
+            padding: 5px 0px;
+            padding-right: 17.5px;
+            font-size: 14px;
+        }
+        &__menu {
+            padding-top: 100px;
+        }
+        &__content-wrapper {
+            min-height: 150px;
+        }
+        &__donate {
+            height: 60px;
+        }
+        &__form {
+            &-button {
+                &::before {
+                    font-size: 12px;
+                }
+            }
+            &-input {
+                height: 20px;
+            }
+            &-donate-button {
+                top: 170%;
+                padding: 7px 20px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .-app-current-tree {
+        height: 450px;
+        width: 175px;
+        &__title {
+            font-size: 11px;
+        }
+        &__content-wrapper {
+            min-height: 130px;
+        }
+        &__menu {
+            padding-top: 60px;
+        }
+        &__feature-list {
+            font-size: 6px;
+        }
+        &__image {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .-app-current-tree {
+        height: 430px;
+        width: 150px;
+        &__title {
+            font-size: 11px;
+        }
+        &__content-wrapper {
+            min-height: 130px;
+        }
+        &__menu {
+            padding-top: 60px;
         }
     }
 }

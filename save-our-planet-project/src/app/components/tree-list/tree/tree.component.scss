@@ -51,9 +51,9 @@ $red: rgba(255, 14, 14, 1);
     align-items: center;
 
     width: 100%;
-    min-height: 60%;
-    padding: 200px;
-
+    height: 65%;
+    padding: 0px 200px;
+   
     color: $white;
     &-wrapper {
         position: relative;
@@ -353,6 +353,7 @@ $red: rgba(255, 14, 14, 1);
     &__image {
         width: 200px;
         height: 200px;
+        margin-right: 20px;
 
         border: 2px solid $white;
     }
@@ -362,7 +363,8 @@ $red: rgba(255, 14, 14, 1);
         justify-content: center;
         align-items: flex-end;
 
-        padding-left: 20px;
+        height: 90%;
+        overflow: auto;
 
         font-size: 20px;
     }
@@ -373,6 +375,7 @@ $red: rgba(255, 14, 14, 1);
 
         width: 100%;
         padding: 10px 0px;
+        box-sizing: border-box;
 
         text-align: right;
         &-title {
@@ -380,6 +383,9 @@ $red: rgba(255, 14, 14, 1);
 
             $white-space: nowrap;
             text-align: left;
+        }
+        &-sub-title {
+            word-break: break-word;
         }
     }
     &__cost-ribbon {
@@ -579,7 +585,7 @@ $red: rgba(255, 14, 14, 1);
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 20px;
-            font-weight: 600;
+            font-weight: 800;
             &[disabled] {
                 @include opacity(0.6);
                 cursor: default;
