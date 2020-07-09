@@ -17,7 +17,7 @@ import { selectCountriesForDonation } from 'src/app/store/donation-list/donation
 @Component({
 	selector: 'app-country',
 	templateUrl: './country.component.html',
-	styleUrls: ['./country.component.scss']
+	styleUrls: ['./country.component.scss', './country-media.component.scss']
 })
 export class CountryComponent implements OnInit, OnDestroy {
 

@@ -1,0 +1,60 @@
+@media screen and (max-width: 1500px) {
+    .-app-country {
+        &__name {
+            font-size: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .-app-country {
+        &__name {
+            font-size: 17px;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .-app-country {
+        &__name {
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    :host {
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .-app-country {
+        &__name {
+            font-size: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    :host {
+        height: 50px;
+    }
+    .-app-country {
+        &__name {
+            font-size: 13px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    :host {
+        height: 40px;
+    }
+    .-app-country {
+        &__name {
+            font-size: 11px;
+        }
+    }
+}
+

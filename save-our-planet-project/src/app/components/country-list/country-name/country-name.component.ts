@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 @Component({
 	selector: 'app-country-name',
 	templateUrl: './country-name.component.html',
-	styleUrls: ['./country-name.component.scss']
+	styleUrls: ['./country-name.component.scss', './country-name-media.component.scss']
 })
 export class CountryNameComponent implements OnInit, OnDestroy {
 
