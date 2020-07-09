@@ -11,7 +11,6 @@ import {
 	selectIsMapMode,
 	selectIsGlobeMode,
 	selectIsShowCapitalsMode,
-	selectSearchCountry,
 	selectSearchMapCountry
 } from 'src/app/store/country-list/country-list.selectors';
 import { Store } from '@ngrx/store';
@@ -26,7 +25,7 @@ import { Router } from '@angular/router';
 @Component({
 	selector: 'app-country-map',
 	templateUrl: './country-map.component.html',
-	styleUrls: ['./country-map.component.scss']
+	styleUrls: ['./country-map.component.scss', './country-map-media.component.scss']
 })
 export class CountryMapComponent implements OnInit, AfterViewInit, OnDestroy {
 

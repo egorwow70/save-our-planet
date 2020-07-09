@@ -1,0 +1,87 @@
+@media screen and (max-width: 900px) {
+    .-app-country-map {
+        &__info {
+            width: 460px;
+            &-title {
+                padding: 25px 60px;
+                font-size: 15px;
+            }
+            &-button {
+                right: 2%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .-app-country-map {
+        &__info {
+            width: 430px;
+            &-title {
+                padding: 25px 40px;
+                font-size: 13px;
+            }
+            &-button {
+                right: 0%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .-app-country-map {
+        &__info {
+            width: 350px;
+            &-title {
+                padding: 25px 30px;
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .-app-country-map {
+        &__show-capitals {
+            &-title {
+                font-size: 15px;
+            }
+        }
+        &__toggle {
+            &-title {
+                font-size: 15px;
+            }
+        }
+        &__info {
+            width: 260px;
+            &-title {
+                padding: 25px 25px;
+                font-size: 9px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .-app-country-map {
+        &__show-capitals {
+            &-title {
+                font-size: 12px;
+            }
+        }
+        &__toggle {
+            &-button {
+                width: 50px;
+            }
+            &-title {
+                font-size: 12px;
+            }
+        }
+        &__info {
+            width: 220px;
+            &-title {
+                font-size: 7px;
+            }
+        }
+    }
+}

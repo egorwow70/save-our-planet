@@ -43,6 +43,18 @@
                 height: 45px;
             }
         }
+        &-loading {
+            &__present-title,
+            &__title {
+                font-size: 17px;
+            }
+            &__sub-title {
+                &-letter {
+                    padding: 0px 4px;
+                    font-size: 20px;
+                }
+            }
+        }
     }
 }
 
@@ -148,6 +160,17 @@
                 }
             }
         }
+        &-loading {
+            &__present-title {
+                font-size: 15px;
+            }
+            &__sub-title {
+                &-letter {
+                    padding: 0px 3px;
+                    font-size: 17px;
+                }
+            }
+        }
     }
 }
 
@@ -200,6 +223,17 @@
                 height: 25px;
                 &::before {
                     font-size: 28px;
+                }
+            }
+        }
+        &-loading {
+            &__present-title {
+                font-size: 13px;
+            }
+            &__sub-title {
+                &-letter {
+                    padding: 0px 2.5px;
+                    font-size: 15px;
                 }
             }
         }
@@ -256,6 +290,17 @@
                 }
             }
         }
+        &-loading {
+            &__present-title {
+                font-size: 11px;
+            }
+            &__sub-title {
+                &-letter {
+                    padding: 0px 2px;
+                    font-size: 13px;
+                }
+            }
+        }
     }
 }
 
@@ -307,6 +352,17 @@
                 }
             }
         }
+        &-loading {
+            &__present-title {
+                font-size: 8px;
+            }
+            &__sub-title {
+                &-letter {
+                    padding: 0px 1.5px;
+                    font-size: 9px;
+                }
+            }
+        }
     }
 }
 
@@ -328,6 +384,17 @@
                 }
             }
         }
+        &-loading {
+            &__present-title {
+                font-size: 7px;
+            }
+            &__sub-title {
+                &-letter {
+                    padding: 0px 1px;
+                    font-size: 8px;
+                }
+            }
+        }
     }
 }
 
@@ -344,7 +411,6 @@
                     &.-app-navigation__button-line_bottom {
                         @include transform(translate(-3px, -16px) rotate(-45deg));
                     }
-                    
                 }
             }
             &__item {
