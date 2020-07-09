@@ -644,7 +644,7 @@ $apricot: rgba(248, 178, 166, 1);
             }
         }
     }
-    &__current-donation:not(:last-child) {
+    &__current-donation:not(:last-of-type) {
         border-bottom: 2px solid $honeyDew;
     }
     &__start-donation {

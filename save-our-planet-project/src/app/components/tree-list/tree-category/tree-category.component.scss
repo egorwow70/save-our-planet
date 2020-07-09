@@ -71,7 +71,7 @@ $phthalocyanineGreenOpacity: rgba(8, 37, 8, 1);
         letter-spacing: 4px;
         font-size: 36px;
     }
-    &__product:not(:last-child) {
+    &__product:not(:last-of-type) {
         position: relative;
         &::before {
             content: "";

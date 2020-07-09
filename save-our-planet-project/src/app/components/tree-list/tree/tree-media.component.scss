@@ -31,6 +31,11 @@
             box-sizing: border-box;
             text-align: center;
         }
+        &__selected-tree {
+            &::before {
+                font-size: 37px;
+            }
+        }
     }
 }
 
@@ -51,6 +56,11 @@
         &__image {
             width: 175px;
             height: 175px;
+        }
+        &__selected-tree {
+            &::before {
+                font-size: 34px;
+            }
         }
     }
 }
@@ -83,6 +93,11 @@
         }
         &__feature-list {
             font-size: 14px;
+        }
+        &__selected-tree {
+            &::before {
+                font-size: 31px;
+            }
         }
     }
 }
@@ -125,6 +140,11 @@
         &__feature-list {
             font-size: 12px;
         }
+        &__selected-tree {
+            &::before {
+                font-size: 28px;
+            }
+        }
     }
 }
 
@@ -141,6 +161,16 @@
         &__image {
             width: 125px;
             height: 125px;
+        }
+        &__selected-tree {
+            &::before {
+                font-size: 40px;
+            }
+        }
+        &__selected-tree {
+            &::before {
+                font-size: 25px;
+            }
         }
     }
 }
@@ -204,6 +234,13 @@
         &__feature-list {
             font-size: 10px;
         }
+        &__selected-tree {
+            width: 40px;
+            height: 40px;
+            &::before {
+                font-size: 22px;
+            }
+        }
     }
 }
 
@@ -233,6 +270,11 @@
         &__image {
             width: 100px;
             height: 100px;
+        }
+        &__selected-tree {
+            &::before {
+                font-size: 18px;
+            }
         }
     }
 }
@@ -307,6 +349,13 @@
         }
         &__feature-list {
             font-size: 7.5px;
+        }
+        &__selected-tree {
+            width: 30px;
+            height: 30px;
+            &::before {
+                font-size: 15px;
+            }
         }
     }
 }
