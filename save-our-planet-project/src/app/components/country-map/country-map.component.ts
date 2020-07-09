@@ -43,7 +43,7 @@ export class CountryMapComponent implements OnInit, AfterViewInit, OnDestroy {
 
 	public clickCountryEvent: IDisposer;
 
-	public infoMode: boolean;
+	public infoMode: boolean = true;
 
 	constructor(
 		private _zone: NgZone,
