@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
 	selector: 'app-country-list',
 	templateUrl: './country-list.component.html',
-	styleUrls: ['./country-list.component.scss']
+	styleUrls: ['./country-list.component.scss', './country-list-media.component.scss']
 })
 export class CountryListComponent {
 

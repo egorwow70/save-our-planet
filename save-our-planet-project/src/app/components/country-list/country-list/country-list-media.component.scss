@@ -1,0 +1,271 @@
+@media screen and (max-width: 1900px) {
+    .-app-countries {
+        &__menu-list {
+            &_asia {
+                left: 75%;
+            }
+            &_africa {
+                left: 25%;
+            }
+            &_oceania {
+                left: 75%;
+            }
+            &_america {
+                left: 25%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1650px) {
+    .-app-countries {
+        &__menu-list {
+            font-size: 26px;
+        }
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .-app-countries {
+        &__menu-list {
+            &_asia {
+                left: 70%;
+            }
+            &_africa {
+                left: 30%;
+            }
+            &_oceania {
+                left: 70%;
+            }
+            &_america {
+                left: 30%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .-app-countries {
+        &__menu-list {
+            font-size: 22px;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .-app-countries {
+        &__menu-list {
+            &_asia {
+                left: 65%;
+            }
+            &_africa {
+                left: 35%;
+            }
+            &_oceania {
+                left: 65%;
+            }
+            &_america {
+                left: 35%;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .-app-countries {
+        &__start-menu {
+            &-title {
+                font-size: 20px;
+            }
+            &-search {
+                &::before {
+                    font-size: 20px;
+                }
+            }
+        }
+        &__menu-item {
+            &_australia-oceania,
+            &_south-eastern-asia {
+                width: 130px;
+            }
+        }
+        &__menu-list {
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .-app-countries {
+        &__menu-return {
+            &::before {
+                font-size: 17px;
+            }
+        }
+        &__start-menu {
+            &-title {
+                font-size: 17px;
+            }
+            &-search {
+                &::before {
+                    font-size: 17px;
+                }
+            }
+        }
+        &__menu-item {
+            &_australia-oceania,
+            &_south-eastern-asia {
+                width: 100px;
+            }
+        }
+        &__menu-list {
+            font-size: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .-app-countries {
+        &__menu-return {
+            &::before {
+                font-size: 15px;
+            }
+        }
+        &__start-menu {
+            &-title {
+                font-size: 15px;
+            }
+            &-search {
+                &::before {
+                    font-size: 15px;
+                }
+            }
+        }
+        &__menu-item {
+            &_australia-oceania,
+            &_south-eastern-asia {
+                width: 75px;
+            }
+        }
+        &__start-menu {
+            width: 150px;
+        }
+        &__menu-list {
+            font-size: 13px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .-app-countries {
+        &__menu-return {
+            &::before {
+                font-size: 13px;
+            }
+        }
+        &__start-menu {
+            &-title {
+                font-size: 13px;
+            }
+            &-search {
+                &::before {
+                    font-size: 13px;
+                }
+            }
+        }
+        &__menu-item {
+            &_australia-oceania,
+            &_south-eastern-asia {
+                width: 65px;
+            }
+        }
+        &__menu-list {
+            font-size: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .-app-countries {
+        &__menu-return {
+            &::before {
+                font-size: 11px;
+            }
+        }
+        &__start-menu {
+            &-title {
+                font-size: 11px;
+            }
+            &-search {
+                &::before {
+                    font-size: 11px;
+                }
+            }
+        }
+        &__start-menu {
+            width: 100px;
+        }
+        &__menu-item {
+            &_australia-oceania,
+            &_south-eastern-asia {
+                width: 60px;
+            }
+        }
+        &__menu-list {
+            font-size: 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .-app-countries {
+        &__menu-return {
+            &::before {
+                font-size: 9px;
+            }
+        }
+        &__start-menu {
+            &-title {
+                font-size: 9px;
+            }
+            &-search {
+                &::before {
+                    font-size: 9px;
+                }
+            }
+        }
+        &__menu-item {
+            &_australia-oceania,
+            &_south-eastern-asia {
+                width: 60px;
+            }
+        }
+        &__menu-list {
+            font-size: 6px;
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .-app-countries {
+        &__start-menu {
+            &-title {
+                font-size: 8px;
+            }
+            &-search {
+                &::before {
+                    font-size: 8px;
+                }
+            }
+        }
+        &__menu-list {
+            font-size: 5px;
+        }
+    }
+}
+
+
+
+
+
