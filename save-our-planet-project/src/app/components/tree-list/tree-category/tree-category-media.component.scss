@@ -98,7 +98,7 @@
     .-app-tree-category {
         &__back-button {
             left: 67%;
-            bottom: 9%;
+            bottom: 5%;
             width: 50px;
             height: 50px;
             &::before {
@@ -141,12 +141,15 @@
 
 @media screen and (max-width: 550px) {
     .-app-tree-category {
-        width: 35%;
+        &_tree-mode {
+            width: 35%;
+        }
         &__back-button {
+            bottom: 6%;
             width: 40px;
             height: 40px;
             &::before {
-                font-size: 27px;
+                font-size: 20px;
             }
         }
     }
@@ -155,7 +158,7 @@
         width: 40px;
         height: 40px;
         &::before {
-            font-size: 27px;
+            font-size: 20px;
         }
     }
    
