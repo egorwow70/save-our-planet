@@ -1,0 +1,153 @@
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    -ms-transform: $property;
+    -o-transform: $property;
+    transform: $property;
+}
+
+@media screen and (max-width: 1600px) {
+    :host {
+        height: 220px;
+        width: 220px;
+        padding: 40px 0px;
+    }
+    .-app-tree-product {
+        &__title {
+            font-size: 19px;
+        }
+        &__sub-title {
+            font-size: 17px;
+        }
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    :host {
+        height: 220px;
+        width: 220px;
+        padding: 40px 0px;
+    }
+    .-app-tree-product {
+        &__title {
+            font-size: 19px;
+        }
+        &__sub-title {
+            font-size: 17px;
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    :host {
+        height: 190px;
+        width: 190px;
+        padding: 35px 0px;
+    }
+    .-app-tree-product {
+        &__title {
+            font-size: 16px;
+        }
+        &__sub-title {
+            text-align: center;
+            font-size: 14px;
+            &::before {
+                top: 120%;
+                left: 50%;
+                @include transform(translate(-50%, 0%) rotate(180deg));
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    :host {
+        height: 160px;
+        width: 160px;
+        padding: 30px 0px;
+    }
+    .-app-tree-product {
+        &__title {
+            font-size: 14px;
+        }
+        &__sub-title {
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    :host {
+        height: 140px;
+        width: 140px;
+        padding: 25px 0px;
+    }
+    .-app-tree-product {
+        &__title {
+            font-size: 12px;
+        }
+        &__sub-title {
+            font-size: 10px;
+            &::before {
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    :host {
+        height: 120px;
+        width: 120px;
+        padding: 20px 0px;
+    }
+    .-app-tree-product {
+        &__title {
+            font-size: 10px;
+        }
+        &__sub-title {
+            font-size: 8px;
+            &::before {
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :host {
+        height: 100px;
+        width: 100px;
+        padding: 15px 0px;
+    }
+    .-app-tree-product {
+        &__title {
+            font-size: 8px;
+        }
+        &__sub-title {
+            font-size: 6px;
+            &::before {
+                font-size: 8px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    :host {
+        height: 80px;
+        width: 80px;
+        padding: 15px 0px;
+    }
+    .-app-tree-product {
+        &__title {
+            font-size: 6.5px;
+        }
+        &__sub-title {
+            font-size: 4.5px;
+            &::before {
+                font-size: 7px;
+            }
+        }
+    }
+}

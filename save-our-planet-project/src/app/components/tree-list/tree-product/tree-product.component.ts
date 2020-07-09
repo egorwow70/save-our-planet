@@ -9,7 +9,7 @@ import { selectIsTreeRouterModeAction, selectIsTreeSearchLoading } from 'src/app
 @Component({
 	selector: 'app-tree-product',
 	templateUrl: './tree-product.component.html',
-	styleUrls: ['./tree-product.component.scss']
+	styleUrls: ['./tree-product.component.scss', './tree-product-media.component.scss']
 })
 export class TreeProductComponent implements OnInit, OnDestroy {
 
