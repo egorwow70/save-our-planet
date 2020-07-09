@@ -1,0 +1,86 @@
+@media screen and (max-width: 1500px) {
+    .-app-region {
+        &__title {
+            padding: 25px 30px;
+            font-size: 42px;
+        }
+        &__sub-title {
+            padding: 25px 30px;
+            font-size: 28px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .-app-region {
+        &__title {
+            padding: 20px 25px;
+            font-size: 38px;
+        }
+        &__sub-title {
+            padding: 20px 25px;
+            font-size: 24px;
+        }
+        &__current-country {
+            border-left: 1.5px solid white;
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .-app-region {
+        &__title {
+            padding: 15px 20px;
+            font-size: 34px;
+        }
+        &__sub-title {
+            padding: 15px 20px;
+            font-size: 20px;
+        }
+        &__current-country {
+            border-left: 1.25px solid white;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .-app-region {
+        &__title {
+            padding: 15px 15px;
+            font-size: 28px;
+        }
+        &__sub-title {
+            padding: 15px 15px;
+            font-size: 18px;
+        }
+        &__current-country {
+            border-left: 1px solid white;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .-app-region {
+        &__title {
+            padding: 15px 15px;
+            font-size: 22px;
+        }
+        &__sub-title {
+            padding: 15px 15px;
+            font-size: 16px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .-app-region {
+        &__title {
+            padding: 10px 10px;
+            font-size: 18px;
+        }
+        &__sub-title {
+            padding: 10px 10px;
+            font-size: 13px;
+        }
+    }
+}
