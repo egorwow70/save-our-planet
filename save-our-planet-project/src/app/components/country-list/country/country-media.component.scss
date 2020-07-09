@@ -162,6 +162,10 @@
             }
         }
     }
+    .-app-loader {
+        position: fixed;
+        right: 0;
+     }
 }
 
 @media screen and (max-width: 650px) {
@@ -258,10 +262,6 @@
                 font-size: 22px;
             }
         }
-    }
-    .-app-loader {
-       position: fixed;
-       right: 0;
     }
 }
 
