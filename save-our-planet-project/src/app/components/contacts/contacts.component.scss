@@ -203,6 +203,11 @@ $brightTangerine: rgba(255, 168, 153, 1);
                         @include opacity(1);
                     }
                 }
+                &::-webkit-autofill {
+                    box-shadow: inset 0 0 0 50px transparent !important; 
+                    -webkit-text-fill-color: $white !important;
+                    color: $white !important;
+                }
             }
             &_textarea {
                 height: 200px;

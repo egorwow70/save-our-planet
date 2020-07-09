@@ -36,13 +36,13 @@
         [class.-app-country-map__info_info-mode]="infoMode">
         <div  
             class="-app-country-map__info-title"
-            [class.-app-country-map__info-title_not-info-mode]="!infoMode">
+            [class.-app-country-map__info-title_info-mode]="infoMode">
             Hello, It's Save our planet project!!! Change the environmental situation in the world!
             You can donate any tree to a country and improve its ecology and then you will get medical insurance in return!
         </div>
         <button 
             class="-app-country-map__info-button"
-            [class.-app-country-map__info-button_not-info-mode]="!infoMode"
+            [class.-app-country-map__info-button_info-mode]="infoMode"
             (click)="toggleInfoMode()">
         </button>
     </div>

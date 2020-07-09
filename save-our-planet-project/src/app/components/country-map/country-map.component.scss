@@ -256,7 +256,7 @@ $screamingGreenOpacity0-8: rgba(135, 253, 135, 0.8);
             outline: none;
             border: none;
             background: none;
-            &_not-info-mode {
+            &_info-mode {
                 left: 0%;
                 &.-app-country-map__info-button::before {
                     content: "\f05a";
@@ -273,6 +273,7 @@ $screamingGreenOpacity0-8: rgba(135, 253, 135, 0.8);
                 color: $screamingGreenOpacity0-8;
                 font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
                 font-size: 24px;
+                font-weight: 900;
             }
         }
     }
