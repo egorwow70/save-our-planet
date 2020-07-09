@@ -302,6 +302,11 @@ $apricot: rgba(248, 178, 166, 1);
                                 width: 100%;
                             }
                         }
+                        &::-webkit-autofill {
+                            box-shadow: inset 0 0 0 50px transparent !important; 
+                            -webkit-text-fill-color: $honeyDew !important;
+                            color: $honeyDew !important;
+                        }
                     }
                     &-label {
                         position: absolute;
@@ -597,6 +602,11 @@ $apricot: rgba(248, 178, 166, 1);
                 @include  transition(0.2s);
 
                 background-color: $honeyDew;
+            }
+            &::-webkit-autofill {
+                box-shadow: inset 0 0 0 50px transparent !important; 
+                -webkit-text-fill-color: $honeyDew !important;
+                color: $honeyDew !important;
             }
         }
         &-switch-button {
