@@ -256,7 +256,7 @@ $screamingGreenOpacity0-8: rgba(135, 253, 135, 0.8);
             outline: none;
             border: none;
             background: none;
-            &_info-mode {
+            &_not-info-mode {
                 left: 0%;
                 &.-app-country-map__info-button::before {
                     content: "\f05a";
