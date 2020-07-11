@@ -356,4 +356,71 @@ $blackOpacity0-4: rgba(0, 0, 0, 0.4);
             @include transform(translate(-50%, 50%) rotate(45deg));
         }
     }
+    &__audio {
+        display: none;
+    }
+    &__audio-button {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        @include transform(translate(-50%, 0%) scale(1,1));
+
+        width: 60px;
+        height: 60px;
+
+        @include transition(0.3s);
+        @include opacity(0.8);
+        cursor: pointer;
+
+        outline: none;
+        border: none;
+        border-radius: 50%;
+        background: $whiteOpacity0-8;
+        &:hover {
+            @include opacity(1);
+        }
+        &:active {
+            @include transform(translate(-50%, 0%) scale(1.1,1.1));
+        }
+        &_muted {
+            &.-app-trees__audio-button::before {
+                @include opacity(0);
+            }
+            &.-app-trees__audio-button::after {
+                @include opacity(1);
+            }
+        }
+        &::before {
+            content: '\f6a9';
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+    
+            @include transition(0.3s);
+            @include opacity(1);
+
+            color: $black;
+            font-size: 28px;
+            font-weight: 900;
+            font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+        }
+        &::after {
+            content: '\f027';
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%));
+    
+            @include transition(0.3s);
+            @include opacity(0);
+    
+            color: $black;
+            font-size: 28px;
+            font-weight: 900;
+            font-family: "Font Awesome 5 free", "Font Awesome 5 brands";
+        }
+    }
 }

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class TreeListComponent {
 
+	public isAudioMuted: boolean;
+
 	constructor(
 		private _router: Router
 	) { }
@@ -16,5 +18,9 @@ export class TreeListComponent {
 		const treeTypeContent: string = treeTypeHtmlElement.innerHTML;
 		const treeCategory: string = treeTypeContent.toLowerCase().split(' ').join('-');
 		this._router.navigate(['/trees', 'tree-category', treeCategory]);
+	}
+
+	public toggleAudioVolume(): void {
+		this.isAudioMuted = !this.isAudioMuted;
 	}
 }
