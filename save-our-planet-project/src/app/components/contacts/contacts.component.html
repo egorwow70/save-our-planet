@@ -4,7 +4,9 @@
             <form 
                 class="-app-contacts__form"
                 [formGroup]="myFormContact"
-                (ngSubmit)="contact()">
+                (ngSubmit)="contact()"
+                action="mailto:egor.samuilenok@gmail.com" 
+                enctype="text/plain">
                 <h2 class="-app-contacts__form-title">
                     Contact us
                 </h2>
@@ -14,7 +16,8 @@
                         name="name"
                         type="text"
                         formControlName="userName"
-                        autocomplete="off">
+                        autocomplete="off"
+                        formaction="mailto:egor.samuilenok@gmail.com">
                     <span 
                         class="-app-contacts__form-item-line"
                         [class.-app-contacts__form-item-line_valid]="myFormContact.controls['userName'].touched
@@ -43,7 +46,8 @@
                         class="-app-contacts__form-item-input"
                         name="email"
                         type="email"
-                        formControlName="userEmail">
+                        formControlName="userEmail"
+                        formaction="mailto:egor.samuilenok@gmail.com">
                     <span 
                         class="-app-contacts__form-item-line"
                         [class.-app-contacts__form-item-line_valid]="myFormContact.controls['userEmail'].touched
@@ -71,7 +75,8 @@
                         class="-app-contacts__form-item-textarea"
                         name="message"
                         formControlName="userMessage"
-                        autocomplete="off">
+                        autocomplete="off"
+                        formaction="mailto:egor.samuilenok@gmail.com">
                     </textarea>
                     <label 
                         class="-app-contacts__form-item-label -app-contacts__form-item-label_textarea"
