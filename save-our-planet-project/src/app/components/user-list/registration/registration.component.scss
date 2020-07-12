@@ -369,6 +369,8 @@ $fireSiennaCraiola: rgba(226, 150, 93, 1);
 
                 width: 100%;
                 height: 40px;
+                padding-right: 50px;
+                box-sizing: border-box;
 
                 @include  transition(0.3s);
                 cursor: pointer;
