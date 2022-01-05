@@ -12,7 +12,7 @@ export class CountryListDataService {
 	private static countryListLSKey: string = '-app-country-list';
 
 	private _baseUrl: string = 'assets';
-	private _countryUrl: string = 'https://restcountries.com/v3.1/all';
+	private _countryUrl: string = 'https://restcountries.com/v2/all';
 
 	constructor(
 		private _httpClient: HttpClient
